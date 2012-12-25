@@ -63,7 +63,7 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Insertar()
 		{
 			string operacion;
-			SeguridadSoapClient wsseg = new SeguridadSoapClient();
+			Seguridad wsseg = new Seguridad();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.
@@ -104,7 +104,7 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Actualizar()
 		{
 			string operacion;
-			SeguridadSoapClient wsseg = new SeguridadSoapClient();
+			Seguridad wsseg = new Seguridad();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.
@@ -143,7 +143,7 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Eliminar()
 		{
 			string operacion;
-			SeguridadSoapClient wsseg = new SeguridadSoapClient();
+			Seguridad wsseg = new Seguridad();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.

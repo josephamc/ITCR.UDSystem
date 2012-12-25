@@ -12,3 +12,4 @@ C:\Users\jsaenz\Documents\GitHub\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\
 C:\Users\jsaenz\Documents\GitHub\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\jsaenz\Documents\GitHub\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.dll
 C:\Users\jsaenz\Documents\GitHub\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.pdb
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.csprojResolveAssemblyReference.cache

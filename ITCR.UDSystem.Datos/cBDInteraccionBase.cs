@@ -8,7 +8,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
-using Microsoft.SqlServer.Types;
+//using Microsoft.SqlServer.Types;
 
 namespace ITCR.UDSystem.Base
 {
