@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/Default.aspx" title="Unidad Deportiva"  description="Unidad deportiva">
+      
+      <!-- Mantenimiento -->  
+      
+      <siteMapNode url="~/frmMantenimiento.aspx" title="Plantilla de Mantenimiento de datos"  description="Plantilla de Mantenimiento de datos">
+        <siteMapNode url="~/frmDatos.aspx" title="Datos (detalle)"  description="Datos (detalle)" />
+      </siteMapNode>
+      
+      <!-- Administracionde Solicitudes -->
+      
+      <siteMapNode url ="~/GestionarSolicitudes/frmAdminSolicitud.aspx" title="Administracion de Solicitudes" description="Administracion de Solicitudes">
+        <siteMapNode url="~/GestionarSolicitudes/frmSolicitud.aspx" title="Solicitud" description="Administracion Solicitudes"/>
+      </siteMapNode>
+      
+      <!-- Notificacion -->
+      <siteMapNode url="~/frmNotificacion.aspx" title="Notificacion" description="Estado de operacion">
+        
+      </siteMapNode>
+      <!-- Navigation End -->
+    </siteMapNode>
+</siteMap>

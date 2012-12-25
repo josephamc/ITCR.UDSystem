@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7CA00CD5-C0C6-4D3C-8DFA-4656CD5D4A34}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITCR.UDSystem.Interfaz</RootNamespace>
+    <AssemblyName>ITCR.UDSystem.Interfaz</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Confirmacion.aspx" />
+    <Content Include="Controles\Breadcrumb.txt" />
+    <Content Include="Controles\Navigation.ascx" />
+    <Content Include="CU_AdministrarCalendario\ConsultaCalendario.aspx" />
+    <Content Include="CU_AdministrarCalendario\IndiceCalendario.aspx" />
+    <Content Include="CU_AdministrarCalendario\InsertaCurso.aspx" />
+    <Content Include="CU_AdministrarCalendario\InsertaEvento.aspx" />
+    <Content Include="CU_AdministrarInstalaciones\InsertaHorario.aspx" />
+    <Content Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx" />
+    <Content Include="Exito2.aspx" />
+    <Content Include="css\itcr.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.ui.autocomplete.css" />
+    <Content Include="css\Menu.css" />
+    <Content Include="CU_AdministrarInstalaciones\ConsultaInstalacion.aspx" />
+    <Content Include="CU_AdministrarInstalaciones\EditaInstalacion.aspx" />
+    <Content Include="CU_AdministrarInstalaciones\InsertaInstalacion.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Exito.aspx" />
+    <Content Include="FinSesion.aspx" />
+    <Content Include="frmAutenticacion.aspx" />
+    <Content Include="frmDatos.aspx" />
+    <Content Include="frmError.aspx" />
+    <Content Include="frmMantenimiento.aspx" />
+    <Content Include="frmNotificacion.aspx" />
+    <Content Include="GestionarSolicitudes\frmAdminSolicitud.aspx" />
+    <Content Include="GestionarSolicitudes\frmSolicitud.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="imagenes\add02.png" />
+    <Content Include="imagenes\AdmInst2.jpg" />
+    <Content Include="imagenes\bienvenido.jpg" />
+    <Content Include="imagenes\calendario01.jpg" />
+    <Content Include="imagenes\correcto02.jpg" />
+    <Content Include="imagenes\docencia01.jpg" />
+    <Content Include="imagenes\editar02.png" />
+    <Content Include="imagenes\event01.jpg" />
+    <Content Include="imagenes\eye_inv.png" />
+    <Content Include="imagenes\hora01.jpg" />
+    <Content Include="imagenes\imgIngreso.gif" />
+    <Content Include="imagenes\ImgND2.png" />
+    <Content Include="imagenes\logo.gif" />
+    <Content Include="imagenes\logoSistemasTEC.jpg" />
+    <Content Include="imagenes\logotec1.gif" />
+    <Content Include="imagenes\TECAzul.jpg" />
+    <Content Include="imagenes\tit-TEC.jpg" />
+    <Content Include="imagenes\update.png" />
+    <Content Include="js\easyTooltip.js" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.menu.js" />
+    <Content Include="Scripts\assets\css\simplemodal.css" />
+    <Content Include="Scripts\assets\images\loader.gif" />
+    <Content Include="Scripts\Interfaz.js" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <None Include="Controles\.svn\all-wcprops" />
+    <None Include="Controles\.svn\entries" />
+    <None Include="Controles\.svn\text-base\Navigation.ascx.svn-base" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Scripts\assets\less\simplemodal.less" />
+    <Content Include="SinAutenticar.Master" />
+    <None Include="Web References\wsSeguridad\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\wsSeguridad\seguridad.disco" />
+    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Web References\wsSeguridad\seguridad.wsdl" />
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\cUtilInterfaz.cs" />
+    <Compile Include="Clases\GSSI-Navigation.cs" />
+    <Compile Include="Confirmacion.aspx.cs">
+      <DependentUpon>Confirmacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Confirmacion.aspx.designer.cs">
+      <DependentUpon>Confirmacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\ConsultaCalendario.aspx.cs">
+      <DependentUpon>ConsultaCalendario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\ConsultaCalendario.aspx.designer.cs">
+      <DependentUpon>ConsultaCalendario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\IndiceCalendario.aspx.cs">
+      <DependentUpon>IndiceCalendario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\IndiceCalendario.aspx.designer.cs">
+      <DependentUpon>IndiceCalendario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\InsertaCurso.aspx.cs">
+      <DependentUpon>InsertaCurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\InsertaCurso.aspx.designer.cs">
+      <DependentUpon>InsertaCurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\InsertaEvento.aspx.cs">
+      <DependentUpon>InsertaEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\InsertaEvento.aspx.designer.cs">
+      <DependentUpon>InsertaEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\InsertaHorario.aspx.cs">
+      <DependentUpon>InsertaHorario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\InsertaHorario.aspx.designer.cs">
+      <DependentUpon>InsertaHorario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx.cs">
+      <DependentUpon>InsertaImagenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx.designer.cs">
+      <DependentUpon>InsertaImagenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exito2.aspx.cs">
+      <DependentUpon>Exito2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exito2.aspx.designer.cs">
+      <DependentUpon>Exito2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\ConsultaInstalacion.aspx.cs">
+      <DependentUpon>ConsultaInstalacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\ConsultaInstalacion.aspx.designer.cs">
+      <DependentUpon>ConsultaInstalacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\EditaInstalacion.aspx.cs">
+      <DependentUpon>EditaInstalacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\EditaInstalacion.aspx.designer.cs">
+      <DependentUpon>EditaInstalacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\InsertaInstalacion.aspx.cs">
+      <DependentUpon>InsertaInstalacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\InsertaInstalacion.aspx.designer.cs">
+      <DependentUpon>InsertaInstalacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exito.aspx.cs">
+      <DependentUpon>Exito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exito.aspx.designer.cs">
+      <DependentUpon>Exito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinSesion.aspx.cs">
+      <DependentUpon>FinSesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinSesion.aspx.designer.cs">
+      <DependentUpon>FinSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAutenticacion.aspx.cs">
+      <DependentUpon>frmAutenticacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAutenticacion.aspx.designer.cs">
+      <DependentUpon>frmAutenticacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmDatos.aspx.cs">
+      <DependentUpon>frmDatos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmDatos.aspx.designer.cs">
+      <DependentUpon>frmDatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmError.aspx.cs">
+      <DependentUpon>frmError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMantenimiento.aspx.cs">
+      <DependentUpon>frmMantenimiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmMantenimiento.aspx.designer.cs">
+      <DependentUpon>frmMantenimiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotificacion.aspx.cs">
+      <DependentUpon>frmNotificacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmNotificacion.aspx.designer.cs">
+      <DependentUpon>frmNotificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarSolicitudes\frmAdminSolicitud.aspx.cs">
+      <DependentUpon>frmAdminSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarSolicitudes\frmAdminSolicitud.aspx.designer.cs">
+      <DependentUpon>frmAdminSolicitud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarSolicitudes\frmSolicitud.aspx.cs">
+      <DependentUpon>frmSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarSolicitudes\frmSolicitud.aspx.designer.cs">
+      <DependentUpon>frmSolicitud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SinAutenticar.Master.cs">
+      <DependentUpon>SinAutenticar.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SinAutenticar.Master.designer.cs">
+      <DependentUpon>SinAutenticar.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\wsSeguridad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controles\.svn\prop-base\" />
+    <Folder Include="Controles\.svn\props\" />
+    <Folder Include="Controles\.svn\tmp\prop-base\" />
+    <Folder Include="Controles\.svn\tmp\props\" />
+    <Folder Include="Controles\.svn\tmp\text-base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ITCR.UDSystem.Datos\ITCR.UDSystem.Datos.csproj">
+      <Project>{8E16F353-10D1-4C4B-9E96-A4FEBE637C0B}</Project>
+      <Name>ITCR.UDSystem.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ITCR.UDSystem.Negocios\ITCR.UDSystem.Negocios.csproj">
+      <Project>{807BE4A7-2292-47FF-8533-48EC4BA32F71}</Project>
+      <Name>ITCR.UDSystem.Negocios</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://tec-develop/wsseguridad/seguridad.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsSeguridad\</RelPath>
+      <UpdateFromURL>http://tec-develop/wsseguridad/seguridad.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ITCR_UDSystem_Interfaz_wsSeguridad_Seguridad</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmError.aspx.resx">
+      <DependentUpon>frmError.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49184</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

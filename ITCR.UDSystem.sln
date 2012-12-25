@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITCR.UDSystem.Interfaz", "ITCR.UDSystem.Interfaz\ITCR.UDSystem.Interfaz.csproj", "{7CA00CD5-C0C6-4D3C-8DFA-4656CD5D4A34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITCR.UDSystem.Datos", "ITCR.UDSystem.Datos\ITCR.UDSystem.Datos.csproj", "{8E16F353-10D1-4C4B-9E96-A4FEBE637C0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITCR.UDSystem.Negocios", "ITCR.UDSystem.Negocios\ITCR.UDSystem.Negocios.csproj", "{807BE4A7-2292-47FF-8533-48EC4BA32F71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CA00CD5-C0C6-4D3C-8DFA-4656CD5D4A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CA00CD5-C0C6-4D3C-8DFA-4656CD5D4A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CA00CD5-C0C6-4D3C-8DFA-4656CD5D4A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CA00CD5-C0C6-4D3C-8DFA-4656CD5D4A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E16F353-10D1-4C4B-9E96-A4FEBE637C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E16F353-10D1-4C4B-9E96-A4FEBE637C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E16F353-10D1-4C4B-9E96-A4FEBE637C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E16F353-10D1-4C4B-9E96-A4FEBE637C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{807BE4A7-2292-47FF-8533-48EC4BA32F71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{807BE4A7-2292-47FF-8533-48EC4BA32F71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{807BE4A7-2292-47FF-8533-48EC4BA32F71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{807BE4A7-2292-47FF-8533-48EC4BA32F71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
