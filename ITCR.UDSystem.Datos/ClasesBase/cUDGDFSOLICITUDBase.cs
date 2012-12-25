@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFSOLICITUD'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:21 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -25,10 +25,10 @@ namespace ITCR.UDSystem.Base
 	{
 		#region Declaraciones de miembros de la clase
 			private SqlBoolean		_cOD_ATENDIDO;
-			private SqlDateTime		_fEC_FIN, _fEC_SOLICITUD, _fEC_INICIO;
-			private SqlInt32		_iD_SOLICITUD, _cAN_USUARIOS, _fKY_TIPOSOLICITANTE, _fKY_TIPOSOLICITANTEOld, _fKY_INSTALACION, _fKY_INSTALACIONOld;
+			private SqlDateTime		_fEC_INICIO, _fEC_FIN, _fEC_SOLICITUD;
+			private SqlInt32		_fKY_TIPOSOLICITANTE, _fKY_TIPOSOLICITANTEOld, _cAN_USUARIOS, _iD_SOLICITUD, _fKY_INSTALACION, _fKY_INSTALACIONOld;
 			private SqlDateTime		_hRA_INICIO, _hRA_FIN;
-			private SqlString		_cOD_TIPOSOLICITUD, _tXT_CORREO, _nOM_INSTITUCION, _dSC_RAZONUSO, _cOD_IDENTIFICACION, _nOM_ENCARGADO, _tXT_OBSERVACIONES;
+			private SqlString		_nOM_ENCARGADO, _tXT_CORREO, _cOD_IDENTIFICACION, _tXT_OBSERVACIONES, _dSC_RAZONUSO, _cOD_TIPOSOLICITUD, _nOM_INSTITUCION;
 		#endregion
 
 

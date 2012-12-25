@@ -53,7 +53,7 @@
     <Compile Include="ClasesBase\cUDGDFRESPUESTABase.cs" />
     <Compile Include="ClasesBase\cUDGDFRZNUSOBase.cs" />
     <Compile Include="ClasesBase\cUDGDFSOLICITUDBase.cs" />
-    <Compile Include="ClasesBase\cUDGDFTIPOSOLICITANTEBase.cs" />
+    <Compile Include="ClasesBase\cUDGDFTPSOLTNTEBase.cs" />
     <Compile Include="ClasesBase\cUDGDFUSUARIOBase.cs" />
     <Compile Include="ClasesDatos\cUDGDFAPROBACIONDatos.cs" />
     <Compile Include="ClasesDatos\cUDGDFCALENDARIODatos.cs" />
@@ -67,7 +67,7 @@
     <Compile Include="ClasesDatos\cUDGDFRESPUESTADatos.cs" />
     <Compile Include="ClasesDatos\cUDGDFRZNUSODatos.cs" />
     <Compile Include="ClasesDatos\cUDGDFSOLICITUDDatos.cs" />
-    <Compile Include="ClasesDatos\cUDGDFTIPOSOLICITANTEDatos.cs" />
+    <Compile Include="ClasesDatos\cUDGDFTPSOLTNTEDatos.cs" />
     <Compile Include="ClasesDatos\cUDGDFUSUARIODatos.cs" />
     <Compile Include="cProveedorConexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

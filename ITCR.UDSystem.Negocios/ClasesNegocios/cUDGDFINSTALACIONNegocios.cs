@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de LOGICA DE NEGOCIOS para tabla 'UDGDFINSTALACION'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:19 PM
 ///////////////////////////////////////////////////////////////////////////
 #endregion
 
@@ -66,7 +66,7 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Insertar()
 		{
 			string operacion;
-			Seguridad wsseg = new Seguridad();
+			SeguridadSoapClient wsseg = new SeguridadSoapClient();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.
@@ -77,14 +77,14 @@ namespace ITCR.UDSystem.Negocios
 					+"TXT_COMENTARIO:"+TXT_COMENTARIO.ToString()+";"
 					+"TXT_REGLAMENTO:"+TXT_REGLAMENTO.ToString()+";"
 					+"TXT_COSTOALQUILER:"+TXT_COSTOALQUILER.ToString()+";";
-				//wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
+				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Insertar();
 			}
 			catch (Exception ex)
 			{
 				//Construir el string a guardar en la bitácora en caso de error.
 				operacion = "Error Insertar cUDGDFINSTALACION;"+ex.Message;
-				//wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
+				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
 				throw ex;
 			}
 		}
@@ -113,7 +113,7 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Actualizar()
 		{
 			string operacion;
-			Seguridad wsseg = new Seguridad();
+			SeguridadSoapClient wsseg = new SeguridadSoapClient();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.
@@ -125,14 +125,14 @@ namespace ITCR.UDSystem.Negocios
 					+"TXT_COMENTARIO:"+TXT_COMENTARIO.ToString()+";"
 					+"TXT_REGLAMENTO:"+TXT_REGLAMENTO.ToString()+";"
 					+"TXT_COSTOALQUILER:"+TXT_COSTOALQUILER.ToString()+";";
-				//wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
+				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Actualizar();
 			}
 			catch (Exception ex)
 			{
 				//Construir el string a guardar en la bitácora en caso de error.
 				operacion = "Error Actualizar cUDGDFINSTALACION;"+ex.Message;
-				//wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
+				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
 				throw ex;
 			}
 		}
@@ -155,7 +155,7 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Eliminar()
 		{
 			string operacion;
-			Seguridad wsseg = new Seguridad();
+			SeguridadSoapClient wsseg = new SeguridadSoapClient();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.

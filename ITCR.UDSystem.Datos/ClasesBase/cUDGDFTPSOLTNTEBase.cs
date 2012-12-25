@@ -2,9 +2,9 @@
 ///////////////////////////////////////////////////////////////////////////
 // Empresa:  Instituto Tecnológico de Costa Rica
 // Proyecto: UDsystem
-// Descripción: Clase de acceso a datos para tabla 'UDGDFTIPOSOLICITANTE'
+// Descripción: Clase de acceso a datos para tabla 'UDGDFTPSOLTNTE'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:22 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -19,20 +19,20 @@ using System.Data.SqlClient;
 namespace ITCR.UDSystem.Base
 {
 	/// <summary>
-	/// Propósito: Clase de acceso a datos para tabla 'UDGDFTIPOSOLICITANTE'.
+	/// Propósito: Clase de acceso a datos para tabla 'UDGDFTPSOLTNTE'.
 	/// </summary>
-	public class cUDGDFTIPOSOLICITANTEBase : cBDInteraccionBase
+	public class cUDGDFTPSOLTNTEBase : cBDInteraccionBase
 	{
 		#region Declaraciones de miembros de la clase
-			private SqlInt32		_iD_TIPOSOLICITANTE;
-			private SqlString		_dSC_TIPOSOLITANTE;
+			private SqlInt32		_iD_TPSOLTNTE;
+			private SqlString		_dSC_TPSOLTNTE;
 		#endregion
 
 
 		/// <summary>
 		/// Propósito: Constructor de la clase.
 		/// </summary>
-		public cUDGDFTIPOSOLICITANTEBase()
+		public cUDGDFTPSOLTNTEBase()
 		{
 			// Agregar código aquí.
 		}
@@ -45,18 +45,18 @@ namespace ITCR.UDSystem.Base
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
 		///		 <LI>CodError</LI>
 		/// </UL>
 		/// </remarks>
 		public override bool Insertar()
 		{
 			SqlCommand	cmdAEjecutar = new SqlCommand();
-			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTIPOSOLICITANTE_Insertar]";
+			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTPSOLTNTE_Insertar]";
 			cmdAEjecutar.CommandType = CommandType.StoredProcedure;
 
 			// Usar el objeto conexión de la clase base
@@ -64,8 +64,8 @@ namespace ITCR.UDSystem.Base
 
 			try
 			{
-				cmdAEjecutar.Parameters.Add(new SqlParameter("@sDSC_TIPOSOLITANTE", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _dSC_TIPOSOLITANTE));
-				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TIPOSOLICITANTE", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _iD_TIPOSOLICITANTE));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@sDSC_TPSOLTNTE", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _dSC_TPSOLTNTE));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TPSOLTNTE", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _iD_TPSOLTNTE));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -83,13 +83,13 @@ namespace ITCR.UDSystem.Base
 
 				// Ejecuta la consulta.
 				_filasAfectadas = cmdAEjecutar.ExecuteNonQuery();
-				_iD_TIPOSOLICITANTE = Int32.Parse(cmdAEjecutar.Parameters["@iID_TIPOSOLICITANTE"].Value.ToString());
+				_iD_TPSOLTNTE = Int32.Parse(cmdAEjecutar.Parameters["@iID_TPSOLTNTE"].Value.ToString());
 				_codError = Int32.Parse(cmdAEjecutar.Parameters["@iCodError"].Value.ToString());
 
 				if(_codError != (int)ITCRError.AllOk)
 				{
 					// Genera un error.
-					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTIPOSOLICITANTE_Insertar' reportó el error Codigo: " + _codError);
+					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTPSOLTNTE_Insertar' reportó el error Codigo: " + _codError);
 				}
 
 				return true;
@@ -97,7 +97,7 @@ namespace ITCR.UDSystem.Base
 			catch (Exception ex)
 			{
 				// Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
-				throw new Exception("cUDGDFTIPOSOLICITANTEBase::Insertar::Ocurrió un error." + ex.Message, ex);
+				throw new Exception("cUDGDFTPSOLTNTEBase::Insertar::Ocurrió un error." + ex.Message, ex);
 			}
 			finally
 			{
@@ -118,8 +118,8 @@ namespace ITCR.UDSystem.Base
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -129,7 +129,7 @@ namespace ITCR.UDSystem.Base
 		public override bool Actualizar()
 		{
 			SqlCommand	cmdAEjecutar = new SqlCommand();
-			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTIPOSOLICITANTE_Actualizar]";
+			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTPSOLTNTE_Actualizar]";
 			cmdAEjecutar.CommandType = CommandType.StoredProcedure;
 
 			// Usar el objeto conexión de la clase base
@@ -137,8 +137,8 @@ namespace ITCR.UDSystem.Base
 
 			try
 			{
-				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TIPOSOLICITANTE", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _iD_TIPOSOLICITANTE));
-				cmdAEjecutar.Parameters.Add(new SqlParameter("@sDSC_TIPOSOLITANTE", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _dSC_TIPOSOLITANTE));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TPSOLTNTE", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _iD_TPSOLTNTE));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@sDSC_TPSOLTNTE", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _dSC_TPSOLTNTE));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -161,7 +161,7 @@ namespace ITCR.UDSystem.Base
 				if(_codError != (int)ITCRError.AllOk)
 				{
 					// Genera un error.
-					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTIPOSOLICITANTE_Actualizar' reportó el error Codigo: " + _codError);
+					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTPSOLTNTE_Actualizar' reportó el error Codigo: " + _codError);
 				}
 
 				return true;
@@ -169,7 +169,7 @@ namespace ITCR.UDSystem.Base
 			catch (Exception ex)
 			{
 				// Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
-				throw new Exception("cUDGDFTIPOSOLICITANTEBase::Actualizar::Ocurrió un error." + ex.Message, ex);
+				throw new Exception("cUDGDFTPSOLTNTEBase::Actualizar::Ocurrió un error." + ex.Message, ex);
 			}
 			finally
 			{
@@ -190,7 +190,7 @@ namespace ITCR.UDSystem.Base
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -200,7 +200,7 @@ namespace ITCR.UDSystem.Base
 		public override bool Eliminar()
 		{
 			SqlCommand	cmdAEjecutar = new SqlCommand();
-			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTIPOSOLICITANTE_Eliminar]";
+			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTPSOLTNTE_Eliminar]";
 			cmdAEjecutar.CommandType = CommandType.StoredProcedure;
 
 			// Usar el objeto conexión de la clase base
@@ -208,7 +208,7 @@ namespace ITCR.UDSystem.Base
 
 			try
 			{
-				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TIPOSOLICITANTE", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _iD_TIPOSOLICITANTE));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TPSOLTNTE", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _iD_TPSOLTNTE));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -231,7 +231,7 @@ namespace ITCR.UDSystem.Base
 				if(_codError != (int)ITCRError.AllOk)
 				{
 					// Genera un error.
-					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTIPOSOLICITANTE_Eliminar' reportó el error Codigo: " + _codError);
+					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTPSOLTNTE_Eliminar' reportó el error Codigo: " + _codError);
 				}
 
 				return true;
@@ -239,7 +239,7 @@ namespace ITCR.UDSystem.Base
 			catch (Exception ex)
 			{
 				// Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
-				throw new Exception("cUDGDFTIPOSOLICITANTEBase::Eliminar::Ocurrió un error." + ex.Message, ex);
+				throw new Exception("cUDGDFTPSOLTNTEBase::Eliminar::Ocurrió un error." + ex.Message, ex);
 			}
 			finally
 			{
@@ -260,22 +260,22 @@ namespace ITCR.UDSystem.Base
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
 		///		 <LI>CodError</LI>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Llena todas las propiedades que corresponden al campo en tabla con el valor de la fila seleccionada.
 		/// </remarks>
 		public override DataTable SeleccionarUno()
 		{
 			SqlCommand	cmdAEjecutar = new SqlCommand();
-			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTIPOSOLICITANTE_SeleccionarUno]";
+			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTPSOLTNTE_SeleccionarUno]";
 			cmdAEjecutar.CommandType = CommandType.StoredProcedure;
-			DataTable toReturn = new DataTable("UDGDFTIPOSOLICITANTE");
+			DataTable toReturn = new DataTable("UDGDFTPSOLTNTE");
 			SqlDataAdapter adapter = new SqlDataAdapter(cmdAEjecutar);
 
 			// Usar el objeto conexión de la clase base
@@ -283,7 +283,7 @@ namespace ITCR.UDSystem.Base
 
 			try
 			{
-				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TIPOSOLICITANTE", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _iD_TIPOSOLICITANTE));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TPSOLTNTE", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _iD_TPSOLTNTE));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -306,20 +306,20 @@ namespace ITCR.UDSystem.Base
 				if(_codError != (int)ITCRError.AllOk)
 				{
 					// Genera un error.
-					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTIPOSOLICITANTE_SeleccionarUno' reportó el error Código: " + _codError);
+					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTPSOLTNTE_SeleccionarUno' reportó el error Código: " + _codError);
 				}
 
 				if(toReturn.Rows.Count > 0)
 				{
-					_iD_TIPOSOLICITANTE = (Int32)toReturn.Rows[0]["ID_TIPOSOLICITANTE"];
-					_dSC_TIPOSOLITANTE = (string)toReturn.Rows[0]["DSC_TIPOSOLITANTE"];
+					_iD_TPSOLTNTE = (Int32)toReturn.Rows[0]["ID_TPSOLTNTE"];
+					_dSC_TPSOLTNTE = (string)toReturn.Rows[0]["DSC_TPSOLTNTE"];
 				}
 				return toReturn;
 			}
 			catch (Exception ex)
 			{
 				// Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
-				throw new Exception("cUDGDFTIPOSOLICITANTEBase::SeleccionarUno::Ocurrió un error." + ex.Message, ex);
+				throw new Exception("cUDGDFTPSOLTNTEBase::SeleccionarUno::Ocurrió un error." + ex.Message, ex);
 			}
 			finally
 			{
@@ -347,9 +347,9 @@ namespace ITCR.UDSystem.Base
 		public override DataTable SeleccionarTodos()
 		{
 			SqlCommand	cmdAEjecutar = new SqlCommand();
-			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTIPOSOLICITANTE_SeleccionarTodos]";
+			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTPSOLTNTE_SeleccionarTodos]";
 			cmdAEjecutar.CommandType = CommandType.StoredProcedure;
-			DataTable toReturn = new DataTable("UDGDFTIPOSOLICITANTE");
+			DataTable toReturn = new DataTable("UDGDFTPSOLTNTE");
 			SqlDataAdapter adapter = new SqlDataAdapter(cmdAEjecutar);
 
 			// Usar el objeto conexión de la clase base
@@ -379,7 +379,7 @@ namespace ITCR.UDSystem.Base
 				if(_codError != (int)ITCRError.AllOk)
 				{
 					// Genera un error.
-					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTIPOSOLICITANTE_SeleccionarTodos' reportó el error Código: " + _codError);
+					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTPSOLTNTE_SeleccionarTodos' reportó el error Código: " + _codError);
 				}
 
 				return toReturn;
@@ -387,7 +387,7 @@ namespace ITCR.UDSystem.Base
 			catch (Exception ex)
 			{
 				// Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
-				throw new Exception("cUDGDFTIPOSOLICITANTEBase::SeleccionarTodos::Ocurrió un error." + ex.Message, ex);
+				throw new Exception("cUDGDFTPSOLTNTEBase::SeleccionarTodos::Ocurrió un error." + ex.Message, ex);
 			}
 			finally
 			{
@@ -409,8 +409,8 @@ namespace ITCR.UDSystem.Base
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -420,9 +420,9 @@ namespace ITCR.UDSystem.Base
 		public override DataTable Buscar()
 		{
 			SqlCommand	cmdAEjecutar = new SqlCommand();
-			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTIPOSOLICITANTE_Buscar]";
+			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFTPSOLTNTE_Buscar]";
 			cmdAEjecutar.CommandType = CommandType.StoredProcedure;
-			DataTable toReturn = new DataTable("UDGDFTIPOSOLICITANTE");
+			DataTable toReturn = new DataTable("UDGDFTPSOLTNTE");
 			SqlDataAdapter adapter = new SqlDataAdapter(cmdAEjecutar);
 
 			// Usar el objeto conexión de la clase base
@@ -430,8 +430,8 @@ namespace ITCR.UDSystem.Base
 
 			try
 			{
-				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TIPOSOLICITANTE", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _iD_TIPOSOLICITANTE));
-				cmdAEjecutar.Parameters.Add(new SqlParameter("@sDSC_TIPOSOLITANTE", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _dSC_TIPOSOLITANTE));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_TPSOLTNTE", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _iD_TPSOLTNTE));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@sDSC_TPSOLTNTE", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _dSC_TPSOLTNTE));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -454,7 +454,7 @@ namespace ITCR.UDSystem.Base
 				if(_codError != (int)ITCRError.AllOk)
 				{
 					// Genera un error.
-					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTIPOSOLICITANTE_Buscar' reportó el error Código: " + _codError);
+					throw new Exception("Procedimiento Almacenado 'pr_UDGDFTPSOLTNTE_Buscar' reportó el error Código: " + _codError);
 				}
 
 				return toReturn;
@@ -462,7 +462,7 @@ namespace ITCR.UDSystem.Base
 			catch (Exception ex)
 			{
 				// Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
-				throw new Exception("cUDGDFTIPOSOLICITANTEBase::Buscar::Ocurrió un error." + ex.Message, ex);
+				throw new Exception("cUDGDFTPSOLTNTEBase::Buscar::Ocurrió un error." + ex.Message, ex);
 			}
 			finally
 			{
@@ -478,38 +478,38 @@ namespace ITCR.UDSystem.Base
 
 
 		#region Declaraciones de propiedades de la clase
-		public SqlInt32 ID_TIPOSOLICITANTE
+		public SqlInt32 ID_TPSOLTNTE
 		{
 			get
 			{
-				return _iD_TIPOSOLICITANTE;
+				return _iD_TPSOLTNTE;
 			}
 			set
 			{
-				SqlInt32 iD_TIPOSOLICITANTETmp = (SqlInt32)value;
-				if(iD_TIPOSOLICITANTETmp.IsNull)
+				SqlInt32 iD_TPSOLTNTETmp = (SqlInt32)value;
+				if(iD_TPSOLTNTETmp.IsNull)
 				{
-					throw new ArgumentOutOfRangeException("ID_TIPOSOLICITANTE", "ID_TIPOSOLICITANTE can't be NULL");
+					throw new ArgumentOutOfRangeException("ID_TPSOLTNTE", "ID_TPSOLTNTE can't be NULL");
 				}
-				_iD_TIPOSOLICITANTE = value;
+				_iD_TPSOLTNTE = value;
 			}
 		}
 
 
-		public SqlString DSC_TIPOSOLITANTE
+		public SqlString DSC_TPSOLTNTE
 		{
 			get
 			{
-				return _dSC_TIPOSOLITANTE;
+				return _dSC_TPSOLTNTE;
 			}
 			set
 			{
-				SqlString dSC_TIPOSOLITANTETmp = (SqlString)value;
-				if(dSC_TIPOSOLITANTETmp.IsNull)
+				SqlString dSC_TPSOLTNTETmp = (SqlString)value;
+				if(dSC_TPSOLTNTETmp.IsNull)
 				{
-					throw new ArgumentOutOfRangeException("DSC_TIPOSOLITANTE", "DSC_TIPOSOLITANTE can't be NULL");
+					throw new ArgumentOutOfRangeException("DSC_TPSOLTNTE", "DSC_TPSOLTNTE can't be NULL");
 				}
-				_dSC_TIPOSOLITANTE = value;
+				_dSC_TPSOLTNTE = value;
 			}
 		}
 		#endregion

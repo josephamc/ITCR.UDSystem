@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFINSTALACION'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:19 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -25,7 +25,7 @@ namespace ITCR.UDSystem.Base
 	{
 		#region Declaraciones de miembros de la clase
 			private SqlInt32		_iD_INSTALACION;
-			private SqlString		_tXT_COMENTARIO, _tXT_REGLAMENTO, _tXT_COSTOALQUILER, _nOM_INSTALACION, _dSC_INSTALACION, _dSC_MEDIDAS;
+			private SqlString		_nOM_INSTALACION, _dSC_INSTALACION, _dSC_MEDIDAS, _tXT_COMENTARIO, _tXT_REGLAMENTO, _tXT_COSTOALQUILER;
 		#endregion
 
 

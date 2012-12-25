@@ -2,9 +2,9 @@
 ///////////////////////////////////////////////////////////////////////////
 // Cliente:  Instituto Tecnológico de Costa Rica
 // Proyecto: UDsystem
-// Descripción: Clase de acceso a datos para tabla 'UDGDFTIPOSOLICITANTE'
+// Descripción: Clase de acceso a datos para tabla 'UDGDFTPSOLTNTE'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:22 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -19,16 +19,16 @@ using ITCR.UDSystem.Base;
 namespace ITCR.UDSystem.Datos
 {
 	/// <summary>
-	/// Propósito: Clase de acceso a datos derivada para tabla 'UDGDFTIPOSOLICITANTE'.
+	/// Propósito: Clase de acceso a datos derivada para tabla 'UDGDFTPSOLTNTE'.
 	/// </summary>
-	public class cUDGDFTIPOSOLICITANTEDatos : cUDGDFTIPOSOLICITANTEBase
+	public class cUDGDFTPSOLTNTEDatos : cUDGDFTPSOLTNTEBase
 	{
 
 
 		/// <summary>
 		/// Propósito: Constructor de la clase.
 		/// </summary>
-		public cUDGDFTIPOSOLICITANTEDatos() : base()
+		public cUDGDFTPSOLTNTEDatos() : base()
 		{
 			// Agregar código aquí.
 		}
@@ -41,11 +41,11 @@ namespace ITCR.UDSystem.Datos
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
 		///		 <LI>CodError</LI>
 		/// </UL>
 		/// </remarks>
@@ -62,8 +62,8 @@ namespace ITCR.UDSystem.Datos
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -83,7 +83,7 @@ namespace ITCR.UDSystem.Datos
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -103,13 +103,13 @@ namespace ITCR.UDSystem.Datos
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
 		///		 <LI>CodError</LI>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Llena todas las propiedades que corresponden al campo en tabla con el valor de la fila seleccionada.
 		/// </remarks>
@@ -142,8 +142,8 @@ namespace ITCR.UDSystem.Datos
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>

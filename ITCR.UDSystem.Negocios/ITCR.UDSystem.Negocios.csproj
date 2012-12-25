@@ -54,7 +54,7 @@
     <Compile Include="ClasesNegocios\cUDGDFRESPUESTANegocios.cs" />
     <Compile Include="ClasesNegocios\cUDGDFRZNUSONegocios.cs" />
     <Compile Include="ClasesNegocios\cUDGDFSOLICITUDNegocios.cs" />
-    <Compile Include="ClasesNegocios\cUDGDFTIPOSOLICITANTENegocios.cs" />
+    <Compile Include="ClasesNegocios\cUDGDFTPSOLTNTENegocios.cs" />
     <Compile Include="ClasesNegocios\cUDGDFUSUARIONegocios.cs" />
     <Compile Include="cSolicitud.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

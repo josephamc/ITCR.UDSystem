@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFEVENTO'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:17 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -24,8 +24,8 @@ namespace ITCR.UDSystem.Base
 	public class cUDGDFEVENTOBase : cBDInteraccionBase
 	{
 		#region Declaraciones de miembros de la clase
-			private SqlInt32		_fKY_RESERVACION, _fKY_RESERVACIONOld, _fKY_CALENDARIO, _fKY_CALENDARIOOld, _iD_EVENTO;
-			private SqlString		_nOM_EVENTO, _dSC_EVENTO;
+			private SqlInt32		_iD_EVENTO, _fKY_CALENDARIO, _fKY_CALENDARIOOld, _fKY_RESERVACION, _fKY_RESERVACIONOld;
+			private SqlString		_dSC_EVENTO, _nOM_EVENTO;
 		#endregion
 
 

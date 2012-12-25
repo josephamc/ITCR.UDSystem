@@ -2,9 +2,9 @@
 ///////////////////////////////////////////////////////////////////////////
 // Cliente:  Instituto Tecnológico de Costa Rica
 // Proyecto: UDsystem
-// Descripción: Clase de LOGICA DE NEGOCIOS para tabla 'UDGDFTIPOSOLICITANTE'
+// Descripción: Clase de LOGICA DE NEGOCIOS para tabla 'UDGDFTPSOLTNTE'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:22 PM
 ///////////////////////////////////////////////////////////////////////////
 #endregion
 
@@ -20,9 +20,9 @@ using ITCR.UDSystem.Negocios.wsSeguridad;
 namespace ITCR.UDSystem.Negocios
 {
 	/// <summary>
-	/// Propósito: Clase de lógica de negocios para tabla 'UDGDFTIPOSOLICITANTE'.
+	/// Propósito: Clase de lógica de negocios para tabla 'UDGDFTPSOLTNTE'.
 	/// </summary>
-	public class cUDGDFTIPOSOLICITANTENegocios : cUDGDFTIPOSOLICITANTEDatos
+	public class cUDGDFTPSOLTNTENegocios : cUDGDFTPSOLTNTEDatos
 	{
 		#region Declaraciones de miembros de la clase
 		private int				_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora;
@@ -33,7 +33,7 @@ namespace ITCR.UDSystem.Negocios
 		/// <summary>
 		/// Propósito: Constructor de la clase.
 		/// </summary>
-		public cUDGDFTIPOSOLICITANTENegocios(int COD_APLICACIONBitacora, string COD_SEDEBitacora, int COD_FUNCIONALIDADBitacora, string ID_USUARIOBitacora) : base()
+		public cUDGDFTPSOLTNTENegocios(int COD_APLICACIONBitacora, string COD_SEDEBitacora, int COD_FUNCIONALIDADBitacora, string ID_USUARIOBitacora) : base()
 		{
 			//asignacion de las propiedades privadas para manejo de bitacoras
 			_COD_APLICACIONBitacora = COD_APLICACIONBitacora;
@@ -50,30 +50,30 @@ namespace ITCR.UDSystem.Negocios
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
 		///		 <LI>CodError</LI>
 		/// </UL>
 		/// </remarks>
 		public override bool Insertar()
 		{
 			string operacion;
-			Seguridad wsseg = new Seguridad();
+			SeguridadSoapClient wsseg = new SeguridadSoapClient();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.
-				operacion = "Insertar cUDGDFTIPOSOLICITANTE;"
-					+"DSC_TIPOSOLITANTE:"+DSC_TIPOSOLITANTE.ToString()+";";
+				operacion = "Insertar cUDGDFTPSOLTNTE;"
+					+"DSC_TPSOLTNTE:"+DSC_TPSOLTNTE.ToString()+";";
 				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Insertar();
 			}
 			catch (Exception ex)
 			{
 				//Construir el string a guardar en la bitácora en caso de error.
-				operacion = "Error Insertar cUDGDFTIPOSOLICITANTE;"+ex.Message;
+				operacion = "Error Insertar cUDGDFTPSOLTNTE;"+ex.Message;
 				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
 				throw ex;
 			}
@@ -87,8 +87,8 @@ namespace ITCR.UDSystem.Negocios
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -98,20 +98,20 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Actualizar()
 		{
 			string operacion;
-			Seguridad wsseg = new Seguridad();
+			SeguridadSoapClient wsseg = new SeguridadSoapClient();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.
-				operacion = "Actualizar cUDGDFTIPOSOLICITANTE;"
-					+"ID_TIPOSOLICITANTE:"+ID_TIPOSOLICITANTE.ToString()+";"
-					+"DSC_TIPOSOLITANTE:"+DSC_TIPOSOLITANTE.ToString()+";";
+				operacion = "Actualizar cUDGDFTPSOLTNTE;"
+					+"ID_TPSOLTNTE:"+ID_TPSOLTNTE.ToString()+";"
+					+"DSC_TPSOLTNTE:"+DSC_TPSOLTNTE.ToString()+";";
 				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Actualizar();
 			}
 			catch (Exception ex)
 			{
 				//Construir el string a guardar en la bitácora en caso de error.
-				operacion = "Error Actualizar cUDGDFTIPOSOLICITANTE;"+ex.Message;
+				operacion = "Error Actualizar cUDGDFTPSOLTNTE;"+ex.Message;
 				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
 				throw ex;
 			}
@@ -125,7 +125,7 @@ namespace ITCR.UDSystem.Negocios
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -135,19 +135,19 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Eliminar()
 		{
 			string operacion;
-			Seguridad wsseg = new Seguridad();
+			SeguridadSoapClient wsseg = new SeguridadSoapClient();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.
-				operacion = "Eliminar cUDGDFTIPOSOLICITANTE;"
-					+"ID_TIPOSOLICITANTE:"+ID_TIPOSOLICITANTE.ToString()+";";
+				operacion = "Eliminar cUDGDFTPSOLTNTE;"
+					+"ID_TPSOLTNTE:"+ID_TPSOLTNTE.ToString()+";";
 				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Eliminar();
 			}
 			catch (Exception ex)
 			{
 				//Construir el string a guardar en la bitácora en caso de error.
-				operacion = "Error Eliminar cUDGDFTIPOSOLICITANTE;"+ex.Message;
+				operacion = "Error Eliminar cUDGDFTPSOLTNTE;"+ex.Message;
 				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
 				throw ex;
 			}
@@ -161,13 +161,13 @@ namespace ITCR.UDSystem.Negocios
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
 		///		 <LI>CodError</LI>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Llena todas las propiedades que corresponden al campo en tabla con el valor de la fila seleccionada.
 		/// </remarks>
@@ -214,8 +214,8 @@ namespace ITCR.UDSystem.Negocios
 		/// <remarks>
 		/// Propiedades necesarias para este método: 
 		/// <UL>
-		///		 <LI>ID_TIPOSOLICITANTE</LI>
-		///		 <LI>DSC_TIPOSOLITANTE</LI>
+		///		 <LI>ID_TPSOLTNTE</LI>
+		///		 <LI>DSC_TPSOLTNTE</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>

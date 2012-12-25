@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFAPROBACION'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:15 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -24,7 +24,7 @@ namespace ITCR.UDSystem.Base
 	public class cUDGDFAPROBACIONBase : cBDInteraccionBase
 	{
 		#region Declaraciones de miembros de la clase
-			private SqlInt32		_fKY_RESEREVACION, _fKY_RESEREVACIONOld, _fKY_SOLICITUD, _fKY_SOLICITUDOld, _iD_APROBACION;
+			private SqlInt32		_iD_APROBACION, _fKY_SOLICITUD, _fKY_SOLICITUDOld, _fKY_RESEREVACION, _fKY_RESEREVACIONOld;
 		#endregion
 
 

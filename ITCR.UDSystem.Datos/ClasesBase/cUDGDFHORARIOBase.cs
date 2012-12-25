@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFHORARIO'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:18 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -24,8 +24,8 @@ namespace ITCR.UDSystem.Base
 	public class cUDGDFHORARIOBase : cBDInteraccionBase
 	{
 		#region Declaraciones de miembros de la clase
-			private SqlInt32		_cOD_DIA, _fKY_INSTALACION, _fKY_INSTALACIONOld, _iD_HORARIO;
-			private SqlDateTime		_hRA_FIN, _hRA_INICIO;
+			private SqlInt32		_iD_HORARIO, _fKY_INSTALACION, _fKY_INSTALACIONOld, _cOD_DIA;
+			private SqlDateTime		_hRA_INICIO, _hRA_FIN;
 		#endregion
 
 

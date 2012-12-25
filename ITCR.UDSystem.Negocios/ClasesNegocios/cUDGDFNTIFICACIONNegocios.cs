@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de LOGICA DE NEGOCIOS para tabla 'UDGDFNTIFICACION'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:19 PM
 ///////////////////////////////////////////////////////////////////////////
 #endregion
 
@@ -61,7 +61,7 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Insertar()
 		{
 			string operacion;
-			Seguridad wsseg = new Seguridad();
+			SeguridadSoapClient wsseg = new SeguridadSoapClient();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.
@@ -98,7 +98,7 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Actualizar()
 		{
 			string operacion;
-			Seguridad wsseg = new Seguridad();
+			SeguridadSoapClient wsseg = new SeguridadSoapClient();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.
@@ -135,7 +135,7 @@ namespace ITCR.UDSystem.Negocios
 		public override bool Eliminar()
 		{
 			string operacion;
-			Seguridad wsseg = new Seguridad();
+			SeguridadSoapClient wsseg = new SeguridadSoapClient();
 			try
 			{
 				//Construir aqui el string a guardar en la bitacora.

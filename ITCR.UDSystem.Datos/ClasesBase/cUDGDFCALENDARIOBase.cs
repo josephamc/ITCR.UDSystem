@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFCALENDARIO'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:16 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -24,7 +24,7 @@ namespace ITCR.UDSystem.Base
 	public class cUDGDFCALENDARIOBase : cBDInteraccionBase
 	{
 		#region Declaraciones de miembros de la clase
-			private SqlInt32		_fKY_INSTALACION, _fKY_INSTALACIONOld, _iD_CALENDARIO;
+			private SqlInt32		_iD_CALENDARIO, _fKY_INSTALACION, _fKY_INSTALACIONOld;
 		#endregion
 
 

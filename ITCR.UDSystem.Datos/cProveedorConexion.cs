@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase Connection Provider para compartir la conexión a la base de datos 
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:23 PM
 // Esta clase implementa IDisposable.
 ///////////////////////////////////////////////////////////////////////////
 #endregion

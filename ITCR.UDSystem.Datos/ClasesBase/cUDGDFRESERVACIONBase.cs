@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFRESERVACION'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: sábado, 22 de diciembre de 2012, 09:53:59 a.m.
+// Fecha: Tuesday, December 25, 2012, 1:17:20 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -26,7 +26,7 @@ namespace ITCR.UDSystem.Base
 		#region Declaraciones de miembros de la clase
 			private SqlDateTime		_fEC_FECHAINICIO, _fEC_FECHAFIN;
 			private SqlInt32		_iD_RESERVACION;
-			private SqlDateTime		_hRA_HORAFIN, _hRA_HORAINICIO;
+			private SqlDateTime		_hRA_HORAINICIO, _hRA_HORAFIN;
 		#endregion
 
 
