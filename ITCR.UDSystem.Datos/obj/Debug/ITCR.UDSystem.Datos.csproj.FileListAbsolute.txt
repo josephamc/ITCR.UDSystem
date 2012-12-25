@@ -1,0 +1,14 @@
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.dll
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.pdb
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.dll
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.pdb
+C:\Users\jsaenz\Desktop\New folder\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.dll
+C:\Users\jsaenz\Desktop\New folder\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.pdb
+C:\Users\jsaenz\Desktop\New folder\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jsaenz\Desktop\New folder\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.dll
+C:\Users\jsaenz\Desktop\New folder\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.pdb
+C:\Users\jsaenz\Documents\GitHub\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.dll
+C:\Users\jsaenz\Documents\GitHub\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.pdb
+C:\Users\jsaenz\Documents\GitHub\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jsaenz\Documents\GitHub\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.dll
+C:\Users\jsaenz\Documents\GitHub\UDSystem\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.pdb
