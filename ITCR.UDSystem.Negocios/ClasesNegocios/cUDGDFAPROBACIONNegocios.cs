@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de LOGICA DE NEGOCIOS para tabla 'UDGDFAPROBACION'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: Tuesday, December 25, 2012, 1:17:15 PM
+// Fecha: Tuesday, December 25, 2012, 4:19:59 PM
 ///////////////////////////////////////////////////////////////////////////
 #endregion
 

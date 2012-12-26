@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using ITCR.UDSystem.Negocios;
 
 namespace ITCR.UDSystem.Interfaz.GestionarSolicitudes
 {
@@ -13,15 +14,54 @@ namespace ITCR.UDSystem.Interfaz.GestionarSolicitudes
         protected void Page_Load(object sender, EventArgs e)
         {
             dgSolicitudes.RowEditing += this.GridViewEditing;
+            
+            // Carga las solicitudes no atendidas
+            cUDGDFSOLICITUDNegocios cSolicitud = new cUDGDFSOLICITUDNegocios(0, "", 0, "");
+            DataTable dtSolicitudes = cSolicitud.ConsultarSolicitudes(false);
+            DataTable dtBindingSource = new DataTable("SOLICITUDES");
+
+            dtBindingSource.Columns.Add("Id Solicitud");
+            dtBindingSource.Columns.Add("Solicitante");
+            dtBindingSource.Columns.Add("Fecha Solicitud");
+            dtBindingSource.Columns.Add("Instalacion");
+            dtBindingSource.Columns.Add("Fecha Inicio");
+            dtBindingSource.Columns.Add("Fecha fin");
+            dtBindingSource.Columns.Add("Hora inicio");
+            dtBindingSource.Columns.Add("Hora fin");
+
+            foreach (DataRow drRow in dtSolicitudes.Rows)
+            {
+                dtBindingSource.Rows.Add(drRow[0].ToString(), drRow[6].ToString(), ((DateTime)drRow[3]).ToShortDateString(), drRow[14].ToString(),
+                    ((DateTime)drRow[1]).ToShortDateString(), ((DateTime)drRow[2]).ToShortDateString(), drRow[4].ToString(), drRow[5].ToString());
+            }
+
+            dgSolicitudes.DataSource = dtBindingSource;
+            dgSolicitudes.DataBind();
         }
 
         protected void btnActualizar_Click(object sender, ImageClickEventArgs e)
         {
-            DataTable dtSolicitudes = new DataTable();
-            dtSolicitudes.Columns.Add("Solicitudes");
-            dtSolicitudes.Rows.Add("Example");
+            // Carga las solicitudes no atendidas
+            cUDGDFSOLICITUDNegocios cSolicitud = new cUDGDFSOLICITUDNegocios(0, "", 0, "");
+            DataTable dtSolicitudes = cSolicitud.ConsultarSolicitudes(false);
+            DataTable dtBindingSource = new DataTable("SOLICITUDES");
 
-            dgSolicitudes.DataSource = dtSolicitudes;
+            dtBindingSource.Columns.Add("Id Solicitud");
+            dtBindingSource.Columns.Add("Solicitante");
+            dtBindingSource.Columns.Add("Fecha Solicitud");
+            dtBindingSource.Columns.Add("Instalacion");
+            dtBindingSource.Columns.Add("Fecha Inicio");
+            dtBindingSource.Columns.Add("Fecha fin");
+            dtBindingSource.Columns.Add("Hora inicio");
+            dtBindingSource.Columns.Add("Hora fin");
+
+            foreach (DataRow drRow in dtSolicitudes.Rows)
+            {
+                dtBindingSource.Rows.Add(drRow[0].ToString(), drRow[6].ToString(), ((DateTime)drRow[3]).ToShortDateString(), drRow[14].ToString(),
+                    ((DateTime)drRow[1]).ToShortDateString(), ((DateTime)drRow[2]).ToShortDateString(), drRow[4].ToString(), drRow[5].ToString());
+            }
+
+            dgSolicitudes.DataSource = dtBindingSource;
             dgSolicitudes.DataBind();
         }
 

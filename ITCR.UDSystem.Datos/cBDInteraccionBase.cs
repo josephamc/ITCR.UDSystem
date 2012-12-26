@@ -1,6 +1,6 @@
 //--------------------------------------------------------------------------------------
 // Descripcion: Clase base para interaccion con la base de datos                        
-// Generada por ITCR Gen v2010Fr4 el: 12/25/2012, 1:17 PM
+// Generada por ITCR Gen v2010Fr4 el: 12/25/2012, 4:20 PM
 // Dado que esta clase implementa IDisposable, las clases derivadas no deben hacerlo.   
 //--------------------------------------------------------------------------------------
 using System;

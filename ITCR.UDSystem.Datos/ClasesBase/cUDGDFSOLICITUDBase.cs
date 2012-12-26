@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFSOLICITUD'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: Tuesday, December 25, 2012, 1:17:21 PM
+// Fecha: Tuesday, December 25, 2012, 4:20:02 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -26,9 +26,9 @@ namespace ITCR.UDSystem.Base
 		#region Declaraciones de miembros de la clase
 			private SqlBoolean		_cOD_ATENDIDO;
 			private SqlDateTime		_fEC_INICIO, _fEC_FIN, _fEC_SOLICITUD;
-			private SqlInt32		_fKY_TIPOSOLICITANTE, _fKY_TIPOSOLICITANTEOld, _cAN_USUARIOS, _iD_SOLICITUD, _fKY_INSTALACION, _fKY_INSTALACIONOld;
+			private SqlInt32		_iD_SOLICITUD, _fKY_INSTALACION, _fKY_INSTALACIONOld, _cAN_USUARIOS, _fKY_TIPOSOLICITANTE, _fKY_TIPOSOLICITANTEOld;
 			private SqlDateTime		_hRA_INICIO, _hRA_FIN;
-			private SqlString		_nOM_ENCARGADO, _tXT_CORREO, _cOD_IDENTIFICACION, _tXT_OBSERVACIONES, _dSC_RAZONUSO, _cOD_TIPOSOLICITUD, _nOM_INSTITUCION;
+			private SqlString		_tXT_CORREO, _cOD_TIPOSOLICITUD, _dSC_RAZONUSO, _nOM_INSTITUCION, _cOD_IDENTIFICACION, _nOM_ENCARGADO, _tXT_OBSERVACIONES, _tXT_USUARIOS;
 		#endregion
 
 
@@ -64,6 +64,7 @@ namespace ITCR.UDSystem.Base
 		///		 <LI>COD_TIPOSOLICITUD</LI>
 		///		 <LI>TXT_CORREO</LI>
 		///		 <LI>COD_ATENDIDO</LI>
+		///		 <LI>TXT_USUARIOS</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -98,6 +99,7 @@ namespace ITCR.UDSystem.Base
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@sCOD_TIPOSOLICITUD", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _cOD_TIPOSOLICITUD));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_CORREO", SqlDbType.VarChar, 75, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_CORREO));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@bCOD_ATENDIDO", SqlDbType.Bit, 1, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _cOD_ATENDIDO));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_USUARIOS", SqlDbType.VarChar, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_USUARIOS));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_SOLICITUD", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _iD_SOLICITUD));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
@@ -168,6 +170,7 @@ namespace ITCR.UDSystem.Base
 		///		 <LI>COD_TIPOSOLICITUD</LI>
 		///		 <LI>TXT_CORREO</LI>
 		///		 <LI>COD_ATENDIDO</LI>
+		///		 <LI>TXT_USUARIOS</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -202,6 +205,7 @@ namespace ITCR.UDSystem.Base
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@sCOD_TIPOSOLICITUD", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _cOD_TIPOSOLICITUD));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_CORREO", SqlDbType.VarChar, 75, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_CORREO));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@bCOD_ATENDIDO", SqlDbType.Bit, 1, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _cOD_ATENDIDO));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_USUARIOS", SqlDbType.VarChar, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_USUARIOS));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -635,6 +639,7 @@ namespace ITCR.UDSystem.Base
 		///		 <LI>COD_TIPOSOLICITUD</LI>
 		///		 <LI>TXT_CORREO</LI>
 		///		 <LI>COD_ATENDIDO</LI>
+		///		 <LI>TXT_USUARIOS</LI>
 		/// </UL>
 		/// Llena todas las propiedades que corresponden al campo en tabla con el valor de la fila seleccionada.
 		/// </remarks>
@@ -696,6 +701,7 @@ namespace ITCR.UDSystem.Base
 					_cOD_TIPOSOLICITUD = (string)toReturn.Rows[0]["COD_TIPOSOLICITUD"];
 					_tXT_CORREO = (string)toReturn.Rows[0]["TXT_CORREO"];
 					_cOD_ATENDIDO = (bool)toReturn.Rows[0]["COD_ATENDIDO"];
+					_tXT_USUARIOS = (string)toReturn.Rows[0]["TXT_USUARIOS"];
 				}
 				return toReturn;
 			}
@@ -955,6 +961,7 @@ namespace ITCR.UDSystem.Base
 		///		 <LI>COD_TIPOSOLICITUD</LI>
 		///		 <LI>TXT_CORREO</LI>
 		///		 <LI>COD_ATENDIDO</LI>
+		///		 <LI>TXT_USUARIOS</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -991,6 +998,7 @@ namespace ITCR.UDSystem.Base
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@sCOD_TIPOSOLICITUD", SqlDbType.VarChar, 50, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _cOD_TIPOSOLICITUD));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_CORREO", SqlDbType.VarChar, 75, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_CORREO));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@bCOD_ATENDIDO", SqlDbType.Bit, 1, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _cOD_ATENDIDO));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_USUARIOS", SqlDbType.VarChar, 500, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_USUARIOS));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -1366,6 +1374,24 @@ namespace ITCR.UDSystem.Base
 					throw new ArgumentOutOfRangeException("COD_ATENDIDO", "COD_ATENDIDO can't be NULL");
 				}
 				_cOD_ATENDIDO = value;
+			}
+		}
+
+
+		public SqlString TXT_USUARIOS
+		{
+			get
+			{
+				return _tXT_USUARIOS;
+			}
+			set
+			{
+				SqlString tXT_USUARIOSTmp = (SqlString)value;
+				if(tXT_USUARIOSTmp.IsNull)
+				{
+					throw new ArgumentOutOfRangeException("TXT_USUARIOS", "TXT_USUARIOS can't be NULL");
+				}
+				_tXT_USUARIOS = value;
 			}
 		}
 		#endregion

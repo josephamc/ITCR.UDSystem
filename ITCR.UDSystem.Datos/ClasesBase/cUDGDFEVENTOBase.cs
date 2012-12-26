@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFEVENTO'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: Tuesday, December 25, 2012, 1:17:17 PM
+// Fecha: Tuesday, December 25, 2012, 4:20:00 PM
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion

@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de LOGICA DE NEGOCIOS para tabla 'UDGDFSOLICITUD'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: Tuesday, December 25, 2012, 1:17:21 PM
+// Fecha: Tuesday, December 25, 2012, 4:20:02 PM
 ///////////////////////////////////////////////////////////////////////////
 #endregion
 
@@ -66,6 +66,7 @@ namespace ITCR.UDSystem.Negocios
 		///		 <LI>COD_TIPOSOLICITUD</LI>
 		///		 <LI>TXT_CORREO</LI>
 		///		 <LI>COD_ATENDIDO</LI>
+		///		 <LI>TXT_USUARIOS</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -96,7 +97,8 @@ namespace ITCR.UDSystem.Negocios
 					+"DSC_RAZONUSO:"+DSC_RAZONUSO.ToString()+";"
 					+"COD_TIPOSOLICITUD:"+COD_TIPOSOLICITUD.ToString()+";"
 					+"TXT_CORREO:"+TXT_CORREO.ToString()+";"
-					+"COD_ATENDIDO:"+COD_ATENDIDO.ToString()+";";
+					+"COD_ATENDIDO:"+COD_ATENDIDO.ToString()+";"
+					+"TXT_USUARIOS:"+TXT_USUARIOS.ToString()+";";
 				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Insertar();
 			}
@@ -134,6 +136,7 @@ namespace ITCR.UDSystem.Negocios
 		///		 <LI>COD_TIPOSOLICITUD</LI>
 		///		 <LI>TXT_CORREO</LI>
 		///		 <LI>COD_ATENDIDO</LI>
+		///		 <LI>TXT_USUARIOS</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -164,7 +167,8 @@ namespace ITCR.UDSystem.Negocios
 					+"DSC_RAZONUSO:"+DSC_RAZONUSO.ToString()+";"
 					+"COD_TIPOSOLICITUD:"+COD_TIPOSOLICITUD.ToString()+";"
 					+"TXT_CORREO:"+TXT_CORREO.ToString()+";"
-					+"COD_ATENDIDO:"+COD_ATENDIDO.ToString()+";";
+					+"COD_ATENDIDO:"+COD_ATENDIDO.ToString()+";"
+					+"TXT_USUARIOS:"+TXT_USUARIOS.ToString()+";";
 				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Actualizar();
 			}
@@ -243,6 +247,7 @@ namespace ITCR.UDSystem.Negocios
 		///		 <LI>COD_TIPOSOLICITUD</LI>
 		///		 <LI>TXT_CORREO</LI>
 		///		 <LI>COD_ATENDIDO</LI>
+		///		 <LI>TXT_USUARIOS</LI>
 		/// </UL>
 		/// Llena todas las propiedades que corresponden al campo en tabla con el valor de la fila seleccionada.
 		/// </remarks>
@@ -306,6 +311,7 @@ namespace ITCR.UDSystem.Negocios
 		///		 <LI>COD_TIPOSOLICITUD</LI>
 		///		 <LI>TXT_CORREO</LI>
 		///		 <LI>COD_ATENDIDO</LI>
+		///		 <LI>TXT_USUARIOS</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -323,5 +329,60 @@ namespace ITCR.UDSystem.Negocios
 				throw ex;
 			}
 		}
+
+        // *************************************************************************************** //
+        //                            Metodos agregados                                            //
+        // *************************************************************************************** //
+
+        /// <summary>
+        /// Consulta todas las solicitudes que no han sido atendidas
+        /// </summary>
+        /// <param name="p_atendido">Indica si la solicitud ha sido atendida o no</param>
+        /// <returns>DataTable object</returns>
+        public override DataTable ConsultarSolicitudes(Boolean p_atendido)
+        {
+            try
+            {
+                return base.ConsultarSolicitudes(p_atendido);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Busca las solicitudes con el id especificado
+        /// </summary>
+        /// <param name="p_id">Id de la solicitud a buscar</param>
+        /// <returns>DataTable object</returns>
+        public override DataTable BuscarConId(int p_id)
+        {
+            try
+            {
+                return base.BuscarConId(p_id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Actualiza el campo COD_ATENDIDO de una solicitud especifica
+        /// </summary>
+        /// <param name="p_id">Id de la solicitud</param>
+        /// <returns>Codigo de error</returns>
+        public override bool ActualizarAtendidoConID(int p_id)
+        {
+            try
+            {
+                return base.ActualizarAtendidoConID(p_id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 	} //class
 } //namespace

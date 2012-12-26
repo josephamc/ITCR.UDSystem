@@ -26,13 +26,7 @@
     <tr>
         <td valign="top" class="style2">
         <!-- Main Container -->
-            <!-- Botones -->
-            <br />
-            <br />
-            <!--<asp:Button ID="btnAceptar" runat="server" Text="Aceptar" /> &nbsp;-->
-            <!--<asp:Button ID="btnRechazar" runat="server" Text="Rechazar" Width="71px" />-->
-
-            <!-- Ficha de informacion -->
+            <!-- Menu -->
             <div style="background-color: #336699; height: 55px;">
             <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" ForeColor="White" 
                     BackColor="#336699" DynamicHorizontalOffset="2" Font-Names="Verdana" 
@@ -43,10 +37,10 @@
                 <DynamicSelectedStyle BackColor="#507CD1" />
                 <Items>
                     <asp:MenuItem Text="Responder">
-                        <asp:MenuItem NavigateUrl="~/frmNotificacion.aspx?status=true" 
-                            Text="                           Aceptar" ToolTip="Acepta una Solicitud" />
-                        <asp:MenuItem NavigateUrl="~/frmNotificacion.aspx?status=false" 
-                            Text="                           Rechazar" ToolTip="Rechaza una solicitud" />
+                        <asp:MenuItem NavigateUrl="~/frmNotificacion.aspx?status=true&op=sendemail" 
+                            Text="Aceptar" ToolTip="Acepta una Solicitud" />
+                        <asp:MenuItem NavigateUrl="~/frmNotificacion.aspx?status=false&op=sendemail"
+                            Text="Rechazar" ToolTip="Rechaza una solicitud" />
                     </asp:MenuItem>
                 </Items>
                 <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
@@ -54,36 +48,64 @@
                 <StaticSelectedStyle BackColor="#507CD1" />
             </asp:Menu>
             </div>
+            <!-- Ficha de informacion -->
             <fieldset>
                 <h1>Información de Solicitud</h1>
                 <p>
                     <br />
                     <br />
-                    Instalación Solicitada:  
+                    Instalación Solicitada:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               
                     <asp:Label ID="lblInstalacion" runat="server" Text="Instalacion X"></asp:Label>
                     <br />
-                    Fecha a solicitar: 
+                    <br />
+                    Fecha de la solicitud:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="lblfecSolicitud" runat="server" Text="Fecha Solicitud"></asp:Label>
+                    <br />
+                    <br />
+                    Fecha a solicitar:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                     <asp:Label ID="lblfecini" runat="server" Text="Fecha Inicio"></asp:Label> &nbsp;- 
                     <asp:Label ID="lblfecfin" runat="server" Text="Fecha fin"></asp:Label>
                     <br />
+                    <br />
                     Hora a solicitar:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblhraini" runat="server" Text="Hora inicio"></asp:Label>  &nbsp;a 
                     <asp:Label ID="lblhrafin" runat="server" Text="Hora fin"></asp:Label>
                     <br />
+                    <br />
                     Institución Solicitante/Grupo:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblinstsolicitante" runat="server" Text="Institución Solicitante"></asp:Label>
                     <br />
-                    Persona Responsable:
+                    <br />
+                    Persona Responsable: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                     <asp:Label ID="lblresponsable" runat="server" Text="Responsable X"></asp:Label>
                     <br />
+                    <br />
                     Número de cédula/Carné:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblidentificacion" runat="server" Text="231-31231-312"></asp:Label>
                     <br />
-                    Cantidad de usuarios solicitantes: 
+                    <br />
+                    Cantidad de usuarios solicitantes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                     <asp:Label ID="lblcantidad" runat="server" Text="11111"></asp:Label>
                     <br />
+                    <br />
                     Tipo de usuario solicitante:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lbltipo" runat="server" Text="Estudiante"></asp:Label>
+                    <br />
                     <br />
                     Solicitantes:
                 </p>
@@ -93,6 +115,9 @@
                 <p>
                     <br />
                     Razón de uso:
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblrznuso" runat="server" Text="Razón de uso"></asp:Label>
                 </p>
             </fieldset>

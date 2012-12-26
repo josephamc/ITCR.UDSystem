@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de LOGICA DE NEGOCIOS para tabla 'UDGDFUSUARIO'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: Tuesday, December 25, 2012, 1:17:22 PM
+// Fecha: Tuesday, December 25, 2012, 4:20:02 PM
 ///////////////////////////////////////////////////////////////////////////
 #endregion
 
