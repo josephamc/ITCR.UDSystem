@@ -43,7 +43,7 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva
                 }
                 IDinstalacionPrevia = -1;
             }
-            catch (Exception o) { }
+            catch (Exception) { }
         }
 
         protected void Button1_Click(object sender, EventArgs e)

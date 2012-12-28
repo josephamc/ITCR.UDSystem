@@ -23,7 +23,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                 idAgregar = PreviousPage.IDAgregar;
                 lb_id.Text = idAgregar.ToString();
             }
-            catch (Exception o) { }
+            catch (Exception) { }
 
             ActualiceGrid();
         }
