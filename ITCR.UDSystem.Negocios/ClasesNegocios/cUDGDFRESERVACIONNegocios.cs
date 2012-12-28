@@ -73,14 +73,14 @@ namespace ITCR.UDSystem.Negocios
 					+"FEC_FECHAFIN:"+FEC_FECHAFIN.ToString()+";"
 					+"HRA_HORAINICIO:"+HRA_HORAINICIO.ToString()+";"
 					+"HRA_HORAFIN:"+HRA_HORAFIN.ToString()+";";
-				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
+				//wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Insertar();
 			}
 			catch (Exception ex)
 			{
 				//Construir el string a guardar en la bitácora en caso de error.
 				operacion = "Error Insertar cUDGDFRESERVACION;"+ex.Message;
-				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
 				throw ex;
 			}
 		}
@@ -251,5 +251,21 @@ namespace ITCR.UDSystem.Negocios
 				throw ex;
 			}
 		}
+
+        //==================================================================== //
+        //                  Metodos agregados                                  //
+        //==================================================================== //
+        public override int ConsultarDisponibilidad(DateTime p_fecinicio, DateTime p_fecfin, DateTime p_hrainicio, DateTime p_hrafin, int p_idInstalacion)
+        {
+            try
+            {
+                return base.ConsultarDisponibilidad(p_fecinicio, p_fecfin, p_hrainicio, p_hrafin, p_idInstalacion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 	} //class
 } //namespace

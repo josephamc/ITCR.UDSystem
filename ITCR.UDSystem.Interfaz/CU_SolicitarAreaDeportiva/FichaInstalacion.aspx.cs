@@ -53,6 +53,7 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva
             {
 
                 Server.Transfer("/CU_SolicitarAreaDeportiva/formSolicitud.aspx", true);
+               // Reponsose.redirect
             }
         }
 

@@ -368,7 +368,7 @@ namespace ITCR.UDSystem.Datos
 
             try
             {
-                cmdAEjecutar.Parameters.Add(new SqlParameter("@bCOD_ATENDIDO", SqlDbType.Bit, 1, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_id));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_SOLICITUD", SqlDbType.Bit, 1, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_id));
                 cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
                 
                 if (_conexionBDEsCreadaLocal)
