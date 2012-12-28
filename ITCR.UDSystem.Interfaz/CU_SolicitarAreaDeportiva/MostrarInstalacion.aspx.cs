@@ -23,6 +23,7 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva
         protected void Page_Load(object sender, EventArgs e)
         {
             ideditar = -1;
+            Grid_Instalaciones2.RowEditing += GridView1_RowEditing;
             DataTable tablaInstalacionesBase = instalacion.SeleccionarTodos();
             DataTable tablaInstalaciones = new DataTable();
             tablaInstalaciones.Columns.Add("identificacion");
@@ -46,8 +47,7 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
             Grid_Instalaciones2.EditIndex = e.NewEditIndex;
-
-            int id = Convert.ToInt32(Grid_Instalaciones2.DataKeys[e.NewEditIndex].Value.ToString());
+            int id = Convert.ToInt32(Grid_Instalaciones2.Rows[e.NewEditIndex].Cells[1].Text);
 
             //InsertaInstalacion insInst = new InsertaInstalacion();
             ideditar = id;

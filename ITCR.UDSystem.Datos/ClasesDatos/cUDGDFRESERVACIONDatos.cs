@@ -169,5 +169,68 @@ namespace ITCR.UDSystem.Datos
 				//    base.DescripcionCF = "{0}" + base.DescripcionCF + "{0}"; }
 			return base.Buscar();
 		}
+
+        //============================================================================================
+        //                              Store Procedures agregados
+        //============================================================================================
+        public virtual int ConsultarDisponibilidad(DateTime p_fecinicio, DateTime p_fecfin, DateTime p_hrainicio, DateTime p_hrafin, int p_idInstalacion)
+        {
+            SqlCommand cmdAEjecutar = new SqlCommand();
+            cmdAEjecutar.CommandText = "dbo.[pr_UDGDFARESERVACION_ConsultarDisponibilidad]";
+            cmdAEjecutar.CommandType = CommandType.StoredProcedure;
+            int toReturn = -1000;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmdAEjecutar);
+
+            // Usar el objeto conexión de la clase base
+            cmdAEjecutar.Connection = _conexionBD;
+
+            try
+            {
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@sNOM_INSTALACION", SqlDbType.VarChar, 200, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_idInstalacion));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@daFEC_FECHAINICIO", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_fecinicio));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@daFEC_FECHAFIN", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_fecfin));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@tiHRA_HORAINICIO", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_hrainicio));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@tiHRA_HORAFIN", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_hrafin));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodDisponible", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, toReturn));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Abre una conexión.
+                    _conexionBD.Open();
+                }
+                else
+                {
+                    if (_conexionBDProvider.IsTransactionPending)
+                    {
+                        cmdAEjecutar.Transaction = _conexionBDProvider.CurrentTransaction;
+                    }
+                }
+
+                // Ejecuta la consulta.
+                _codError = Int32.Parse(cmdAEjecutar.Parameters["@iCodError"].Value.ToString());
+
+                if (_codError != (int)ITCRError.AllOk)
+                {
+                    // Genera un error.
+                    throw new Exception("Procedimiento Almacenado 'pr_UDGDFARESERVACION_ConsultarDisponibilidad' reportó el error Código: " + _codError);
+                }
+
+                return toReturn;
+            }
+            catch (Exception ex)
+            {
+                // Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
+                throw new Exception("cUDGDFRESERVACIONDatos::ConsultarDisponibilidad::Ocurrió un error." + ex.Message, ex);
+            }
+            finally
+            {
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Cierra la conexión.
+                    _conexionBD.Close();
+                }
+                cmdAEjecutar.Dispose();
+            }
+        }
 	} //class
 } //namespace
