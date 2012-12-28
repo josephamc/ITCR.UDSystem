@@ -20,3 +20,4 @@ C:\Users\CesarLeonardo\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.
 C:\Users\CesarLeonardo\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.pdb
 C:\Users\CesarLeonardo\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.dll
 C:\Users\CesarLeonardo\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.pdb
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.csprojResolveAssemblyReference.cache
