@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using ITCR.UDSystem.Negocios;
 using System.Data;
 
-namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
+namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva
 {
-    public partial class EditaInstalacion : System.Web.UI.Page
+    public partial class FichaInstalacion : System.Web.UI.Page
     {
         private int IDinstalacionPrevia = -1;
         private int enEdicion = -1;
@@ -26,11 +26,11 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                     DataTable tabla = instalacionBase.SeleccionarUno();
 
                     txt_id.Text = instalacionBase.ID_INSTALACION.ToString();
-                    txt_nombre2.Text = instalacionBase.NOM_INSTALACION.ToString();
+                   txt_nombre2.Text = instalacionBase.NOM_INSTALACION.ToString();
                     txt_descripcion2.Value = instalacionBase.DSC_INSTALACION.ToString();
-                    txt_medidas2.Value = instalacionBase.DSC_MEDIDAS.ToString();
+                    txt_medidas2.Text = instalacionBase.DSC_MEDIDAS.ToString();
                     txt_reglamento2.Value = instalacionBase.TXT_REGLAMENTO.ToString();
-                    txt_costos2.Value = instalacionBase.TXT_COSTOALQUILER.ToString();
+                    txt_costos2.Text = instalacionBase.TXT_COSTOALQUILER.ToString();
                     string comentarios = instalacionBase.TXT_COMENTARIO.ToString();
                     if (comentarios != null)
                     {
@@ -51,19 +51,12 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
             enEdicion = Int32.Parse(txt_id.Text.ToString());
             if (enEdicion != -1)
             {
-                cUDGDFINSTALACIONNegocios Nueva_Instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
-                Nueva_Instalacion.ID_INSTALACION = enEdicion;
-                Nueva_Instalacion.NOM_INSTALACION = txt_nombre2.Text.ToString();
-                Nueva_Instalacion.DSC_INSTALACION = txt_descripcion2.Value.ToString();
-                Nueva_Instalacion.DSC_MEDIDAS = txt_medidas2.Value.ToString();
-                Nueva_Instalacion.TXT_REGLAMENTO = txt_reglamento2.Value.ToString();
-                Nueva_Instalacion.TXT_COSTOALQUILER = txt_costos2.Value.ToString();
-                Nueva_Instalacion.TXT_COMENTARIO = txt_comentarios2.Value.ToString();
 
-                Nueva_Instalacion.Actualizar();
-                Server.Transfer("~/Exito2.aspx", true);
+                Server.Transfer("/CU_SolicitarAreaDeportiva/formSolicitud.aspx", true);
             }
         }
+
+      
 
     }
 }

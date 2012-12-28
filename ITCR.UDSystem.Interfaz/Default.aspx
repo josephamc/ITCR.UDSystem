@@ -26,7 +26,13 @@
                 <p>
                     <asp:Button ID="Button3" runat="server" Text="Gestionar Solicitudes" 
                         Width="313px" onclick="Button3_Click" />
-            </p></td>
+                 </p>
+                    
+                    <p>
+                    <asp:Button ID="Button4" runat="server" Text="Solicitar Area Deportiva" 
+                        Width="313px" onclick="Button4_Click" />
+                        </p>
+            </td>
         </tr>
     </table>
 </asp:Content>

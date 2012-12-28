@@ -128,7 +128,7 @@
         </td>
         <td>
             &nbsp;&nbsp;&nbsp;
-            <asp:Image ID="Image1" runat="server" ImageUrl="~/imagenes/AdmInst2.jpg" />
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/imagenes/GestionarSolicitudes.jpg" width="297px" height="526px" />
             &nbsp;&nbsp;&nbsp;
         </td>
     </tr>

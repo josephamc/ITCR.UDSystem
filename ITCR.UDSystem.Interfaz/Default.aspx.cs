@@ -38,6 +38,15 @@ namespace ITCR.UDSystem.Interfaz
         protected void Button3_Click(object sender, EventArgs e)
         {
             Response.Redirect("GestionarSolicitudes/frmAdminSolicitud.aspx", true);
+
         }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CU_SolicitarAreaDeportiva/MostrarInstalacion.aspx", true);
+
+        }
+    
     }
+
 }

@@ -10,7 +10,7 @@ namespace ITCR.UDSystem.Interfaz
 {
     public partial class frmMantenimiento : System.Web.UI.Page
     {
-	private int CodFuncionalidad = 0; //asignar el codigo asignado por el sistema de seguridad 
+	//private int CodFuncionalidad = 0; //asignar el codigo asignado por el sistema de seguridad 
 
         protected void Page_Load(object sender, EventArgs e)
         {

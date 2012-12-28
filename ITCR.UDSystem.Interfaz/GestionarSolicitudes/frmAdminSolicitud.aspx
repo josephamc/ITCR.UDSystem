@@ -9,7 +9,8 @@
             <td>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Image ID="imgAdminSolicitudes" runat="server" 
-                    ImageUrl="~/imagenes/AdmInst2.jpg" />
+                      ImageUrl="~/imagenes/GestionarSolicitudes.jpg" width="297px" height="526px" />
+                   
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td valign="top">
