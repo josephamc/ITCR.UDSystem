@@ -14,7 +14,7 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva
         private int IDinstalacionPrevia = -1;
         private int enEdicion = -1;
 
-        private int ideditar = -1;
+       
 
         private int prueba;
 

@@ -13,6 +13,7 @@
     <RootNamespace>ITCR.UDSystem.Interfaz</RootNamespace>
     <AssemblyName>ITCR.UDSystem.Interfaz</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -78,6 +79,7 @@
     <Content Include="frmError.aspx" />
     <Content Include="frmMantenimiento.aspx" />
     <Content Include="frmNotificacion.aspx" />
+    <Content Include="frmOcupado.aspx" />
     <Content Include="GestionarSolicitudes\frmAdminSolicitud.aspx" />
     <Content Include="GestionarSolicitudes\frmSolicitud.aspx" />
     <Content Include="Global.asax" />
@@ -291,6 +293,13 @@
     </Compile>
     <Compile Include="frmNotificacion.aspx.designer.cs">
       <DependentUpon>frmNotificacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmOcupado.aspx.cs">
+      <DependentUpon>frmOcupado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmOcupado.aspx.designer.cs">
+      <DependentUpon>frmOcupado.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestionarSolicitudes\frmAdminSolicitud.aspx.cs">
       <DependentUpon>frmAdminSolicitud.aspx</DependentUpon>

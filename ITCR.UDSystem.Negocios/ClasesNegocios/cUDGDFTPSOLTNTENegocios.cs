@@ -233,5 +233,18 @@ namespace ITCR.UDSystem.Negocios
 				throw ex;
 			}
 		}
+
+
+        public override int BuscarID (string _dSC_TPSOLTNTE)
+        {
+            try
+            {
+                return base.BuscarID(_dSC_TPSOLTNTE);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 	} //class
 } //namespace

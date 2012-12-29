@@ -477,6 +477,9 @@ namespace ITCR.UDSystem.Base
 		}
 
 
+      
+
+
 		#region Declaraciones de propiedades de la clase
 		public SqlInt32 ID_TPSOLTNTE
 		{
