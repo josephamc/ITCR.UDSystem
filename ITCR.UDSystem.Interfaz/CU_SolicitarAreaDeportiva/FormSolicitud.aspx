@@ -21,7 +21,8 @@
                 <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td><asp:Label ID="lb_nombre" runat="server" Text="Nombre de la Instalación:" 
                         style="font-weight: 700"></asp:Label></td>
-                <td><asp:TextBox ID="txt_nombreInstalacion" runat="server" Width="227px"></asp:TextBox> </td>
+                         <td><asp:TextBox ID="txt_nombreInstalacion" runat="server"  readonly="true" Width="227px"></asp:TextBox> </td>
+                        
             </tr>
 
          
@@ -75,33 +76,81 @@
                         <td>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                         <td><asp:Label ID="hra_inicio" runat="server" Text="Hora Inicio:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_HoraInicio" runat="server" Width="90px"></asp:TextBox></td>
+                       <!-- <td><asp:TextBox ID="txt_HoraInicio" runat="server" Width="90px"></asp:TextBox></td>-->
                         <td><asp:DropDownList ID="ddlAmPm1" runat="server">
-                           <asp:ListItem Selected="True">AM</asp:ListItem>
-                           <asp:ListItem Selected="False">PM</asp:ListItem>
+                           <asp:ListItem Selected="True">1</asp:ListItem>
+                           <asp:ListItem Selected="False">2</asp:ListItem>
+                            <asp:ListItem Selected="false">3</asp:ListItem>
+                           <asp:ListItem Selected="False">4</asp:ListItem>
+                            <asp:ListItem Selected="false">5</asp:ListItem>
+                           <asp:ListItem Selected="False">6</asp:ListItem>
+                            <asp:ListItem Selected="false">7</asp:ListItem>
+                           <asp:ListItem Selected="False">8</asp:ListItem>
+                           <asp:ListItem Selected="false">9</asp:ListItem>
+                           <asp:ListItem Selected="False">10</asp:ListItem>
+                            <asp:ListItem Selected="false">11</asp:ListItem>
+                           <asp:ListItem Selected="False">12</asp:ListItem>
+                            <asp:ListItem Selected="false">13</asp:ListItem>
+                           <asp:ListItem Selected="False">14</asp:ListItem>
+                            <asp:ListItem Selected="false">15</asp:ListItem>
+                           <asp:ListItem Selected="False">16</asp:ListItem>
+                           <asp:ListItem Selected="False">17</asp:ListItem>
+                            <asp:ListItem Selected="false">18</asp:ListItem>
+                           <asp:ListItem Selected="False">19</asp:ListItem>
+                            <asp:ListItem Selected="false">20</asp:ListItem>
+                           <asp:ListItem Selected="False">21</asp:ListItem>
+                            <asp:ListItem Selected="false">22</asp:ListItem>
+                           <asp:ListItem Selected="False">23</asp:ListItem>
                         </asp:DropDownList></td>
-                        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_HoraInicio" ErrorMessage="*"></asp:RequiredFieldValidator></td>
-                        <td><asp:RegularExpressionValidator ID="TimeValidator2" runat="server" ControlToValidate="txt_HoraInicio" Display="Dynamic" ErrorMessage="Hora Invalida. Ingrese la hora en un formato adecuado, ejemplo: 12:30 o 5:00" ValidationExpression="^(1[0-2]|[1-9]):[0-5][0-9]$" EnableClientScript="False"></asp:RegularExpressionValidator></td>
+                        <td><asp:DropDownList ID="DropDownList3" runat="server">
+                           <asp:ListItem Selected="True">00</asp:ListItem>
+                           <asp:ListItem Selected="False">30</asp:ListItem>
+            
+                        </asp:DropDownList></td>
+                      
+
                     </tr>
         
                     <tr>            
                         <td>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                         <td><asp:Label ID="hra_fin" runat="server" Text="Hora Fin:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_HoraFin" runat="server" Width="90px"></asp:TextBox></td>
+                        
                         <td><asp:DropDownList ID="ddlAmPm2" runat="server">
-                           <asp:ListItem Selected="True">AM</asp:ListItem>
-                           <asp:ListItem Selected="False">PM</asp:ListItem>
+                          <asp:ListItem Selected="True">1</asp:ListItem>
+                           <asp:ListItem Selected="False">2</asp:ListItem>
+                            <asp:ListItem Selected="false">3</asp:ListItem>
+                           <asp:ListItem Selected="False">4</asp:ListItem>
+                            <asp:ListItem Selected="false">5</asp:ListItem>
+                           <asp:ListItem Selected="False">6</asp:ListItem>
+                            <asp:ListItem Selected="false">7</asp:ListItem>
+                           <asp:ListItem Selected="False">8</asp:ListItem>
+                           <asp:ListItem Selected="false">9</asp:ListItem>
+                           <asp:ListItem Selected="False">10</asp:ListItem>
+                            <asp:ListItem Selected="false">11</asp:ListItem>
+                           <asp:ListItem Selected="False">12</asp:ListItem>
+                            <asp:ListItem Selected="false">13</asp:ListItem>
+                           <asp:ListItem Selected="False">14</asp:ListItem>
+                            <asp:ListItem Selected="false">15</asp:ListItem>
+                           <asp:ListItem Selected="False">16</asp:ListItem>
+                           <asp:ListItem Selected="False">17</asp:ListItem>
+                            <asp:ListItem Selected="false">18</asp:ListItem>
+                           <asp:ListItem Selected="False">19</asp:ListItem>
+                            <asp:ListItem Selected="false">20</asp:ListItem>
+                           <asp:ListItem Selected="False">21</asp:ListItem>
+                            <asp:ListItem Selected="false">22</asp:ListItem>
+                           <asp:ListItem Selected="False">23</asp:ListItem>
                         </asp:DropDownList></td>
-                        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_HoraFin" ErrorMessage="*"></asp:RequiredFieldValidator></td>
-                        <td><asp:RegularExpressionValidator ID="TimeValidator1" runat="server" ControlToValidate="txt_HoraFin" Display="Dynamic" ErrorMessage="Hora Invalida. Ingrese la hora en un formato adecuado, ejemplo: 12:30 o 5:00" ValidationExpression="^(1[0-2]|[1-9]):[0-5][0-9]$" EnableClientScript="False"></asp:RegularExpressionValidator>
-                        </td>
+                        <td><asp:DropDownList ID="DropDownList4" runat="server">
+                           <asp:ListItem Selected="True">00</asp:ListItem>
+                           <asp:ListItem Selected="False">30</asp:ListItem>
+            
+                        </asp:DropDownList></td>
+                       
                     </tr>
                 </table>
                 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label2" runat="server" Text="Formato de Hora hh:mm , ejemplo: 12:45" 
-                        style="font-style: italic"></asp:Label></td>
+                </td>
             </tr>        
         </table>
     </div>

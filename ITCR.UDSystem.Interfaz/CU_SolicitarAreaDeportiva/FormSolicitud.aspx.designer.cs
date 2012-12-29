@@ -112,22 +112,13 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva {
         protected global::System.Web.UI.WebControls.DropDownList ddlAmPm1;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// DropDownList3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// TimeValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator TimeValidator2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
         
         /// <summary>
         /// hra_fin control.
@@ -139,15 +130,6 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva {
         protected global::System.Web.UI.WebControls.Label hra_fin;
         
         /// <summary>
-        /// txt_HoraFin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_HoraFin;
-        
-        /// <summary>
         /// ddlAmPm2 control.
         /// </summary>
         /// <remarks>
@@ -157,31 +139,13 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva {
         protected global::System.Web.UI.WebControls.DropDownList ddlAmPm2;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// DropDownList4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// TimeValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator TimeValidator1;
-        
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
         
         /// <summary>
         /// lb_solicitante control.

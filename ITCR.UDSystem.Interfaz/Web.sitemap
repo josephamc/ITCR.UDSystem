@@ -14,6 +14,13 @@
         <siteMapNode url="~/GestionarSolicitudes/frmSolicitud.aspx" title="Solicitud" description="Administracion Solicitudes"/>
       </siteMapNode>
       
+      <!-- Solicitud de areas -->
+      <siteMapNode url="~/CU_SolicitarAreaDeportiva/MostrarInstalacion.aspx" title="Instalaciones" description="Instalaciones">
+        <siteMapNode url="~/CU_SolicitarAreaDeportiva/FichaInstalacion.aspx" title="Informacion instalacion" description ="Informacion de la instalacion">
+          <siteMapNode url="~/CU_SolicitarAreaDeportiva/FormSolicitud.aspx" title="Formulario" description="Formulario de la solicitud" />
+        </siteMapNode>
+      </siteMapNode>
+      
       <!-- Notificacion -->
       <siteMapNode url="~/frmNotificacion.aspx" title="Notificacion" description="Estado de operacion">
         

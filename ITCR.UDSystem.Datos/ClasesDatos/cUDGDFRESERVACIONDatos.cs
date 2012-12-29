@@ -186,12 +186,13 @@ namespace ITCR.UDSystem.Datos
 
             try
             {
-                cmdAEjecutar.Parameters.Add(new SqlParameter("@sNOM_INSTALACION", SqlDbType.VarChar, 200, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_idInstalacion));
+              
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iIDInstalacion", SqlDbType.Int, 4, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_idInstalacion));
                 cmdAEjecutar.Parameters.Add(new SqlParameter("@daFEC_FECHAINICIO", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_fecinicio));
                 cmdAEjecutar.Parameters.Add(new SqlParameter("@daFEC_FECHAFIN", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_fecfin));
                 cmdAEjecutar.Parameters.Add(new SqlParameter("@tiHRA_HORAINICIO", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_hrainicio));
                 cmdAEjecutar.Parameters.Add(new SqlParameter("@tiHRA_HORAFIN", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_hrafin));
-                cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodDisponible", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, toReturn));
+               SqlParameter valor_retorno= cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodDisponible", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, toReturn));
                 cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
                 if (_conexionBDEsCreadaLocal)
                 {
@@ -207,7 +208,10 @@ namespace ITCR.UDSystem.Datos
                 }
 
                 // Ejecuta la consulta.
+                _filasAfectadas = cmdAEjecutar.ExecuteNonQuery();
+                toReturn = (int)valor_retorno.Value;
                 _codError = Int32.Parse(cmdAEjecutar.Parameters["@iCodError"].Value.ToString());
+                
 
                 if (_codError != (int)ITCRError.AllOk)
                 {

@@ -13,11 +13,27 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva
     {
         private int IDinstalacionPrevia = -1;
         private int enEdicion = -1;
+
+        private int ideditar = -1;
+
+        private int prueba;
+
+        public int IDPrueba
+        {
+            get
+            {
+                return prueba;
+            }
+        }
+            
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            prueba = -34;
             try
             {
                 IDinstalacionPrevia = PreviousPage.IDeditar;
+               
                 if (IDinstalacionPrevia != -1)
                 {
                     enEdicion = IDinstalacionPrevia;
@@ -52,8 +68,7 @@ namespace ITCR.UDSystem.Interfaz.CU_SolicitarAreaDeportiva
             if (enEdicion != -1)
             {
 
-                Server.Transfer("/CU_SolicitarAreaDeportiva/formSolicitud.aspx", true);
-               // Reponsose.redirect
+                Response.Redirect("/CU_SolicitarAreaDeportiva/formSolicitud.aspx?id="+enEdicion, true);
             }
         }
 
