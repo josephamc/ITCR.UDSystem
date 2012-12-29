@@ -30,3 +30,11 @@ C:\Users\CesarLeonardo\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\bin
 C:\Users\CesarLeonardo\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\obj\Debug\ITCR.UDSystem.Negocios.csprojResolveAssemblyReference.cache
 C:\Users\CesarLeonardo\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\obj\Debug\ITCR.UDSystem.Negocios.dll
 C:\Users\CesarLeonardo\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\obj\Debug\ITCR.UDSystem.Negocios.pdb
+C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\bin\Debug\ITCR.UDSystem.Negocios.dll.config
+C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\bin\Debug\ITCR.UDSystem.Negocios.dll
+C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\bin\Debug\ITCR.UDSystem.Negocios.pdb
+C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\bin\Debug\ITCR.UDSystem.Datos.dll
+C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\bin\Debug\ITCR.UDSystem.Datos.pdb
+C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\obj\Debug\ITCR.UDSystem.Negocios.dll
+C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Negocios\obj\Debug\ITCR.UDSystem.Negocios.pdb
