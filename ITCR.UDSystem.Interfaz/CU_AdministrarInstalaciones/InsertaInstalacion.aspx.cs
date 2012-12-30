@@ -41,8 +41,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
             Nuevo_Calendario.FKY_INSTALACION = idagregar;
             Nuevo_Calendario.Insertar();
 
-   
-            Response.Redirect("~/CU_AdministrarInstalaciones/InsertaHorario.aspx", true);
+            Server.Transfer("/CU_AdministrarInstalaciones/InsertaHorario.aspx", true);
         }
     }
 }
