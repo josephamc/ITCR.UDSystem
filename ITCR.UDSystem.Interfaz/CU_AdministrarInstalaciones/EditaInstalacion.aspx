@@ -51,6 +51,6 @@
         <br />
         &nbsp;<asp:Label ID="nota2" runat="server" Text="Los campos con * son obligatorios"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Button1" runat="server" Text="Editar Instalacion" 
+        <asp:Button ID="Button1" runat="server" Text="Editar Horarios" 
             onclick="Button1_Click" />
         &nbsp;</asp:Content>

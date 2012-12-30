@@ -180,7 +180,8 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
         protected void ButtonCont2_Click(object sender, EventArgs e)
         {
             TimeValidator2.Visible = false;
-            Server.Transfer("~/CU_AdministrarInstalaciones/InsertaImagenes.aspx", true);
+            //Server.Transfer("~/CU_AdministrarInstalaciones/InsertaImagenes.aspx", true);
+            Server.Transfer("~/Exito.aspx", true);
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
