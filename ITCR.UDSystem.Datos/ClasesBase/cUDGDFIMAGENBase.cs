@@ -349,7 +349,7 @@ namespace ITCR.UDSystem.Base
 		public bool EliminarTodo_Con_FKY_INSTALACION_FK()
 		{
 			SqlCommand	cmdAEjecutar = new SqlCommand();
-			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFIMAGEN_EliminarTodo_Con_FKY_INSTALACION_FK]";
+            cmdAEjecutar.CommandText = "dbo.[pr_UDGDFIMAGEN_EliminarTodo_FK_FKY_INSTALACION]";
 			cmdAEjecutar.CommandType = CommandType.StoredProcedure;
 
 			// Usar el objeto conexión de la clase base

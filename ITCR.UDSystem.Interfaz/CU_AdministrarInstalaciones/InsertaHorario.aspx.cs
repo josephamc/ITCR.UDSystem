@@ -182,5 +182,16 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
             TimeValidator2.Visible = false;
             Server.Transfer("~/CU_AdministrarInstalaciones/InsertaImagenes.aspx", true);
         }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int id = Convert.ToInt32(Grid_Horarios.DataKeys[e.RowIndex].Value.ToString());
+
+            cUDGDFHORARIONegocios horario = new cUDGDFHORARIONegocios(0, "", 0, "");
+            horario.ID_HORARIO = id;
+            horario.Eliminar();
+
+            ActualiceGrid();
+        }
     }
 }

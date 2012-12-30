@@ -57,6 +57,25 @@ namespace ITCR.UDSystem.Datos
 			return base.Insertar();
 		}
 
+        /// <summary>
+        /// Propósito: Método Eliminar. Este método elimina una fila nueva en la base de datos.
+        /// </summary>
+        /// <returns>True si tuvo éxito, sino genera una Exception. </returns>
+        /// <remarks>
+        /// Propiedades necesarias para este método: 
+        /// <UL>
+        ///		 <LI>ID_HORARIO</LI>
+        /// </UL>
+        /// Propiedades actualizadas luego de una llamada exitosa a este método: 
+        /// <UL>
+        ///		 <LI>CodError</LI>
+        /// </UL>
+        /// </remarks>
+        public override bool Eliminar()
+        {
+            return base.Eliminar();
+        }
+
 
 		/// <summary>
 		/// Propósito: Método SeleccionarTodos. Este método va a Hacer un SELECT All de tabla.
