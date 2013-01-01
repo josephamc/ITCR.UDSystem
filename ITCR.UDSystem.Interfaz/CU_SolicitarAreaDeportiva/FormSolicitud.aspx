@@ -31,19 +31,7 @@
         <table>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td><asp:Calendar ID="Calendar1" runat="server" BackColor="White" 
-                        BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" 
-                        ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
-                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
-                        VerticalAlign="Bottom" />
-                    <OtherMonthDayStyle ForeColor="#999999" />
-                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" 
-                        Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                    <TodayDayStyle BackColor="#CCCCCC" />
-                    </asp:Calendar>
-                </td>
+              
 
                 <td><table>
                     <tr>
@@ -64,7 +52,7 @@
                 <div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="Label3" runat="server" 
-                        Text="Formato de Fecha dd/MM/yyyy , ejemplo: 23/12/2012" 
+                        Text="Formato de Fecha yyyy-MM-dd , ejemplo: 2012-12-31" 
                         style="font-style: italic"></asp:Label>
                 </div>
 
@@ -230,7 +218,7 @@
              </tr>
 
     </table>
-        <p>Nota: Los campos con * son opccionales <br />
+        <p>Nota: Los campos con * son opcionales <br />
         Las personas involucradas deben ser ingresadas de la forma Nombre completo persona1, nombre completo persona2, ......
         </p>
 

@@ -18,6 +18,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //TimeValidator2.Visible = false;
             try
             {
                 idAgregar = PreviousPage.IDAgregar;
@@ -30,89 +31,98 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
 
         protected void ButtonGuardarHoarario_Click(object sender, EventArgs e)
         {
-            //Dim strDateTime As String = txtDate.Text & " " & txtTime.Text & " " & ddlAmPm.SelectedItem.Value
-            string Inicio = txt_Inicio.Text + ":00 " + ddlAmPm1.SelectedItem.Value.ToString();
-            string Fin = txt_Fin.Text + ":00 " + ddlAmPm2.SelectedItem.Value.ToString();
-
-            DateTime Hoy = DateTime.Today;
-            string fecha_actual = Hoy.ToString("dd-MM-yyyy");
-            int IDInstalacion = Int32.Parse(lb_id.Text);
-
-            if (ck_lunes.Checked == true)
+            TimeValidator2.Visible = false;
+            try
             {
-                cUDGDFHORARIONegocios Nuevo_Horario_lunes = new cUDGDFHORARIONegocios(0, "", 0, "");
-                Nuevo_Horario_lunes.COD_DIA = 1;
-                Nuevo_Horario_lunes.FKY_INSTALACION = IDInstalacion;
-                Nuevo_Horario_lunes.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
-                Nuevo_Horario_lunes.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
-                    
-                Nuevo_Horario_lunes.Insertar();
-            }
-            if (ck_martes.Checked == true)
-            {
-                cUDGDFHORARIONegocios Nuevo_Horario_martes = new cUDGDFHORARIONegocios(0, "", 0, "");
-                Nuevo_Horario_martes.COD_DIA = 2;
-                Nuevo_Horario_martes.FKY_INSTALACION = IDInstalacion;
-                Nuevo_Horario_martes.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
-                Nuevo_Horario_martes.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
+                //Dim strDateTime As String = txtDate.Text & " " & txtTime.Text & " " & ddlAmPm.SelectedItem.Value
+                string Inicio = txt_Inicio.Text + ":00 " + ddlAmPm1.SelectedItem.Value.ToString();
+                string Fin = txt_Fin.Text + ":00 " + ddlAmPm2.SelectedItem.Value.ToString();
 
-                Nuevo_Horario_martes.Insertar();
-            }
-            if (ck_miercoles.Checked == true)
-            {
-                cUDGDFHORARIONegocios Nuevo_Horario_miercoles = new cUDGDFHORARIONegocios(0, "", 0, "");
-                Nuevo_Horario_miercoles.COD_DIA = 3;
-                Nuevo_Horario_miercoles.FKY_INSTALACION = IDInstalacion;
-                Nuevo_Horario_miercoles.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
-                Nuevo_Horario_miercoles.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
+                DateTime Hoy = DateTime.Today;
+                string fecha_actual = Hoy.ToString("dd-MM-yyyy");
+                int IDInstalacion = Int32.Parse(lb_id.Text);
 
-                Nuevo_Horario_miercoles.Insertar();
-            }
-            if (ck_jueves.Checked == true)
-            {
-                cUDGDFHORARIONegocios Nuevo_Horario_jueves = new cUDGDFHORARIONegocios(0, "", 0, "");
-                Nuevo_Horario_jueves.COD_DIA = 4;
-                Nuevo_Horario_jueves.FKY_INSTALACION = IDInstalacion;
-                Nuevo_Horario_jueves.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
-                Nuevo_Horario_jueves.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
+                if (ck_lunes.Checked == true)
+                {
+                    cUDGDFHORARIONegocios Nuevo_Horario_lunes = new cUDGDFHORARIONegocios(0, "", 0, "");
+                    Nuevo_Horario_lunes.COD_DIA = 1;
+                    Nuevo_Horario_lunes.FKY_INSTALACION = IDInstalacion;
+                    Nuevo_Horario_lunes.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
+                    Nuevo_Horario_lunes.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
 
-                Nuevo_Horario_jueves.Insertar();
-            }
-            if (ck_viernes.Checked == true)
-            {
-                cUDGDFHORARIONegocios Nuevo_Horario_viernes = new cUDGDFHORARIONegocios(0, "", 0, "");
-                Nuevo_Horario_viernes.COD_DIA = 5;
-                Nuevo_Horario_viernes.FKY_INSTALACION = IDInstalacion;
-                Nuevo_Horario_viernes.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
-                Nuevo_Horario_viernes.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
+                    Nuevo_Horario_lunes.Insertar();
+                }
+                if (ck_martes.Checked == true)
+                {
+                    cUDGDFHORARIONegocios Nuevo_Horario_martes = new cUDGDFHORARIONegocios(0, "", 0, "");
+                    Nuevo_Horario_martes.COD_DIA = 2;
+                    Nuevo_Horario_martes.FKY_INSTALACION = IDInstalacion;
+                    Nuevo_Horario_martes.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
+                    Nuevo_Horario_martes.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
 
-                Nuevo_Horario_viernes.Insertar();
-            }
-            if (ck_sabado.Checked == true)
-            {
-                cUDGDFHORARIONegocios Nuevo_Horario_sabado = new cUDGDFHORARIONegocios(0, "", 0, "");
-                Nuevo_Horario_sabado.COD_DIA = 6;
-                Nuevo_Horario_sabado.FKY_INSTALACION = IDInstalacion;
-                Nuevo_Horario_sabado.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
-                Nuevo_Horario_sabado.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
+                    Nuevo_Horario_martes.Insertar();
+                }
+                if (ck_miercoles.Checked == true)
+                {
+                    cUDGDFHORARIONegocios Nuevo_Horario_miercoles = new cUDGDFHORARIONegocios(0, "", 0, "");
+                    Nuevo_Horario_miercoles.COD_DIA = 3;
+                    Nuevo_Horario_miercoles.FKY_INSTALACION = IDInstalacion;
+                    Nuevo_Horario_miercoles.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
+                    Nuevo_Horario_miercoles.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
 
-                Nuevo_Horario_sabado.Insertar();
-            }
-            if (ck_domingo.Checked == true)
-            {
-                cUDGDFHORARIONegocios Nuevo_Horario_domingo = new cUDGDFHORARIONegocios(0, "", 0, "");
-                Nuevo_Horario_domingo.COD_DIA = 7;
-                Nuevo_Horario_domingo.FKY_INSTALACION = IDInstalacion;
-                Nuevo_Horario_domingo.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
-                Nuevo_Horario_domingo.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
+                    Nuevo_Horario_miercoles.Insertar();
+                }
+                if (ck_jueves.Checked == true)
+                {
+                    cUDGDFHORARIONegocios Nuevo_Horario_jueves = new cUDGDFHORARIONegocios(0, "", 0, "");
+                    Nuevo_Horario_jueves.COD_DIA = 4;
+                    Nuevo_Horario_jueves.FKY_INSTALACION = IDInstalacion;
+                    Nuevo_Horario_jueves.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
+                    Nuevo_Horario_jueves.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
 
-                Nuevo_Horario_domingo.Insertar();
-            }
+                    Nuevo_Horario_jueves.Insertar();
+                }
+                if (ck_viernes.Checked == true)
+                {
+                    cUDGDFHORARIONegocios Nuevo_Horario_viernes = new cUDGDFHORARIONegocios(0, "", 0, "");
+                    Nuevo_Horario_viernes.COD_DIA = 5;
+                    Nuevo_Horario_viernes.FKY_INSTALACION = IDInstalacion;
+                    Nuevo_Horario_viernes.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
+                    Nuevo_Horario_viernes.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
 
-            ActualiceGrid();
+                    Nuevo_Horario_viernes.Insertar();
+                }
+                if (ck_sabado.Checked == true)
+                {
+                    cUDGDFHORARIONegocios Nuevo_Horario_sabado = new cUDGDFHORARIONegocios(0, "", 0, "");
+                    Nuevo_Horario_sabado.COD_DIA = 6;
+                    Nuevo_Horario_sabado.FKY_INSTALACION = IDInstalacion;
+                    Nuevo_Horario_sabado.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
+                    Nuevo_Horario_sabado.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
+
+                    Nuevo_Horario_sabado.Insertar();
+                }
+                if (ck_domingo.Checked == true)
+                {
+                    cUDGDFHORARIONegocios Nuevo_Horario_domingo = new cUDGDFHORARIONegocios(0, "", 0, "");
+                    Nuevo_Horario_domingo.COD_DIA = 7;
+                    Nuevo_Horario_domingo.FKY_INSTALACION = IDInstalacion;
+                    Nuevo_Horario_domingo.HRA_INICIO = Convert.ToDateTime(/*fecha_actual + " "+ */ Inicio);
+                    Nuevo_Horario_domingo.HRA_FIN = Convert.ToDateTime(/*fecha_actual + " " + */Fin);
+
+                    Nuevo_Horario_domingo.Insertar();
+                }
+
+                ActualiceGrid();
+            }
+            catch (Exception o)
+            {                
+                TimeValidator2.Visible = true;
+            }
         }
         private void ActualiceGrid()
         {
+            //TimeValidator2.Visible = false;
             Horario.FKY_INSTALACION = Int32.Parse(lb_id.Text);
             Horario.FKY_INSTALACIONOld = Int32.Parse(lb_id.Text);
             tablaHorarios = Horario.SeleccionarTodos_Con_FKY_INSTALACION_FK();
@@ -169,7 +179,20 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
 
         protected void ButtonCont2_Click(object sender, EventArgs e)
         {
-            Server.Transfer("~/CU_AdministrarInstalaciones/InsertaImagenes.aspx", true);
+            TimeValidator2.Visible = false;
+            //Server.Transfer("~/CU_AdministrarInstalaciones/InsertaImagenes.aspx", true);
+            Server.Transfer("~/Exito.aspx", true);
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int id = Convert.ToInt32(Grid_Horarios.DataKeys[e.RowIndex].Value.ToString());
+
+            cUDGDFHORARIONegocios horario = new cUDGDFHORARIONegocios(0, "", 0, "");
+            horario.ID_HORARIO = id;
+            horario.Eliminar();
+
+            ActualiceGrid();
         }
     }
 }

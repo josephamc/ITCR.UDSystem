@@ -13,6 +13,14 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
     {
         private int IDinstalacionPrevia = -1;
         private int enEdicion = -1;
+        private int ideditar = -1;
+        public int IDEditar2
+        {
+            get
+            {
+                return ideditar;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -21,6 +29,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                 if (IDinstalacionPrevia != -1)
                 {
                     enEdicion = IDinstalacionPrevia;
+                    ideditar = enEdicion;
                     cUDGDFINSTALACIONNegocios instalacionBase = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
                     instalacionBase.ID_INSTALACION = IDinstalacionPrevia;
                     DataTable tabla = instalacionBase.SeleccionarUno();
@@ -49,6 +58,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
         protected void Button1_Click(object sender, EventArgs e)
         {
             enEdicion = Int32.Parse(txt_id.Text.ToString());
+            ideditar = enEdicion;
             if (enEdicion != -1)
             {
                 cUDGDFINSTALACIONNegocios Nueva_Instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
@@ -61,7 +71,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                 Nueva_Instalacion.TXT_COMENTARIO = txt_comentarios2.Value.ToString();
 
                 Nueva_Instalacion.Actualizar();
-                Server.Transfer("~/Exito2.aspx", true);
+                Server.Transfer("~/CU_AdministrarInstalaciones/EditaHorario.aspx", true);
             }
         }
 

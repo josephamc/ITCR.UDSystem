@@ -67,15 +67,6 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// Control TimeValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator TimeValidator2;
-        
-        /// <summary>
         /// Control hra_fin.
         /// </summary>
         /// <remarks>
@@ -112,15 +103,6 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Control TimeValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator TimeValidator1;
-        
-        /// <summary>
         /// Control nota.
         /// </summary>
         /// <remarks>
@@ -128,6 +110,15 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label nota;
+        
+        /// <summary>
+        /// Control TimeValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator TimeValidator2;
         
         /// <summary>
         /// Control ck_lunes.
