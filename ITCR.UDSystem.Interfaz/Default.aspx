@@ -5,6 +5,7 @@
 
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+<br />
     <div id="imglogo">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          <img src="../../imagenes/bienvenido.JPG" alt=""/>

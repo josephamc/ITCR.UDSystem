@@ -48,3 +48,11 @@ C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Interfaz\obj\Debug\
 C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\obj\Debug\ITCR.UDSystem.Interfaz.csprojResolveAssemblyReference.cache
 C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\obj\Debug\ITCR.UDSystem.Interfaz.frmError.resources
 C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\obj\Debug\ITCR.UDSystem.Interfaz.csproj.GenerateResource.Cache
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\bin\ITCR.UDSystem.Interfaz.dll
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\bin\ITCR.UDSystem.Interfaz.pdb
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\bin\ITCR.UDSystem.Datos.dll
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\bin\ITCR.UDSystem.Negocios.dll
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\bin\ITCR.UDSystem.Datos.pdb
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\bin\ITCR.UDSystem.Negocios.pdb
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\obj\Debug\ITCR.UDSystem.Interfaz.dll
+C:\Users\Joseph\Desktop\ITCR.UDSystem\ITCR.UDSystem.Interfaz\obj\Debug\ITCR.UDSystem.Interfaz.pdb
