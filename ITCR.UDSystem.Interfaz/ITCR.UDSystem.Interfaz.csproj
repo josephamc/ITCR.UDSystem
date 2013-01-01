@@ -86,7 +86,7 @@
     <Content Include="Global.asax" />
     <Content Include="imagenes\add02.png" />
     <Content Include="imagenes\AdmInst2.jpg" />
-    <Content Include="imagenes\bienvenido.jpg" />
+    <Content Include="imagenes\bienvenido.JPG" />
     <Content Include="imagenes\calendario01.jpg" />
     <Content Include="imagenes\correcto02.jpg" />
     <Content Include="imagenes\docencia01.jpg" />

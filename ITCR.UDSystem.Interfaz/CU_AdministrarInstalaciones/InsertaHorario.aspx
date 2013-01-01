@@ -24,7 +24,6 @@
         <tr>
             <td class="style2"> >>>Paso1: Incluir Informacion General</td>
             <td class="style3"> <strong>>>>Paso2: Incluir horario de la instalación</strong></td>
-            <td> >>>Paso3: Incluir imagenes</td>
         </tr>
     </table>
     <br />

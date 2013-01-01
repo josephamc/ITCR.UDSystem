@@ -7,7 +7,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div id="imglogo">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <img src="../../imagenes/bienvenido.jpg" alt=""/>
+         <img src="../../imagenes/bienvenido.JPG" alt=""/>
     </div>
     <br />
     <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Menu Temporal</h2>
