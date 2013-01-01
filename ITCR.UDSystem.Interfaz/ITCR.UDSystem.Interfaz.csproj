@@ -58,6 +58,7 @@
     <Content Include="CU_AdministrarCalendario\IndiceCalendario.aspx" />
     <Content Include="CU_AdministrarCalendario\InsertaCurso.aspx" />
     <Content Include="CU_AdministrarCalendario\InsertaEvento.aspx" />
+    <Content Include="CU_AdministrarInstalaciones\EditaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx" />
     <Content Include="CU_SolicitarAreaDeportiva\FichaInstalacion.aspx" />
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="CU_AdministrarCalendario\InsertaEvento.aspx.designer.cs">
       <DependentUpon>InsertaEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\EditaHorario.aspx.cs">
+      <DependentUpon>EditaHorario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\EditaHorario.aspx.designer.cs">
+      <DependentUpon>EditaHorario.aspx</DependentUpon>
     </Compile>
     <Compile Include="CU_AdministrarInstalaciones\InsertaHorario.aspx.cs">
       <DependentUpon>InsertaHorario.aspx</DependentUpon>
@@ -384,6 +392,7 @@
   <ItemGroup>
     <EmbeddedResource Include="frmError.aspx.resx">
       <DependentUpon>frmError.aspx.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -134,7 +134,7 @@ namespace ITCR.UDSystem.Base
 		public bool EliminarTodo_Con_FKY_INSTALACION_FK()
 		{
 			SqlCommand	cmdAEjecutar = new SqlCommand();
-			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFHORARIO_EliminarTodo_Con_FKY_INSTALACION_FK]";
+            cmdAEjecutar.CommandText = "dbo.[pr_UDGDFHORARIO_EliminarTodo_FK_FKY_INSTALACION]";
 			cmdAEjecutar.CommandType = CommandType.StoredProcedure;
 
 			// Usar el objeto conexión de la clase base
@@ -495,6 +495,75 @@ namespace ITCR.UDSystem.Base
 			}
 		}
 
+
+        /// <summary>
+        /// Propósito: Método Eliminar. Borra una fila en la base de datos, basado en la llave primaria.
+        /// </summary>
+        /// <returns>True si tuvo éxito, sino genera una Exception. </returns>
+        /// <remarks>
+        /// Propiedades necesarias para este método: 
+        /// <UL>
+        ///		 <LI>ID_HORARIO</LI>
+        /// </UL>
+        /// Propiedades actualizadas luego de una llamada exitosa a este método: 
+        /// <UL>
+        ///		 <LI>CodError</LI>
+        /// </UL>
+        /// </remarks>
+        public override bool Eliminar()
+        {
+            SqlCommand cmdAEjecutar = new SqlCommand();
+            cmdAEjecutar.CommandText = "dbo.[pr_UDGDFHORARIO_Eliminar]";
+            cmdAEjecutar.CommandType = CommandType.StoredProcedure;
+
+            // Usar el objeto conexión de la clase base
+            cmdAEjecutar.Connection = _conexionBD;
+
+            try
+            {
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iD_HORARIO", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _iD_HORARIO));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
+
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Abre una conexión.
+                    _conexionBD.Open();
+                }
+                else
+                {
+                    if (_conexionBDProvider.IsTransactionPending)
+                    {
+                        cmdAEjecutar.Transaction = _conexionBDProvider.CurrentTransaction;
+                    }
+                }
+
+                // Ejecuta la consulta.
+                _filasAfectadas = cmdAEjecutar.ExecuteNonQuery();
+                _codError = Int32.Parse(cmdAEjecutar.Parameters["@iCodError"].Value.ToString());
+
+                if (_codError != (int)ITCRError.AllOk)
+                {
+                    // Genera un error.
+                    throw new Exception("Procedimiento Almacenado 'pr_UDGDFHORARIO_Eliminar' reportó el error Codigo: " + _codError);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
+                throw new Exception("cUDGDFHORARIOBase::Eliminar::Ocurrió un error." + ex.Message, ex);
+            }
+            finally
+            {
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Cierra la conexión.
+                    _conexionBD.Close();
+                }
+                cmdAEjecutar.Dispose();
+            }
+        }
 
 		#region Declaraciones de propiedades de la clase
 		public SqlInt32 ID_HORARIO

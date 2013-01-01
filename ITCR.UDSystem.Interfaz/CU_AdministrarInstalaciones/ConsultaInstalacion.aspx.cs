@@ -41,10 +41,12 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
             }
             Grid_Instalaciones.DataSource = tablaInstalaciones;
             Grid_Instalaciones.DataBind();
+            errorEliminar01.Visible = false;
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            errorEliminar01.Visible = false;
             Grid_Instalaciones.EditIndex = e.NewEditIndex;
 
             int id = Convert.ToInt32(Grid_Instalaciones.DataKeys[e.NewEditIndex].Value.ToString());
@@ -53,6 +55,44 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
             ideditar = id;
 
             Server.Transfer("/CU_AdministrarInstalaciones/EditaInstalacion.aspx", true);
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int id = Convert.ToInt32(Grid_Instalaciones.DataKeys[e.RowIndex].Value.ToString());
+
+            try
+            {
+                cUDGDFCALENDARIONegocios calendario = new cUDGDFCALENDARIONegocios(0, "", 0, "");
+                calendario.FKY_INSTALACION = id;
+                calendario.FKY_INSTALACIONOld = id;
+                calendario.EliminarTodo_Con_FKY_INSTALACION_FK();
+
+                cUDGDFHORARIONegocios horarios = new cUDGDFHORARIONegocios(0, "", 0, "");
+                horarios.FKY_INSTALACION = id;
+                horarios.FKY_INSTALACIONOld = id;
+                horarios.EliminarTodo_Con_FKY_INSTALACION_FK();
+
+                cUDGDFIMAGENNegocios imagenes = new cUDGDFIMAGENNegocios(0, "", 0, "");
+                imagenes.FKY_INSTALACION = id;
+                imagenes.FKY_INSTALACIONOld = id;
+                imagenes.EliminarTodo_Con_FKY_INSTALACION_FK();
+
+                cUDGDFRZNUSONegocios estadisticas = new cUDGDFRZNUSONegocios(0, "", 0, "");
+                estadisticas.FKY_INSTALACION = id;
+                estadisticas.FKY_INSTALACIONOld = id;
+                estadisticas.EliminarTodo_Con_FKY_INSTALACION_FK();
+
+                cUDGDFINSTALACIONNegocios inst = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
+                inst.ID_INSTALACION = id;
+                inst.Eliminar();
+
+                Server.Transfer(Request.RawUrl);
+            }
+            catch (Exception o)
+            {
+                errorEliminar01.Visible = true;
+            }
         }
                 
     }
