@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InsertaHorario.aspx.cs" Inherits="ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones.InsertaHorario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditaHorario.aspx.cs" Inherits="ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones.EditaHorario" %>
 
-<%@ PreviousPageType VirtualPath="~/CU_AdministrarInstalaciones/InsertaInstalacion.aspx" %>
+<%@ PreviousPageType VirtualPath="~/CU_AdministrarInstalaciones/EditaInstalacion.aspx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+
     <style type="text/css">
         .style1
         {
@@ -19,13 +20,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h2>Insertar Instalacion</h2>
-    <table>
-        <tr>
-            <td class="style2"> >>>Paso1: Incluir Informacion General</td>
-            <td class="style3"> <strong>>>>Paso2: Incluir horario de la instalación</strong></td>
-        </tr>
-    </table>
+<h2>Editar Horario</h2>
     <br />
     <br />
     <fieldset style="width: 800px">
@@ -146,7 +141,7 @@
                 <td>
                     <div>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="ButtonCont2" runat="server" Text="Continuar" Width="229px" 
+                        <asp:Button ID="ButtonCont2" runat="server" Text="Finalizar Edición" Width="229px" 
                             onclick="ButtonCont2_Click" Height="28px" />
                     </div>
                 </td>
@@ -154,5 +149,4 @@
         </table>
     </div>
     <br />
-    
 </asp:Content>
