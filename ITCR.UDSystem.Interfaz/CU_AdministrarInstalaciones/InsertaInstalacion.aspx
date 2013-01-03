@@ -26,11 +26,11 @@
     <br />    
     <div id="imglogo">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <img src="../../imagenes/ImgND2.png" alt=""/>
+         <img src="../../imagenes/InsIMG02.jpg" alt=""/>
     </div>
     <table>
         <tr>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
             <td><fieldset style="width: 800px; background-color: #587594;">
                 <div>
                     <table>
