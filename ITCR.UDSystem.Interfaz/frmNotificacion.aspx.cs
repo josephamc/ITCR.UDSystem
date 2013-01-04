@@ -25,20 +25,31 @@ namespace ITCR.UDSystem.Interfaz
                     switch (sStatus)
                     {
                         case "true":
-                            csSolicitud.AceptarSolicitud();
-                            lblMessage.Text = "El usuario será notificado de que su solicitud ha sido aceptada";
+                            if (csSolicitud.AceptarSolicitud() == 1)
+                            {
+                                lbltitle.Text = "¡ Realizacion Exitosa !";
+                                lblMessage.Text = "El usuario será notificado de que su solicitud ha sido aceptada";
+                            }
+                            else
+                            {
+                                lbltitle.Text = "¡ Error en la operación !";
+                                lblMessage.Text = "La solicitud no puede ser aceptada debido a que existe un choque de horarios";
+                            }
                             break;
                         case "false":
                             csSolicitud.RechazarSolicitud();
+                            lbltitle.Text = "¡ Realizacion Exitosa !";
                             lblMessage.Text = "El usuario será notificado de que su solicitud ha sido rechazada";
                             break;
                     }//switch sStatus
                     // Envia el correo al usuario
                     break;
                 case "notCor":
+                    lbltitle.Text = "¡ Realizacion Exitosa !";
                     lblMessage.Text = "La operación ha sido realizada con éxito";
                     break;
                 case "notInc":
+                    lbltitle.Text = "¡ Error en la operación !";
                     lblMessage.Text = "La operacion no ha podido ser realizada con éxito, por favor vuelva a intentarlo mas tarde";
                     break;
             }//switch sOperacion

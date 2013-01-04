@@ -171,7 +171,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
 
                 ActualiceGrid();
             }
-            catch (Exception o)
+            catch (Exception)
             {
                 TimeValidator2.Visible = true;
             }

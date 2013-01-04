@@ -11,7 +11,8 @@
         </td>
         <td>
             <div>
-                <h1> ¡ Realizacion Exitosa ! </h1>
+                <h1> 
+                    <asp:Label ID="lbltitle" runat="server" Text="Label"></asp:Label> </h1>
                 <h3>
                     <asp:Label ID="lblMessage" runat="server" Text="Message"></asp:Label>
                 </h3>

@@ -13,8 +13,9 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
         /// <summary>
         /// Acepta una solicitud realizada por un usuario
         /// </summary>
-        public void AceptarSolicitud()
+        public int AceptarSolicitud()
         {
+            int iResultado = 1000;
             cUDGDFSOLICITUDNegocios cSolicitud = new cUDGDFSOLICITUDNegocios(0, "", 0, "");
             cUDGDFAPROBACIONNegocios cAprobacion = new cUDGDFAPROBACIONNegocios(0, "", 0, "");
             cUDGDFRESERVACIONNegocios cReservacion = new cUDGDFRESERVACIONNegocios(0, "", 0, "");
@@ -32,23 +33,52 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                 sNotificacionMessage = "Su solicitud ha sido procesada. Para más informacion del resultado comuniquese con la unidad de deportes del Instituto Tecnológico de Costa Rica.";       
             }
 
-            // Realiza la reservacion para la solicitud especificada
-            cReservacion.FEC_FECHAFIN = (DateTime)drSolicitud[2];
-            cReservacion.FEC_FECHAINICIO = (DateTime)drSolicitud[1];
-            cReservacion.HRA_HORAINICIO = DateTime.Parse(drSolicitud[4].ToString());
-            cReservacion.HRA_HORAFIN = DateTime.Parse(drSolicitud[5].ToString());
-            cReservacion.Insertar();
+        ///      <LI>ID_SOLICITUD</LI>
+		///		 <LI>FKY_INSTALACION</LI>
+		///		 <LI>FEC_INICIO</LI>
+		///		 <LI>FEC_FIN</LI>
+		///		 <LI>FEC_SOLICITUD</LI>
+		///		 <LI>HRA_INICIO</LI>
+		///		 <LI>HRA_FIN</LI>
+		///		 <LI>NOM_ENCARGADO</LI>
+		///		 <LI>NOM_INSTITUCION</LI>
+		///		 <LI>COD_IDENTIFICACION</LI>
+		///		 <LI>CAN_USUARIOS</LI>
+		///		 <LI>FKY_TIPOSOLICITANTE</LI>
+		///		 <LI>TXT_OBSERVACIONES. May be SqlString.Null</LI>
+		///		 <LI>DSC_RAZONUSO</LI>
+		///		 <LI>COD_TIPOSOLICITUD</LI>
+		///		 <LI>TXT_CORREO</LI>
+		///		 <LI>COD_ATENDIDO</LI>
+		///		 <LI>TXT_USUARIOS</LI>
+
+            iResultado = cReservacion.ConsultarDisponibilidad(DateTime.Parse(drSolicitud[2].ToString()), DateTime.Parse(drSolicitud[3].ToString()), DateTime.Parse(drSolicitud[5].ToString()), DateTime.Parse(drSolicitud[6].ToString()), int.Parse(drSolicitud[0].ToString()));
             
-            // Ingresa la solicitud como aceptada
-            cAprobacion.FKY_RESEREVACION = cReservacion.ID_RESERVACION;
-            cAprobacion.FKY_SOLICITUD = int.Parse(drSolicitud[0].ToString());
-            cAprobacion.Insertar();
+            if (iResultado == 1)
+            {
+                // Realiza la reservacion para la solicitud especificada
+                cReservacion.FEC_FECHAFIN = (DateTime)drSolicitud[2];
+                cReservacion.FEC_FECHAINICIO = (DateTime)drSolicitud[1];
+                cReservacion.HRA_HORAINICIO = DateTime.Parse(drSolicitud[4].ToString());
+                cReservacion.HRA_HORAFIN = DateTime.Parse(drSolicitud[5].ToString());
+                cReservacion.Insertar();
 
-            // Actualiza la solicitud estableciendola como atendida
-            cSolicitud.ActualizarAtendidoConID(int.Parse(drSolicitud[0].ToString()));
+                // Ingresa la solicitud como aceptada
+                cAprobacion.FKY_RESEREVACION = cReservacion.ID_RESERVACION;
+                cAprobacion.FKY_SOLICITUD = int.Parse(drSolicitud[0].ToString());
+                cAprobacion.Insertar();
 
-            // Envia un correo al usuario
-            this.EnviarCorreo(drSolicitud[13].ToString(), drSolicitud[6].ToString(), sNotificacionMessage);
+                // Actualiza la solicitud estableciendola como atendida
+                cSolicitud.ActualizarAtendidoConID(int.Parse(drSolicitud[0].ToString()));
+
+                // Envia un correo al usuario
+                this.EnviarCorreo(drSolicitud[13].ToString(), drSolicitud[6].ToString(), sNotificacionMessage);
+
+                return 1;
+            }
+
+            else
+                return -1;
         }
 
         /// <summary>
