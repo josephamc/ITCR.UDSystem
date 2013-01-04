@@ -32,7 +32,7 @@ namespace ITCR.UDSystem.Interfaz
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Server.Transfer("CU_AdministrarCalendario/IndiceCalendario.aspx", true);
+            //Server.Transfer("CU_AdministrarCalendario/IndiceCalendario.aspx", true);
         }
 
         protected void Button3_Click(object sender, EventArgs e)

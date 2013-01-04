@@ -17,22 +17,17 @@
         <tr>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
 
-            <td><p>
+            <td>
+            <p>
                 <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Administrar Instalaciones Deportivas" Width="313px"/>
             </p>
-
+            <p>
+                <asp:Button ID="Button3" runat="server" Text="Gestionar Solicitudes" 
+                Width="313px" onclick="Button3_Click" />
+            </p>
             <p>
                 <asp:Button ID="Button2" runat="server" onclick="Button2_Click"  Text="Administrar Calendario" Width="313px" />
             </p>
-                <p>
-                    <asp:Button ID="Button3" runat="server" Text="Gestionar Solicitudes" 
-                        Width="313px" onclick="Button3_Click" />
-                 </p>
-                    
-                    <p>
-                    <asp:Button ID="Button4" runat="server" Text="Solicitar Area Deportiva" 
-                        Width="313px" onclick="Button4_Click" />
-                        </p>
             </td>
         </tr>
     </table>

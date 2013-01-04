@@ -191,7 +191,8 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
         {
             TimeValidator2.Visible = false;
             //Server.Transfer("~/CU_AdministrarInstalaciones/InsertaImagenes.aspx", true);
-            Server.Transfer("~/Exito2.aspx", true);
+            //Server.Transfer("~/Exito2.aspx", true);
+            Response.Redirect("~/Exito2.aspx", true);
         }
 
     }
