@@ -89,7 +89,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
 
                 Server.Transfer(Request.RawUrl);
             }
-            catch (Exception o)
+            catch (Exception)
             {
                 errorEliminar01.Visible = true;
             }
