@@ -146,7 +146,7 @@ namespace ITCR.UDSystem.Interfaz
                         wsSeguridad.Seguridad wsseg = new wsSeguridad.Seguridad();
 
                         //if (wsseg.TieneAccesoAplicacion(CodAplicacion, IdUsuario, Session["COD_SEDE"].ToString()))
-                        if (true)
+                        if (IdUsuario.Equals("cebrenes") && Password.Equals("201095983")&&ddlTipoUsuario.SelectedItem.Text.Equals("Estudiante"))
                         {
                             //switch (System.Int32.Parse(ddlTipoUsuario.SelectedItem.Value))
                             //{
@@ -167,9 +167,9 @@ namespace ITCR.UDSystem.Interfaz
                             //Session.Add("NUM_CEDULA", wsseg.ObtenerCedula(IdUsuario)); //obtener número de cédula si tiene.
                             //Session.Add("NOM_USUARIO", wsseg.ObtenerNombreUsuario(IdUsuario)); //obtener nombre completo del usuario.
                             //Session.Add("COD_SEDE", Session["COD_SEDE"].ToString());
-                            Session.Add("ID_USUARIO", "JOSEPH");
-                            Session.Add("NUM_CEDULA", "21312344"); //obtener número de cédula si tiene.
-                            Session.Add("NOM_USUARIO", "jOSEPH"); //obtener nombre completo del usuario.
+                            Session.Add("ID_USUARIO", "Cesar");
+                            Session.Add("NUM_CEDULA", "201095983"); //obtener número de cédula si tiene.
+                            Session.Add("NOM_USUARIO", "cebrenes"); //obtener nombre completo del usuario.
                             Session.Add("COD_SEDE", "CA");
                             if (FormsAuthentication.GetRedirectUrl(IdUsuario, false) == "")
                             {
@@ -185,6 +185,9 @@ namespace ITCR.UDSystem.Interfaz
                         {
                             txtUsuario.Text = "";
                             txtPassword.Text = "";
+                            lblMensajeError.ForeColor = Color.Red;
+                            lblMensajeError.Font.Bold = true;
+                            lblMensajeError.Text = "Error de inicio de sesión: nombre de usuario desconocido o contraseña incorrecta";
                         }
                     }
                     catch (COMException ex)// captura y manejo de errores

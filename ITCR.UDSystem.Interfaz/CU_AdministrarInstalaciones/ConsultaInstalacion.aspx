@@ -18,7 +18,7 @@
         <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
         <td class="style2">
             <div id="imglogo">
-                	<img src="../../imagenes/AdmInst2.jpg" alt=""/>
+                	<img src="../../imagenes/AdmInst3.jpg" alt=""/>
             </div>
         </td>
         <td>

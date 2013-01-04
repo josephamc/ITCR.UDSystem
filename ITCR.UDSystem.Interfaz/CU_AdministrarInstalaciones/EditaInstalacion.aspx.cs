@@ -75,5 +75,26 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
             }
         }
 
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            enEdicion = Int32.Parse(txt_id.Text.ToString());
+            ideditar = enEdicion;
+            if (enEdicion != -1)
+            {
+                cUDGDFINSTALACIONNegocios Nueva_Instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
+                Nueva_Instalacion.ID_INSTALACION = enEdicion;
+                Nueva_Instalacion.NOM_INSTALACION = txt_nombre2.Text.ToString();
+                Nueva_Instalacion.DSC_INSTALACION = txt_descripcion2.Value.ToString();
+                Nueva_Instalacion.DSC_MEDIDAS = txt_medidas2.Value.ToString();
+                Nueva_Instalacion.TXT_REGLAMENTO = txt_reglamento2.Value.ToString();
+                Nueva_Instalacion.TXT_COSTOALQUILER = txt_costos2.Value.ToString();
+                Nueva_Instalacion.TXT_COMENTARIO = txt_comentarios2.Value.ToString();
+
+                Nueva_Instalacion.Actualizar();
+
+                Response.Redirect("~/Exito2.aspx", true);
+            }
+        }
+
     }
 }
