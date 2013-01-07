@@ -61,6 +61,7 @@
     <Content Include="CU_AdministrarInstalaciones\EditaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx" />
+    <Content Include="CU_EstadisticasUso\IndiceEstadisticas.aspx" />
     <Content Include="CU_SolicitarAreaDeportiva\FichaInstalacion.aspx" />
     <Content Include="CU_SolicitarAreaDeportiva\FormSolicitud.aspx" />
     <Content Include="CU_SolicitarAreaDeportiva\MostrarInstalacion.aspx" />
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx.designer.cs">
       <DependentUpon>InsertaImagenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_EstadisticasUso\IndiceEstadisticas.aspx.cs">
+      <DependentUpon>IndiceEstadisticas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_EstadisticasUso\IndiceEstadisticas.aspx.designer.cs">
+      <DependentUpon>IndiceEstadisticas.aspx</DependentUpon>
     </Compile>
     <Compile Include="CU_SolicitarAreaDeportiva\FichaInstalacion.aspx.cs">
       <DependentUpon>FichaInstalacion.aspx</DependentUpon>
