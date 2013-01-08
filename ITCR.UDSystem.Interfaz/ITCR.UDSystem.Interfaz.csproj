@@ -61,6 +61,7 @@
     <Content Include="CU_AdministrarInstalaciones\EditaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx" />
+    <Content Include="CU_EstadisticasUso\ConsultaEstadistica.aspx" />
     <Content Include="CU_EstadisticasUso\IndiceEstadisticas.aspx" />
     <Content Include="CU_SolicitarAreaDeportiva\FichaInstalacion.aspx" />
     <Content Include="CU_SolicitarAreaDeportiva\FormSolicitud.aspx" />
@@ -90,10 +91,12 @@
     <Content Include="imagenes\AdmInst3.JPG" />
     <Content Include="imagenes\bienvenido.JPG" />
     <Content Include="imagenes\calendario01.jpg" />
+    <Content Include="imagenes\consulta03.png" />
     <Content Include="imagenes\correcto02.jpg" />
     <Content Include="imagenes\docencia01.jpg" />
     <Content Include="imagenes\editar.png" />
     <Content Include="imagenes\editar02.png" />
+    <Content Include="imagenes\est01.jpg" />
     <Content Include="imagenes\event01.jpg" />
     <Content Include="imagenes\eye_inv.png" />
     <Content Include="imagenes\hora01.jpg" />
@@ -203,6 +206,13 @@
     </Compile>
     <Compile Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx.designer.cs">
       <DependentUpon>InsertaImagenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_EstadisticasUso\ConsultaEstadistica.aspx.cs">
+      <DependentUpon>ConsultaEstadistica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_EstadisticasUso\ConsultaEstadistica.aspx.designer.cs">
+      <DependentUpon>ConsultaEstadistica.aspx</DependentUpon>
     </Compile>
     <Compile Include="CU_EstadisticasUso\IndiceEstadisticas.aspx.cs">
       <DependentUpon>IndiceEstadisticas.aspx</DependentUpon>
