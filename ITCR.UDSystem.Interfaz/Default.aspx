@@ -28,6 +28,8 @@
             <p>
                 <asp:Button ID="Button2" runat="server" onclick="Button2_Click"  Text="Administrar Calendario" Width="313px" />
             </p>
+                <asp:Button ID="Button4" runat="server" onclick="Button4_Click1" 
+                    Text="Estadisticas" Width="313px" />
             </td>
         </tr>
     </table>

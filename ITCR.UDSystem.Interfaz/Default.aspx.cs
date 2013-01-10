@@ -46,6 +46,11 @@ namespace ITCR.UDSystem.Interfaz
             Response.Redirect("CU_SolicitarAreaDeportiva/MostrarInstalacion.aspx", true);
 
         }
+
+        protected void Button4_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("CU_EstadisticasUso/IndiceEstadisticas.aspx", true);
+        }
     
     }
 
