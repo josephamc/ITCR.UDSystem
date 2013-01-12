@@ -97,6 +97,7 @@
     <Content Include="imagenes\editar.png" />
     <Content Include="imagenes\editar02.png" />
     <Content Include="imagenes\est01.jpg" />
+    <Content Include="imagenes\est03.png" />
     <Content Include="imagenes\event01.jpg" />
     <Content Include="imagenes\eye_inv.png" />
     <Content Include="imagenes\hora01.jpg" />
@@ -106,6 +107,7 @@
     <Content Include="imagenes\logo.gif" />
     <Content Include="imagenes\logoSistemasTEC.jpg" />
     <Content Include="imagenes\logotec1.gif" />
+    <Content Include="imagenes\result_est01.png" />
     <Content Include="imagenes\TECAzul.jpg" />
     <Content Include="imagenes\tit-TEC.jpg" />
     <Content Include="imagenes\update.png" />

@@ -24,7 +24,8 @@
                         &nbsp;&nbsp;&nbsp;           
                         <asp:Label ID="Label2" runat="server" Text="Instalación Deportiva:"></asp:Label>
                         &nbsp;&nbsp;
-                        <asp:DropDownList ID="ddl_instalaciones" runat="server" Width="324px">
+                        <asp:DropDownList ID="ddl_instalaciones" runat="server" Width="324px" 
+                            onselectedindexchanged="ddl_instalaciones_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -36,7 +37,8 @@
                         &nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="Label3" runat="server" Text="Cantidad de Usuarios"></asp:Label>
                         &nbsp;&nbsp;
-                        <asp:TextBox ID="txt_cantU" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txt_cantU" runat="server" 
+                            ontextchanged="txt_cantU_TextChanged"></asp:TextBox>
                     </td>
                </tr>    
                 <tr>
@@ -47,6 +49,12 @@
                         <asp:TextBox ID="txt_fecha" runat="server" Width="321px" ReadOnly="true"></asp:TextBox>
                         <br />
                     </td>        
+                </tr>
+                <tr>
+                    <td>                        
+                        <asp:Label ID="error_usuarios" runat="server" 
+                            Text="La cantidad de usuarios debe ser un numero" ForeColor="Red"></asp:Label>&nbsp;
+                    </td>
                 </tr>
                 <tr>
                 <td>&nbsp;&nbsp;&nbsp;
@@ -64,12 +72,29 @@
                     <TodayDayStyle BackColor="#CCCCCC" />
                     </asp:Calendar></td>
                 </tr>
+                <tr>
+                    <td>
+                    <fieldset style="width: 475px" visible="false" runat="server" id="fieldset_exito">
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Label ID="Msj_exito" runat="server" 
+                            Text="¡Los Datos Fueron Insertados Correctamente!" ForeColor="#009933" 
+                            Font-Bold="True"></asp:Label>
+                        <br />
+                        <asp:Label ID="usu" runat="server" Text="_usuarios" ForeColor="#009933"></asp:Label>&nbsp;
+                        <asp:Label ID="m01" runat="server" Text=" usuarios hicieron uso de la instalacion deportiva: "></asp:Label>&nbsp;
+                        <asp:Label ID="inst" runat="server" Text="_instalacion" ForeColor="#009933"></asp:Label>&nbsp;
+                        <asp:Label ID="m02" runat="server" Text=" en la fecha: "></asp:Label>&nbsp;
+                        <asp:Label ID="fecha" runat="server" Text="_fecha" ForeColor="#009933"></asp:Label>&nbsp;
+                        </fieldset>
+                    </td>
+                </tr>
             </table></td>
         </tr>
     </table>
     <br />
     <div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Button2" runat="server" Text="Insertar Datos" Height="36px" 
             Width="152px" onclick="Button2_Click" />
     </div>
