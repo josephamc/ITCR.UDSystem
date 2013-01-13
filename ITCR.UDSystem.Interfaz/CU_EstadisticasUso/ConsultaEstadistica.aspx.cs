@@ -15,6 +15,10 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso
         {
             if (!IsPostBack)
             {
+                cal01.Visible = false;
+                cal02.Visible = false;
+                datos_generales.Visible = false;
+
                 //rellena el dropdown list de las instalaciones
                 cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
                 DataTable datos_instalaciones = instalacion.SeleccionarTodos();
@@ -26,7 +30,6 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso
 
                 }
             }
-            datos_generales.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -109,6 +112,38 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso
 
             DataView dv = new DataView(dt);
             return dv;            
+        }
+
+        protected void cal01_SelectionChanged(object sender, EventArgs e)
+        {
+            //selecciona la fecha del calendario y la pone en el text box
+            DateTime fechaElegida = cal01.SelectedDate;
+            txt_fechaIni.Text = "" + fechaElegida.Year + "-" + fechaElegida.Month + "-" + fechaElegida.Day;
+            cal01.Visible = false;
+            cal02.Visible = false;
+        }
+
+        protected void cal02_SelectionChanged(object sender, EventArgs e)
+        {
+            //selecciona la fecha del calendario y la pone en el text box
+            DateTime fechaElegida = cal02.SelectedDate;
+            txt_fechaFin.Text = "" + fechaElegida.Year + "-" + fechaElegida.Month + "-" + fechaElegida.Day;
+            cal01.Visible = false;
+            cal02.Visible = false;
+        }
+
+        protected void elegir01_Click(object sender, EventArgs e)
+        {
+            cal02.Visible = false;
+            cal01.Enabled = true;
+            cal01.Visible = true;
+        }
+
+        protected void elegir02_Click(object sender, EventArgs e)
+        {
+            cal01.Visible = false;
+            cal02.Enabled = true;
+            cal02.Visible = true;
         }
 
     }

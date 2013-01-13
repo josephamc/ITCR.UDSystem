@@ -31,6 +31,15 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso {
         protected global::System.Web.UI.WebControls.TextBox txt_fechaIni;
         
         /// <summary>
+        /// Control elegir01_boton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button elegir01_boton;
+        
+        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_fechaFin;
+        
+        /// <summary>
+        /// Control elegir02_boton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button elegir02_boton;
         
         /// <summary>
         /// Control nota.
@@ -92,6 +110,24 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_instalaciones;
+        
+        /// <summary>
+        /// Control cal01.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar cal01;
+        
+        /// <summary>
+        /// Control cal02.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar cal02;
         
         /// <summary>
         /// Control Button1.

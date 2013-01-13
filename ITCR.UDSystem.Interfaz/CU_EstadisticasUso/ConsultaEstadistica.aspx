@@ -18,11 +18,13 @@
                             <table>
                                 <tr>
                                     <td><asp:Label ID="Label4" runat="server" Text="Fecha Inicio:"></asp:Label></td>
-                                    <td><asp:TextBox ID="txt_fechaIni" runat="server" Width="235px"></asp:TextBox></td>
+                                    <td><asp:TextBox ID="txt_fechaIni" runat="server" Width="235px" ReadOnly="true"></asp:TextBox></td>
+                                    <td><asp:Button ID="elegir01_boton" runat="server" Text="Elegir" onclick="elegir01_Click" /></td>
                                 </tr>
                                 <tr>                                
                                     <td><asp:Label ID="Label1" runat="server" Text="Fecha Fin:"></asp:Label></td>
-                                    <td><asp:TextBox ID="txt_fechaFin" runat="server" Width="235px"></asp:TextBox></td>
+                                    <td><asp:TextBox ID="txt_fechaFin" runat="server" Width="235px" ReadOnly="true"></asp:TextBox></td>                                    
+                                    <td><asp:Button ID="elegir02_boton" runat="server" Text="Elegir" onclick="elegir02_Click" /></td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -30,7 +32,11 @@
                                         <asp:Label ID="nota" runat="server" Text="Formato de Fecha= yyyy-MM-dd, ejemplo: 2013-01-27" style="font-style: italic"></asp:Label>
                                     </td>
                                 </tr>
-                                <tr><td><br /></td></tr>
+                                <tr>
+                                    <td>
+                                    <br />
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>
                                         <asp:RadioButtonList ID="rb_tipo" runat="server">
@@ -57,6 +63,39 @@
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
+                            </table>
+                            <br />
+                            <table>
+                            <tr>
+                                <td><asp:Calendar ID="cal01" runat="server" BackColor="White" visible="false"
+                                    BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" 
+                                    ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" 
+                                        onselectionchanged="cal01_SelectionChanged">
+                                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
+                                        VerticalAlign="Bottom" />
+                                    <OtherMonthDayStyle ForeColor="#999999" />
+                                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" 
+                                        Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                                    <TodayDayStyle BackColor="#CCCCCC" />
+                                </asp:Calendar></td>
+                                <td>
+                                <asp:Calendar ID="cal02" runat="server" BackColor="White" visible="false"
+                                    BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" 
+                                    ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" 
+                                        onselectionchanged="cal02_SelectionChanged">
+                                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
+                                        VerticalAlign="Bottom" />
+                                    <OtherMonthDayStyle ForeColor="#999999" />
+                                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" 
+                                        Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                                    <TodayDayStyle BackColor="#CCCCCC" />
+                                </asp:Calendar>
+                                </td>
+                            </tr>
                             </table>
                         </fieldset> 
                     </td>
