@@ -31,7 +31,7 @@ namespace ITCR.UDSystem.Interfaz.GestionarSolicitudes
 
             foreach (DataRow drRow in dtSolicitudes.Rows)
             {
-                dtBindingSource.Rows.Add(drRow[0].ToString(), drRow[6].ToString(), ((DateTime)drRow[3]).ToShortDateString(), drRow[14].ToString(),
+                dtBindingSource.Rows.Add(drRow[0].ToString(), drRow[6].ToString(), ((DateTime)drRow[3]).ToShortDateString(), drRow[15].ToString(),
                     ((DateTime)drRow[1]).ToShortDateString(), ((DateTime)drRow[2]).ToShortDateString(), drRow[4].ToString(), drRow[5].ToString());
             }
 
@@ -57,7 +57,7 @@ namespace ITCR.UDSystem.Interfaz.GestionarSolicitudes
 
             foreach (DataRow drRow in dtSolicitudes.Rows)
             {
-                dtBindingSource.Rows.Add(drRow[0].ToString(), drRow[6].ToString(), ((DateTime)drRow[3]).ToShortDateString(), drRow[14].ToString(),
+                dtBindingSource.Rows.Add(drRow[0].ToString(), drRow[6].ToString(), ((DateTime)drRow[3]).ToShortDateString(), drRow[15].ToString(),
                     ((DateTime)drRow[1]).ToShortDateString(), ((DateTime)drRow[2]).ToShortDateString(), drRow[4].ToString(), drRow[5].ToString());
             }
 

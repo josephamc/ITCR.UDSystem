@@ -63,9 +63,6 @@
     <Content Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx" />
     <Content Include="CU_EstadisticasUso\ConsultaEstadistica.aspx" />
     <Content Include="CU_EstadisticasUso\IndiceEstadisticas.aspx" />
-    <Content Include="CU_SolicitarAreaDeportiva\FichaInstalacion.aspx" />
-    <Content Include="CU_SolicitarAreaDeportiva\FormSolicitud.aspx" />
-    <Content Include="CU_SolicitarAreaDeportiva\MostrarInstalacion.aspx" />
     <Content Include="Exito2.aspx" />
     <Content Include="css\itcr.css" />
     <Content Include="css\jquery-ui.css" />
@@ -223,27 +220,6 @@
     </Compile>
     <Compile Include="CU_EstadisticasUso\IndiceEstadisticas.aspx.designer.cs">
       <DependentUpon>IndiceEstadisticas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CU_SolicitarAreaDeportiva\FichaInstalacion.aspx.cs">
-      <DependentUpon>FichaInstalacion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CU_SolicitarAreaDeportiva\FichaInstalacion.aspx.designer.cs">
-      <DependentUpon>FichaInstalacion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CU_SolicitarAreaDeportiva\FormSolicitud.aspx.cs">
-      <DependentUpon>FormSolicitud.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CU_SolicitarAreaDeportiva\FormSolicitud.aspx.designer.cs">
-      <DependentUpon>FormSolicitud.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CU_SolicitarAreaDeportiva\MostrarInstalacion.aspx.cs">
-      <DependentUpon>MostrarInstalacion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CU_SolicitarAreaDeportiva\MostrarInstalacion.aspx.designer.cs">
-      <DependentUpon>MostrarInstalacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Exito2.aspx.cs">
       <DependentUpon>Exito2.aspx</DependentUpon>

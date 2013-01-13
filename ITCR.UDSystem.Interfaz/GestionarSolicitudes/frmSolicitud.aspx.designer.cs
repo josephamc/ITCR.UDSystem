@@ -103,13 +103,22 @@ namespace ITCR.UDSystem.Interfaz.GestionarSolicitudes {
         protected global::System.Web.UI.WebControls.Label lblidentificacion;
         
         /// <summary>
-        /// lblcantidad control.
+        /// lblcantidadh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcantidad;
+        protected global::System.Web.UI.WebControls.Label lblcantidadh;
+        
+        /// <summary>
+        /// lblcantidadm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblcantidadm;
         
         /// <summary>
         /// lbltipo control.

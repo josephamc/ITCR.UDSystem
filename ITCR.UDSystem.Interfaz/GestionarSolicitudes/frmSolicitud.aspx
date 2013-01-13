@@ -97,8 +97,12 @@
                     <asp:Label ID="lblidentificacion" runat="server" Text="231-31231-312"></asp:Label>
                     <br />
                     <br />
-                    Cantidad de usuarios solicitantes:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    <asp:Label ID="lblcantidad" runat="server" Text="11111"></asp:Label>
+                    Cantidad de usuarios solicitantes (Hombres):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <asp:Label ID="lblcantidadh" runat="server" Text="11111"></asp:Label>
+                    <br />
+                    <br />
+                    Cantidad de usuarios solicitantes (Mujeres):&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    <asp:Label ID="lblcantidadm" runat="server" Text="11111"></asp:Label>
                     <br />
                     <br />
                     Tipo de usuario solicitante:

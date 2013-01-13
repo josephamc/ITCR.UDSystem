@@ -21,20 +21,21 @@ namespace ITCR.UDSystem.Interfaz.GestionarSolicitudes
             
             foreach (DataRow drRow in dtSolicitud.Rows)
             {
-                lblInstalacion.Text = drRow[14].ToString();
-                lblfecSolicitud.Text = ((DateTime)drRow[3]).ToShortDateString();
-                lblfecini.Text = ((DateTime)drRow[1]).ToShortDateString();
-                lblfecfin.Text = ((DateTime)drRow[2]).ToShortDateString();
-                lblhraini.Text = drRow[4].ToString();
-                lblhrafin.Text = drRow[5].ToString();
-                lblinstsolicitante.Text = drRow[7].ToString();
-                lblresponsable.Text = drRow[6].ToString();
-                lblidentificacion.Text = drRow[8].ToString();
-                lblcantidad.Text = drRow[9].ToString();
-                lbltipo.Text = drRow[15].ToString();
-                lblrznuso.Text = drRow[11].ToString();
+                lblInstalacion.Text = drRow[15].ToString();//
+                lblfecSolicitud.Text = ((DateTime)drRow[3]).ToShortDateString();//
+                lblfecini.Text = ((DateTime)drRow[1]).ToShortDateString();//
+                lblfecfin.Text = ((DateTime)drRow[2]).ToShortDateString();//
+                lblhraini.Text = drRow[4].ToString();//
+                lblhrafin.Text = drRow[5].ToString();//
+                lblinstsolicitante.Text = drRow[7].ToString();//
+                lblresponsable.Text = drRow[6].ToString();//
+                lblidentificacion.Text = drRow[8].ToString();//
+                lblcantidadh.Text = drRow[13].ToString();
+                lblcantidadm.Text = drRow[14].ToString();
+                lbltipo.Text = drRow[16].ToString();
+                lblrznuso.Text = drRow[10].ToString();
 
-                String sUsuarioString = drRow[16].ToString();
+                String sUsuarioString = drRow[17].ToString();
                 String sLabelUsuarios = "";
                 String[] sUsuarios = sUsuarioString.Split(',');
                 foreach (String sRow in sUsuarios)
