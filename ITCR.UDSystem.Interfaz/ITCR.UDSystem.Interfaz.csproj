@@ -89,6 +89,7 @@
     <Content Include="imagenes\add02.png" />
     <Content Include="imagenes\AdmInst2.jpg" />
     <Content Include="imagenes\AdmInst3.JPG" />
+    <Content Include="imagenes\barra02.jpg" />
     <Content Include="imagenes\bienvenido.JPG" />
     <Content Include="imagenes\calendario01.jpg" />
     <Content Include="imagenes\consulta03.png" />

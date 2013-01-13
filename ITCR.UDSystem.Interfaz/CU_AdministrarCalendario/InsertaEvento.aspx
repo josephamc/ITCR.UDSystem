@@ -28,7 +28,7 @@
                 <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td><asp:Label ID="lb_instalacion" runat="server" 
                         Text="Instalacion donde será el evento:" style="font-weight: 700"></asp:Label></td>
-                <td><asp:DropDownList ID="dp_instalacionEvento" runat="server" Height="18px" 
+                <td><asp:DropDownList ID="ddl_instalaciones" runat="server" Height="18px" 
                         Width="227px">
                 </asp:DropDownList></td>
             </tr>
@@ -44,9 +44,27 @@
         <table>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td><asp:Calendar ID="Calendar1" runat="server" BackColor="White" 
+                <td><img src="../../imagenes/barra02.jpg" alt=""/></td>
+                <td><asp:Calendar ID="cal01" runat="server" BackColor="White" visible="true"
                         BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" 
-                        ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
+                        ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" 
+                        onselectionchanged="cal01_SelectionChanged">
+                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
+                        VerticalAlign="Bottom" />
+                    <OtherMonthDayStyle ForeColor="#999999" />
+                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" 
+                        Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                    <TodayDayStyle BackColor="#CCCCCC" />
+                    </asp:Calendar>                    
+                </td>
+
+                <td>
+                <asp:Calendar ID="cal02" runat="server" BackColor="White" visible="false"
+                        BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" 
+                        ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" 
+                        onselectionchanged="cal02_SelectionChanged">
                     <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
                         VerticalAlign="Bottom" />
@@ -63,21 +81,25 @@
                         <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td><asp:Label ID="lb_Fecha1" runat="server" Text="Fecha Inicio:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_FechaInicio" runat="server" Width="227px"></asp:TextBox> </td>
+                        <td><asp:TextBox ID="txt_FechaInicio" runat="server" Width="227px" ReadOnly="true"></asp:TextBox> </td>
+                        <td><asp:Button ID="Button1" runat="server" Text="Elegir" 
+                                onclick="Button1_Click1" /></td>
                     </tr>
             
                     <tr>
                         <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td><asp:Label ID="Label1" runat="server" Text="Fecha Fin:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_FechaFin" runat="server" Width="227px"></asp:TextBox> </td>
+                        <td><asp:TextBox ID="txt_FechaFin" runat="server" Width="227px" ReadOnly="true"></asp:TextBox> </td>
+                        <td><asp:Button ID="Button2" runat="server" Text="Elegir" 
+                                onclick="Button2_Click1" /></td>
                     </tr>
                 </table>
 
                 <div>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="Label3" runat="server" 
-                        Text="Formato de Fecha dd/MM/yyyy , ejemplo: 23/12/2012" 
+                        Text="Formato de Fecha yyyy-MM-dd , ejemplo: 2013-01-27" 
                         style="font-style: italic"></asp:Label>
                 </div>
 
@@ -89,27 +111,77 @@
                         <td>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                         <td><asp:Label ID="hra_inicio" runat="server" Text="Hora Inicio:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_HoraInicio" runat="server" Width="90px"></asp:TextBox></td>
+                       <!-- <td><asp:TextBox ID="txt_HoraInicio" runat="server" Width="90px"></asp:TextBox></td>-->
                         <td><asp:DropDownList ID="ddlAmPm1" runat="server">
-                           <asp:ListItem Selected="True">AM</asp:ListItem>
-                           <asp:ListItem Selected="False">PM</asp:ListItem>
+                           <asp:ListItem Selected="True">1</asp:ListItem>
+                           <asp:ListItem Selected="False">2</asp:ListItem>
+                            <asp:ListItem Selected="false">3</asp:ListItem>
+                           <asp:ListItem Selected="False">4</asp:ListItem>
+                            <asp:ListItem Selected="false">5</asp:ListItem>
+                           <asp:ListItem Selected="False">6</asp:ListItem>
+                            <asp:ListItem Selected="false">7</asp:ListItem>
+                           <asp:ListItem Selected="False">8</asp:ListItem>
+                           <asp:ListItem Selected="false">9</asp:ListItem>
+                           <asp:ListItem Selected="False">10</asp:ListItem>
+                            <asp:ListItem Selected="false">11</asp:ListItem>
+                           <asp:ListItem Selected="False">12</asp:ListItem>
+                            <asp:ListItem Selected="false">13</asp:ListItem>
+                           <asp:ListItem Selected="False">14</asp:ListItem>
+                            <asp:ListItem Selected="false">15</asp:ListItem>
+                           <asp:ListItem Selected="False">16</asp:ListItem>
+                           <asp:ListItem Selected="False">17</asp:ListItem>
+                            <asp:ListItem Selected="false">18</asp:ListItem>
+                           <asp:ListItem Selected="False">19</asp:ListItem>
+                            <asp:ListItem Selected="false">20</asp:ListItem>
+                           <asp:ListItem Selected="False">21</asp:ListItem>
+                            <asp:ListItem Selected="false">22</asp:ListItem>
+                           <asp:ListItem Selected="False">23</asp:ListItem>
                         </asp:DropDownList></td>
-                        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_HoraInicio" ErrorMessage="*"></asp:RequiredFieldValidator></td>
-                        <td><asp:RegularExpressionValidator ID="TimeValidator2" runat="server" ControlToValidate="txt_HoraInicio" Display="Dynamic" ErrorMessage="Hora Invalida. Ingrese la hora en un formato adecuado, ejemplo: 12:30 o 5:00" ValidationExpression="^(1[0-2]|[1-9]):[0-5][0-9]$" EnableClientScript="False"></asp:RegularExpressionValidator></td>
+                        <td><asp:DropDownList ID="DropDownList3" runat="server">
+                           <asp:ListItem Selected="True">00</asp:ListItem>
+                           <asp:ListItem Selected="False">30</asp:ListItem>
+            
+                        </asp:DropDownList></td>
+                      
+
                     </tr>
         
                     <tr>            
                         <td>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                         <td><asp:Label ID="hra_fin" runat="server" Text="Hora Fin:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_HoraFin" runat="server" Width="90px"></asp:TextBox></td>
+                        
                         <td><asp:DropDownList ID="ddlAmPm2" runat="server">
-                           <asp:ListItem Selected="True">AM</asp:ListItem>
-                           <asp:ListItem Selected="False">PM</asp:ListItem>
+                          <asp:ListItem Selected="True">1</asp:ListItem>
+                           <asp:ListItem Selected="False">2</asp:ListItem>
+                            <asp:ListItem Selected="false">3</asp:ListItem>
+                           <asp:ListItem Selected="False">4</asp:ListItem>
+                            <asp:ListItem Selected="false">5</asp:ListItem>
+                           <asp:ListItem Selected="False">6</asp:ListItem>
+                            <asp:ListItem Selected="false">7</asp:ListItem>
+                           <asp:ListItem Selected="False">8</asp:ListItem>
+                           <asp:ListItem Selected="false">9</asp:ListItem>
+                           <asp:ListItem Selected="False">10</asp:ListItem>
+                            <asp:ListItem Selected="false">11</asp:ListItem>
+                           <asp:ListItem Selected="False">12</asp:ListItem>
+                            <asp:ListItem Selected="false">13</asp:ListItem>
+                           <asp:ListItem Selected="False">14</asp:ListItem>
+                            <asp:ListItem Selected="false">15</asp:ListItem>
+                           <asp:ListItem Selected="False">16</asp:ListItem>
+                           <asp:ListItem Selected="False">17</asp:ListItem>
+                            <asp:ListItem Selected="false">18</asp:ListItem>
+                           <asp:ListItem Selected="False">19</asp:ListItem>
+                            <asp:ListItem Selected="false">20</asp:ListItem>
+                           <asp:ListItem Selected="False">21</asp:ListItem>
+                            <asp:ListItem Selected="false">22</asp:ListItem>
+                           <asp:ListItem Selected="False">23</asp:ListItem>
                         </asp:DropDownList></td>
-                        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_HoraFin" ErrorMessage="*"></asp:RequiredFieldValidator></td>
-                        <td><asp:RegularExpressionValidator ID="TimeValidator1" runat="server" ControlToValidate="txt_HoraFin" Display="Dynamic" ErrorMessage="Hora Invalida. Ingrese la hora en un formato adecuado, ejemplo: 12:30 o 5:00" ValidationExpression="^(1[0-2]|[1-9]):[0-5][0-9]$" EnableClientScript="False"></asp:RegularExpressionValidator>
-                        </td>
+                        <td><asp:DropDownList ID="DropDownList4" runat="server">
+                           <asp:ListItem Selected="True">00</asp:ListItem>
+                           <asp:ListItem Selected="False">30</asp:ListItem>
+            
+                        </asp:DropDownList></td>
+                       
                     </tr>
                 </table>
                 
@@ -119,11 +191,74 @@
             </tr>        
         </table>
     </div>
+
+    <div>
+    <table>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <fieldset style="width: 700px" runat="server" id="error_reservacion" visible="false">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="m00" runat="server" 
+                        Text="¡ERROR! " ForeColor="Red" 
+                        style="font-weight: 700; font-size: medium"></asp:Label>&nbsp;
+                        <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="m01" runat="server" 
+                        Text="Ya existe una reservacion en la instalación:" ForeColor="Red" 
+                        style="font-size: small"></asp:Label>&nbsp;
+                    <asp:Label ID="_inst" runat="server" Text="_instalacion" ForeColor="Red" 
+                        style="font-size: small; font-weight: 700"></asp:Label>&nbsp;
+                    <asp:Label ID="m02" runat="server" 
+                        Text="en el rango de fechas u horas indicado" ForeColor="Red" 
+                        style="font-size: small; "></asp:Label>
+                        <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="m03" runat="server" 
+                        Text="O el horario de la instalacion no lo permite" ForeColor="Red" 
+                        style="font-size: small; "></asp:Label>
+                &nbsp;( <asp:HyperLink ID="HyperLink1" runat="server" 
+                        NavigateUrl="~/CU_AdministrarInstalaciones/ConsultaInstalacion.aspx">Ver detalle de las instalaciones</asp:HyperLink>&nbsp;)
+            </fieldset>
+            </td>
+        </tr>
+    </table>    
+    </div>
+
+    <div>
+    <table>
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <fieldset style="width: 700px" runat="server" id="exito_reservacion" visible="false">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label4" runat="server" 
+                        Text="¡EXITO! " ForeColor="#009933" 
+                        style="font-weight: 700; font-size: medium"></asp:Label>&nbsp;
+                        <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Label5" runat="server" 
+                        Text="La reservacion para la instalación: " ForeColor="#009933" 
+                        style="font-size: small"></asp:Label>&nbsp;
+                    <asp:Label ID="_inst2" runat="server" Text="_instalacion" ForeColor="#009933" 
+                        style="font-size: small; font-weight: 700"></asp:Label>&nbsp;
+                    <asp:Label ID="Label7" runat="server" 
+                        Text="fue hecho correctamente." ForeColor="#009933" 
+                        style="font-size: small; "></asp:Label>
+                        <br />
+                     
+                </fieldset>
+            </td>
+        </tr>
+    </table>    
+    </div>
+
     <div>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="boton_añadir_evento" runat="server" Text="Añadir Evento" 
-            Width="219px" Height="30px" />
+            Width="230px" Height="39px" onclick="boton_añadir_evento_Click" />
     </div>
+    <br />
 
 </asp:Content>

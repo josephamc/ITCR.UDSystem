@@ -5,6 +5,7 @@
     <h2>Administrador de Calendario</h2>
     <br />
     <br />
+    <hr />
     &nbsp;
     <a href="../../CU_AdministrarCalendario/InsertaEvento.aspx" >
         <img src="../../imagenes/event01.jpg" alt=""/>
@@ -19,4 +20,5 @@
     <a href="../../CU_AdministrarCalendario/ConsultaCalendario.aspx" >
         <img src="../../imagenes/calendario01.jpg" alt=""/>
     </a>
+    <hr />
 </asp:Content>

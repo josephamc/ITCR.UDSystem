@@ -53,7 +53,7 @@
                 <tr>
                     <td>                        
                         <asp:Label ID="error_usuarios" runat="server" 
-                            Text="La cantidad de usuarios debe ser un numero" ForeColor="Red"></asp:Label>&nbsp;
+                            Text="La cantidad de usuarios debe ser un número" ForeColor="Red"></asp:Label>&nbsp;
                     </td>
                 </tr>
                 <tr>
