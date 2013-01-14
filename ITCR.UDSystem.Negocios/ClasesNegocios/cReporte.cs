@@ -71,6 +71,8 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             Page pPagina = new Page(rReporte);
             cUDGDFSOLICITUDNegocios sSolicitudes = new cUDGDFSOLICITUDNegocios(0, "", 0, "");
             DataTable dtSolicitudes;
+            String[] sUsuarios;
+            int iContadorUsuarios = 1;
 
             // Obtiene las solicitudes aprobadas dentro del rango de fechas
             dtSolicitudes = sSolicitudes.SeleccionarAprobadas(_sfechainicio, _sfechafin);
@@ -83,7 +85,6 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
 
             // Resumen del documento
             InsertarSubtitulo("Resumen de reservaciones", fp, pPagina, rReporte);
-            InsertarLinea("", fp, pPagina, rReporte);
             foreach (Instalacion insLocal in GenerarResumen(dtSolicitudes))
             {
                 InsertarLinea("Reservaciones para " + insLocal.sInstalacion + ": " + insLocal.iContador + ".", fp, pPagina, rReporte);
@@ -99,21 +100,41 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             foreach (DataRow drRow in dtSolicitudes.Rows)
             {
                 InsertarLinea("Identificacion de solicitud: " + drRow[0].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Fecha inicio: " + DateTime.Parse(drRow[2].ToString()).ToShortDateString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Fecha fin: " + DateTime.Parse(drRow[3].ToString()).ToShortDateString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Fecha de la solicitud: " + DateTime.Parse(drRow[4].ToString()).ToShortDateString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Hora inicio: " + drRow[5].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Hora fin: " + drRow[6].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Nombre de encargado: " + drRow[7].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Nombre de institucion/grupo: " + drRow[8].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Identificacion encargado: " + drRow[9].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Tipo de Solicitante: " + drRow[20].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("Observaciones: " + drRow[11].ToString(), fp, pPagina, rReporte);//!
-                InsertarLinea("Razon de uso: " + drRow[12].ToString(), fp, pPagina, rReporte);//!
+                InsertarLinea("", fp, pPagina, rReporte);
+                InsertarLinea("Observaciones: " + drRow[11].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
+                InsertarLinea("Razon de uso: " + drRow[12].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Correo solicitante: " + drRow[14].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Usuarios:", fp, pPagina, rReporte);
-                // Imprime usuarios
+                sUsuarios = drRow[16].ToString().Split(',');
+                foreach (String sLocal in sUsuarios)
+                {
+                    InsertarLinea(iContadorUsuarios + ". " + sLocal, fp, pPagina, rReporte);
+                    iContadorUsuarios++;
+                }
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Cantidad de usuarios hombres: " + drRow[17].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
                 InsertarLinea("Cantidad de usuarios mujeres: " + drRow[18].ToString(), fp, pPagina, rReporte);
                 InsertarLinea("", fp, pPagina, rReporte);
                 InsertarDivisor(fp, pPagina, rReporte);
@@ -196,8 +217,18 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                 p_Pagina = new Page(p_Reporte);
                 _dRy = 60;
             }
-            p_Pagina.Add(_dRx, _dRy, new RepString(p_Font, p_Texto));
-            _dRy += p_Font.rLineFeedMM;
+
+            if (p_Texto.Length <= 80)
+            {
+                p_Pagina.Add(_dRx, _dRy, new RepString(p_Font, p_Texto));
+                _dRy += p_Font.rLineFeedMM;
+            }
+            else
+            {
+                p_Pagina.Add(_dRx, _dRy, new RepString(p_Font, p_Texto.Substring(0, 80)));
+                _dRy += p_Font.rLineFeedMM;
+                InsertarLinea(p_Texto.Substring(80, p_Texto.Length - 80), p_Font, p_Pagina, p_Reporte);
+            }
             return p_Pagina;
         }
 
@@ -305,7 +336,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             _sFont = "Helvetica";
             _iSize = 8;
             _dRy = 60;
-            _dRx = 40;
+            _dRx = 50;
             _dMaxRy = 782;
             _dMaxRx = 40;
             _iRedTitulo = 18;
