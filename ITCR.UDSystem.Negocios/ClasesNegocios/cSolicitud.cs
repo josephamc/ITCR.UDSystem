@@ -52,7 +52,9 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
 		///		 <LI>COD_ATENDIDO</LI>
 		///		 <LI>TXT_USUARIOS</LI>
 
-            iResultado = cReservacion.ConsultarDisponibilidad((DateTime)drSolicitud[1], (DateTime)drSolicitud[2], DateTime.Parse(drSolicitud[4].ToString()), DateTime.Parse(drSolicitud[5].ToString()), int.Parse(drSolicitud[17].ToString()));
+
+            //DateTime p_fecinicio, DateTime p_fecfin, DateTime p_hrainicio, DateTime p_hrafin, int p_idInstalacion
+            iResultado = cReservacion.ConsultarDisponibilidad((DateTime)drSolicitud[1], (DateTime)drSolicitud[2], DateTime.Parse(drSolicitud[4].ToString()), DateTime.Parse(drSolicitud[5].ToString()), int.Parse(drSolicitud[18].ToString()));
             
             if (iResultado == 1)
             {
