@@ -391,5 +391,23 @@ namespace ITCR.UDSystem.Negocios
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Selecciona todas las solicitudes aprobadas dentro del rango de fechas específicado
+        /// </summary>
+        /// <param name="p_fechainicio">Fecha inicio del rango de fechas</param>
+        /// <param name="p_fechafin">Fecha fin del rango de fechas</param>
+        /// <returns>DataTable Object</returns>
+        public override DataTable SeleccionarAprobadas(DateTime p_fechainicio, DateTime p_fechafin)
+        {
+            try
+            {
+                return base.SeleccionarAprobadas(p_fechainicio, p_fechafin);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 	} //class
 } //namespace

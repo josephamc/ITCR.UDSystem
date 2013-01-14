@@ -51,6 +51,11 @@ namespace ITCR.UDSystem.Interfaz
         {
             Response.Redirect("CU_EstadisticasUso/IndiceEstadisticas.aspx", true);
         }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Reportes/frmSeleccionar.aspx");
+        }
     
     }
 

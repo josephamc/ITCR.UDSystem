@@ -30,6 +30,10 @@
             </p>
                 <asp:Button ID="Button4" runat="server" onclick="Button4_Click1" 
                     Text="Estadisticas" Width="313px" />
+                <br />
+                <br />
+                <asp:Button ID="Button5" runat="server" onclick="Button5_Click" Text="Reportes" 
+                    Width="312px" />
             </td>
         </tr>
     </table>

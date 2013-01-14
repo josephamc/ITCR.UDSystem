@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Root.Reports;
 using System.Drawing;
+using System.Data;
 
 namespace ITCR.UDSystem.Negocios.ClasesNegocios
 {
@@ -12,7 +13,34 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
         #region Declaraciones de miembros de clase
         private double _dRx = 0, _dRy = 0, _dMaxRx = 0, _dMaxRy = 0;
         private int _iSize = 0, _iRedTitulo, _iGreenTitulo, _iBlueTitulo, _iRedSub, _iGreenSub, _iBlueSub;
-        private string _sFont, _sfechainicio, _sfechafin;
+        private string _sFont;
+        private DateTime _sfechainicio, _sfechafin;
+        #endregion
+
+        #region Orden de solicitudes
+        /*
+         * drRow[0] = ID_SOLICITUD
+         * drRow[1] = FKY_INSTALACION
+         * drRow[2] = FEC_INICIO
+         * drRow[3] = FEC_FIN
+         * drRow[4] = FEC_SOLICITUD
+         * drRow[5] = HRA_INICIO
+         * drRow[6] = HRA_FIN
+         * drRow[7] = NOM_ENCARGADO
+         * drRow[8] = NOM_INSTITUCION
+         * drRow[9] = COD_IDENTIFICACION
+         * drRow[10] = FKY_TIPOSOLICITANTE
+         * drRow[11] = TXT_OBSERVACIONES
+         * drRow[12] = DSC_RAZONUSO
+         * drRow[13] = COD_TIPOSOLICITUD
+         * drRow[14] = TXT_CORREO
+         * drRow[15] = COD_ATENDIDO
+         * drRow[16] = TXT_USUARIOS
+         * drRow[17] = CAN_USUARIOSH
+         * drRow[18] = CAN_USUARIOSM
+         * drRow[19] = NOM_INSTALACION
+         * drRow[20] = DSC_TPSOLTNTE
+         */
         #endregion
 
         /// <summary>
@@ -25,6 +53,9 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
         {
             if (p_default)
                 SetDefault();
+
+            _sfechainicio = DateTime.Parse(p_fechainicio);
+            _sfechafin = DateTime.Parse(p_fechafin);
         }
 
         /// <summary>
@@ -38,21 +69,116 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             FontDef fd = new FontDef(rReporte, _sFont);
             FontProp fp = new FontProp(fd, _iSize);
             Page pPagina = new Page(rReporte);
+            cUDGDFSOLICITUDNegocios sSolicitudes = new cUDGDFSOLICITUDNegocios(0, "", 0, "");
+            DataTable dtSolicitudes;
+
+            // Obtiene las solicitudes aprobadas dentro del rango de fechas
+            dtSolicitudes = sSolicitudes.SeleccionarAprobadas(_sfechainicio, _sfechafin);
 
             // Imprime el documento
-            // Titulo
+            // Encabezado del documento
             InsertarTitulo("Reporte de reservaciones", fp, pPagina, rReporte);
-            InsertarTitulo(_sfechainicio + " - " + _sfechafin, fp, pPagina, rReporte);
-            
+            InsertarTitulo(_sfechainicio.ToShortDateString() + " - " + _sfechafin.ToShortDateString(), fp, pPagina, rReporte);
+            InsertarLinea("", fp, pPagina, rReporte);
 
-            
-            InsertarSubtitulo("Subtitutlo prueba", fp, pPagina, rReporte);
-            int j = 0;
-            for (; j < 100; j++)
-                pPagina = InsertarLinea("Linea " + j, fp, pPagina, rReporte);
+            // Resumen del documento
+            InsertarSubtitulo("Resumen de reservaciones", fp, pPagina, rReporte);
+            InsertarLinea("", fp, pPagina, rReporte);
+            foreach (Instalacion insLocal in GenerarResumen(dtSolicitudes))
+            {
+                InsertarLinea("Reservaciones para " + insLocal.sInstalacion + ": " + insLocal.iContador + ".", fp, pPagina, rReporte);
+            }
+            InsertarLinea("", fp, pPagina, rReporte);
+            InsertarDivisor(fp, pPagina, rReporte);
+            InsertarLinea("", fp, pPagina, rReporte);
+
+            // Imprime cada solicitud
+            InsertarSubtitulo("Solicitudes aprobadas dentro del rango de fechas", fp, pPagina, rReporte);
+            InsertarLinea("", fp, pPagina, rReporte);
+
+            foreach (DataRow drRow in dtSolicitudes.Rows)
+            {
+                InsertarLinea("Identificacion de solicitud: " + drRow[0].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("Fecha inicio: " + DateTime.Parse(drRow[2].ToString()).ToShortDateString(), fp, pPagina, rReporte);
+                InsertarLinea("Fecha fin: " + DateTime.Parse(drRow[3].ToString()).ToShortDateString(), fp, pPagina, rReporte);
+                InsertarLinea("Fecha de la solicitud: " + DateTime.Parse(drRow[4].ToString()).ToShortDateString(), fp, pPagina, rReporte);
+                InsertarLinea("Hora inicio: " + drRow[5].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("Hora fin: " + drRow[6].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("Nombre de encargado: " + drRow[7].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("Nombre de institucion/grupo: " + drRow[8].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("Identificacion encargado: " + drRow[9].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("Tipo de Solicitante: " + drRow[20].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("Observaciones: " + drRow[11].ToString(), fp, pPagina, rReporte);//!
+                InsertarLinea("Razon de uso: " + drRow[12].ToString(), fp, pPagina, rReporte);//!
+                InsertarLinea("Correo solicitante: " + drRow[14].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("Usuarios:", fp, pPagina, rReporte);
+                // Imprime usuarios
+                InsertarLinea("Cantidad de usuarios hombres: " + drRow[17].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("Cantidad de usuarios mujeres: " + drRow[18].ToString(), fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
+                InsertarDivisor(fp, pPagina, rReporte);
+                InsertarLinea("", fp, pPagina, rReporte);
+            }
 
             // retorna el documento para poder ser presentado al usuario
             return rReporte;
+        }
+
+        /// <summary>
+        /// Genera una lista de las instalaciones, con la cantidad de reservaciones por instalacion
+        /// </summary>
+        /// <param name="dtSolicitudes">Solicitudes</param>
+        /// <returns>List of Instalacion Object</returns>
+        private List<Instalacion> GenerarResumen(DataTable dtSolicitudes)
+        {
+            List<Instalacion> liInstalaciones = new List<Instalacion>();
+            foreach (DataRow drRow in dtSolicitudes.Rows)
+            {
+                if (Existe(liInstalaciones, drRow[19].ToString()))
+                    ObtenerInstalacion(liInstalaciones, drRow[19].ToString()).Añadir();// Añade al contador
+                else
+                {
+                    Instalacion insTemporal = new Instalacion(drRow[19].ToString());
+                    liInstalaciones.Add(insTemporal);
+                }
+            }
+            return liInstalaciones;
+        }
+
+        /// <summary>
+        /// Obtiene una instalacion especifica de la lista
+        /// </summary>
+        /// <param name="p_Instalaciones">Lista de instalaciones</param>
+        /// <param name="p_Instalacion">Nombre de la instalacion a buscar</param>
+        /// <returns>Instalacion Object</returns>
+        private Instalacion ObtenerInstalacion(List<Instalacion> p_Instalaciones, String p_Instalacion)
+        {
+            Instalacion toReturn = new Instalacion();
+            foreach (Instalacion insLocal in p_Instalaciones)
+            {
+                if (insLocal.sInstalacion.CompareTo(p_Instalacion) == 0)
+                {
+                    toReturn = insLocal;
+                    break;
+                }
+            }
+            return toReturn;
+        }
+
+        /// <summary>
+        /// Indica si existe una instalacion en la lista
+        /// </summary>
+        /// <param name="p_Instalaciones">Lista de instalaciones</param>
+        /// <param name="p_Instalacion">instalacion a buscar</param>
+        /// <returns>True si existe</returns>
+        private bool Existe(List<Instalacion> p_Instalaciones, String p_Instalacion)
+        {
+            foreach (Instalacion insLocal in p_Instalaciones)
+            {
+                if (insLocal.sInstalacion.CompareTo(p_Instalacion) == 0)
+                    return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -144,6 +270,34 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
         }
 
         /// <summary>
+        /// Inserta una linea divisora en la posicion del cursor
+        /// </summary>
+        /// <param name="p_Font">FontProp de el reporte</param>
+        /// <param name="p_Pagina">Pagina sobre la que se desea escribir el subtitulo</param>
+        /// <param name="p_Reporte">Documento actual</param>
+        /// <returns>Pagina actual</returns>
+        private Page InsertarDivisor(FontProp p_Font, Page p_Pagina, Report p_Reporte)
+        {
+            String sLinea = " ";
+
+            for (int iContador = 0; iContador < 160; iContador++)
+                sLinea += " ";
+
+            if (_dRy >= _dMaxRy)
+            {
+                p_Pagina = new Page(p_Reporte);
+                _dRy = 60;
+            }
+
+            p_Font.bUnderline = true;
+            p_Pagina.Add(_dRx, _dRy, new RepString(p_Font, sLinea));
+            _dRy += p_Font.rLineFeedMM;
+            p_Font.bUnderline = false;
+
+            return p_Pagina;
+        }
+
+        /// <summary>
         /// Inicializa todos los valores con el valor default usado
         /// </summary>
         private void SetDefault()
@@ -159,7 +313,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             _iBlueTitulo = 171;
             _iRedSub = 70;
             _iGreenSub = 113;
-            _iRedSub = 213;
+            _iBlueSub = 213;
         }
 
         #region Declaraciones de propiedades de la clase
@@ -394,6 +548,35 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                     _iBlueSub = (int)value;
                 else
                     throw new ArgumentOutOfRangeException("iBLUESUB", "iBLUESUB is an Integer");
+            }
+        }
+        #endregion
+
+        #region Declaraciones de structs
+        /// <summary>
+        /// Struct para el control de cantidad de instalaciones
+        /// </summary>
+        private struct Instalacion
+        {
+            public String sInstalacion;
+            public int iContador;
+
+            /// <summary>
+            /// Genera un struct del tipo Instalacion
+            /// </summary>
+            /// <param name="p_instalacion">Nombre de la instalacion</param>
+            public Instalacion(String p_instalacion)
+            {
+                sInstalacion = p_instalacion;
+                iContador = 1;
+            }
+
+            /// <summary>
+            /// Añade una instalacion al contador
+            /// </summary>
+            public void Añadir()
+            {
+                iContador += 1;
             }
         }
         #endregion

@@ -33,9 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Reports">
       <HintPath>..\..\..\..\Desktop\Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -94,6 +103,7 @@
     <Content Include="imagenes\calendario01.jpg" />
     <Content Include="imagenes\consulta03.png" />
     <Content Include="imagenes\correcto02.jpg" />
+    <Content Include="imagenes\date.png" />
     <Content Include="imagenes\docencia01.jpg" />
     <Content Include="imagenes\editar.png" />
     <Content Include="imagenes\editar02.png" />
@@ -101,6 +111,7 @@
     <Content Include="imagenes\est03.png" />
     <Content Include="imagenes\event01.jpg" />
     <Content Include="imagenes\eye_inv.png" />
+    <Content Include="imagenes\forward.png" />
     <Content Include="imagenes\hora01.jpg" />
     <Content Include="imagenes\imgIngreso.gif" />
     <Content Include="imagenes\ImgND2.png" />
@@ -116,6 +127,7 @@
     <Content Include="js\jquery-ui.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.menu.js" />
+    <Content Include="Reportes\frmSeleccionar.aspx" />
     <Content Include="Scripts\assets\css\simplemodal.css" />
     <Content Include="Scripts\assets\images\loader.gif" />
     <Content Include="Scripts\Interfaz.js" />
@@ -125,6 +137,7 @@
     <None Include="Controles\.svn\all-wcprops" />
     <None Include="Controles\.svn\entries" />
     <None Include="Controles\.svn\text-base\Navigation.ascx.svn-base" />
+    <Content Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -334,6 +347,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmSeleccionar.aspx.cs">
+      <DependentUpon>frmSeleccionar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmSeleccionar.aspx.designer.cs">
+      <DependentUpon>frmSeleccionar.aspx</DependentUpon>
     </Compile>
     <Compile Include="SinAutenticar.Master.cs">
       <DependentUpon>SinAutenticar.Master</DependentUpon>
