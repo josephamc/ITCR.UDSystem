@@ -33,25 +33,6 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                 sNotificacionMessage = "Su solicitud ha sido procesada. Para más informacion del resultado comuniquese con la unidad de deportes del Instituto Tecnológico de Costa Rica.";       
             }
 
-        ///      <LI>ID_SOLICITUD</LI>
-		///		 <LI>FKY_INSTALACION</LI>
-		///		 <LI>FEC_INICIO</LI>
-		///		 <LI>FEC_FIN</LI>
-		///		 <LI>FEC_SOLICITUD</LI>
-		///		 <LI>HRA_INICIO</LI>
-		///		 <LI>HRA_FIN</LI>
-		///		 <LI>NOM_ENCARGADO</LI>
-		///		 <LI>NOM_INSTITUCION</LI>
-		///		 <LI>COD_IDENTIFICACION</LI>
-		///		 <LI>CAN_USUARIOS</LI>
-		///		 <LI>FKY_TIPOSOLICITANTE</LI>
-		///		 <LI>TXT_OBSERVACIONES. May be SqlString.Null</LI>
-		///		 <LI>DSC_RAZONUSO</LI>
-		///		 <LI>COD_TIPOSOLICITUD</LI>
-		///		 <LI>TXT_CORREO</LI>
-		///		 <LI>COD_ATENDIDO</LI>
-		///		 <LI>TXT_USUARIOS</LI>
-
 
             //DateTime p_fecinicio, DateTime p_fecfin, DateTime p_hrainicio, DateTime p_hrafin, int p_idInstalacion
             iResultado = cReservacion.ConsultarDisponibilidad((DateTime)drSolicitud[1], (DateTime)drSolicitud[2], DateTime.Parse(drSolicitud[4].ToString()), DateTime.Parse(drSolicitud[5].ToString()), int.Parse(drSolicitud[18].ToString()));
@@ -102,6 +83,9 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             {
                 sNotificacionMessage = "Su solicitud ha sido procesada. Para más informacion del resultado comuniquese con la unidad de deportes del Instituto Tecnológico de Costa Rica.";
             }
+
+             // Actualiza la solicitud estableciendola como atendida
+            cSolicitud.ActualizarAtendidoConID(int.Parse(drSolicitud[0].ToString()));
 
             // Envia un correo al usuario
             this.EnviarCorreo(drSolicitud[13].ToString(), drSolicitud[6].ToString(), sNotificacionMessage);
