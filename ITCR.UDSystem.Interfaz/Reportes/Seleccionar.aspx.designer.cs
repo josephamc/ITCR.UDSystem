@@ -7,64 +7,55 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso {
+namespace ITCR.UDSystem.Interfaz.Reportes {
     
     
-    public partial class ConsultaEstadistica {
+    public partial class Seleccionar {
         
         /// <summary>
-        /// Control Label4.
+        /// Control tkManager.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::AjaxControlToolkit.ToolkitScriptManager tkManager;
         
         /// <summary>
-        /// Control txt_fechaIni.
+        /// Control txtInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_fechaIni;
+        protected global::System.Web.UI.WebControls.TextBox txtInicio;
         
         /// <summary>
-        /// Control elegir01_boton.
+        /// Control cldExtender.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button elegir01_boton;
+        protected global::AjaxControlToolkit.CalendarExtender cldExtender;
         
         /// <summary>
-        /// Control Label1.
+        /// Control txtFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtFin;
         
         /// <summary>
-        /// Control txt_fechaFin.
+        /// Control cldExtenderFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_fechaFin;
-        
-        /// <summary>
-        /// Control elegir02_boton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button elegir02_boton;
+        protected global::AjaxControlToolkit.CalendarExtender cldExtenderFin;
         
         /// <summary>
         /// Control nota.
@@ -74,6 +65,33 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label nota;
+        
+        /// <summary>
+        /// Control rb_tipoReporte.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rb_tipoReporte;
+        
+        /// <summary>
+        /// Control rblOpciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblOpciones;
+        
+        /// <summary>
+        /// Control txtfield_formatoEstadisticas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable txtfield_formatoEstadisticas;
         
         /// <summary>
         /// Control rb_tipo.
@@ -112,31 +130,13 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso {
         protected global::System.Web.UI.WebControls.DropDownList ddl_instalaciones;
         
         /// <summary>
-        /// Control cal01.
+        /// Control btnGenerar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar cal01;
-        
-        /// <summary>
-        /// Control cal02.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar cal02;
-        
-        /// <summary>
-        /// Control Button1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnGenerar;
         
         /// <summary>
         /// Control datos_generales.
