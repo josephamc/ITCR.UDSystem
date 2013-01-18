@@ -17,7 +17,7 @@
     </a>
 
     &nbsp;
-    <a href="../../CU_AdministrarCalendario/ConsultaCalendario.aspx" >
+    <a href="../../CU_AdministrarCalendario/frmCalendario.aspx" >
         <img src="../../imagenes/calendario01.jpg" alt=""/>
     </a>
     <hr />

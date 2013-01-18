@@ -36,6 +36,9 @@
     <Reference Include="AjaxControlToolkit">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="DayPilot">
+      <HintPath>..\..\..\..\Downloads\DayPilotLite-3.1.230\Binary\DayPilot.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\AjaxControlToolkit.4.1.60919\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -66,7 +69,8 @@
     <Content Include="Confirmacion.aspx" />
     <Content Include="Controles\Breadcrumb.txt" />
     <Content Include="Controles\Navigation.ascx" />
-    <Content Include="CU_AdministrarCalendario\ConsultaCalendario.aspx" />
+    <Content Include="css\Calendar.css" />
+    <Content Include="CU_AdministrarCalendario\frmCalendario.aspx" />
     <Content Include="CU_AdministrarCalendario\IndiceCalendario.aspx" />
     <Content Include="CU_AdministrarCalendario\InsertaCurso.aspx" />
     <Content Include="CU_AdministrarCalendario\InsertaEvento.aspx" />
@@ -100,6 +104,7 @@
     <Content Include="imagenes\AdmInst3.JPG" />
     <Content Include="imagenes\barra02.jpg" />
     <Content Include="imagenes\bienvenido.JPG" />
+    <Content Include="imagenes\btnBuscar.png" />
     <Content Include="imagenes\calendario01.jpg" />
     <Content Include="imagenes\consulta03.png" />
     <Content Include="imagenes\correcto02.jpg" />
@@ -120,6 +125,7 @@
     <Content Include="imagenes\logoSistemasTEC.jpg" />
     <Content Include="imagenes\logotec1.gif" />
     <Content Include="imagenes\result_est01.png" />
+    <Content Include="imagenes\rptReservacion.JPG" />
     <Content Include="imagenes\TECAzul.jpg" />
     <Content Include="imagenes\tit-TEC.jpg" />
     <Content Include="imagenes\update.png" />
@@ -174,12 +180,12 @@
     <Compile Include="Confirmacion.aspx.designer.cs">
       <DependentUpon>Confirmacion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CU_AdministrarCalendario\ConsultaCalendario.aspx.cs">
-      <DependentUpon>ConsultaCalendario.aspx</DependentUpon>
+    <Compile Include="CU_AdministrarCalendario\frmCalendario.aspx.cs">
+      <DependentUpon>frmCalendario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CU_AdministrarCalendario\ConsultaCalendario.aspx.designer.cs">
-      <DependentUpon>ConsultaCalendario.aspx</DependentUpon>
+    <Compile Include="CU_AdministrarCalendario\frmCalendario.aspx.designer.cs">
+      <DependentUpon>frmCalendario.aspx</DependentUpon>
     </Compile>
     <Compile Include="CU_AdministrarCalendario\IndiceCalendario.aspx.cs">
       <DependentUpon>IndiceCalendario.aspx</DependentUpon>
