@@ -54,7 +54,7 @@ namespace ITCR.UDSystem.Interfaz
 
         protected void Button5_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Reportes/frmSeleccionar.aspx");
+            Response.Redirect("Reportes/Seleccionar.aspx");
         }
     
     }

@@ -77,7 +77,6 @@
     <Content Include="CU_AdministrarInstalaciones\EditaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx" />
-    <Content Include="CU_EstadisticasUso\ConsultaEstadistica.aspx" />
     <Content Include="CU_EstadisticasUso\IndiceEstadisticas.aspx" />
     <Content Include="Exito2.aspx" />
     <Content Include="css\itcr.css" />
@@ -133,7 +132,7 @@
     <Content Include="js\jquery-ui.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.menu.js" />
-    <Content Include="Reportes\frmSeleccionar.aspx" />
+    <Content Include="Reportes\Seleccionar.aspx" />
     <Content Include="Scripts\assets\css\simplemodal.css" />
     <Content Include="Scripts\assets\images\loader.gif" />
     <Content Include="Scripts\Interfaz.js" />
@@ -228,13 +227,6 @@
     </Compile>
     <Compile Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx.designer.cs">
       <DependentUpon>InsertaImagenes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CU_EstadisticasUso\ConsultaEstadistica.aspx.cs">
-      <DependentUpon>ConsultaEstadistica.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CU_EstadisticasUso\ConsultaEstadistica.aspx.designer.cs">
-      <DependentUpon>ConsultaEstadistica.aspx</DependentUpon>
     </Compile>
     <Compile Include="CU_EstadisticasUso\IndiceEstadisticas.aspx.cs">
       <DependentUpon>IndiceEstadisticas.aspx</DependentUpon>
@@ -354,12 +346,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\frmSeleccionar.aspx.cs">
-      <DependentUpon>frmSeleccionar.aspx</DependentUpon>
+    <Compile Include="Reportes\Seleccionar.aspx.cs">
+      <DependentUpon>Seleccionar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reportes\frmSeleccionar.aspx.designer.cs">
-      <DependentUpon>frmSeleccionar.aspx</DependentUpon>
+    <Compile Include="Reportes\Seleccionar.aspx.designer.cs">
+      <DependentUpon>Seleccionar.aspx</DependentUpon>
     </Compile>
     <Compile Include="SinAutenticar.Master.cs">
       <DependentUpon>SinAutenticar.Master</DependentUpon>

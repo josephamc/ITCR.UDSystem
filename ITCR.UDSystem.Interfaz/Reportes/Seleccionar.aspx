@@ -1,9 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultaEstadistica.aspx.cs" Inherits="ITCR.UDSystem.Interfaz.CU_EstadisticasUso.ConsultaEstadistica" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Seleccionar.aspx.cs" Inherits="ITCR.UDSystem.Interfaz.Reportes.Seleccionar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<h1>Consulta de Estadisticas</h1>
-<br />
+
+<h1><img align="bottom" alt="" src="../imagenes/forward.png" />Generación de reportes</h1>
+
 <table>
     <tr>
         <td>
@@ -16,27 +17,81 @@
                     <td>                        
                         <fieldset style="width: 500px">
                             <table>
+                            
+
+
                                 <tr>
-                                    <td><asp:Label ID="Label4" runat="server" Text="Fecha Inicio:"></asp:Label></td>
-                                    <td><asp:TextBox ID="txt_fechaIni" runat="server" Width="235px" ReadOnly="true"></asp:TextBox></td>
-                                    <td><asp:Button ID="elegir01_boton" runat="server" Text="Elegir" onclick="elegir01_Click" /></td>
+                                    <td>Fecha inicio:</td>
+                                    <td>
+                                        <ajaxToolkit:ToolkitScriptManager ID="tkManager" runat="server">
+                                        </ajaxToolkit:ToolkitScriptManager>
+                                        <asp:TextBox ID="txtInicio" runat="server" Width="235px"></asp:TextBox>
+                                        <ajaxToolkit:CalendarExtender
+                                            ID="cldExtender" TargetControlID="txtInicio" PopupButtonID="imgCalendar" 
+                                            runat="server" Format="yyyy-MM-dd">
+                                        </ajaxToolkit:CalendarExtender>
+                                        <img id="imgCalendar" align="middle" alt="" src="../imagenes/date.png" /></td>
                                 </tr>
-                                <tr>                                
-                                    <td><asp:Label ID="Label1" runat="server" Text="Fecha Fin:"></asp:Label></td>
-                                    <td><asp:TextBox ID="txt_fechaFin" runat="server" Width="235px" ReadOnly="true"></asp:TextBox></td>                                    
-                                    <td><asp:Button ID="elegir02_boton" runat="server" Text="Elegir" onclick="elegir02_Click" /></td>
+                                <tr>
+                                    <td>Fecha Fin:</td>
+                                    <td>
+                                        <asp:TextBox ID="txtFin" runat="server" Width="235px"></asp:TextBox>
+                                        <ajaxToolkit:CalendarExtender
+                                            ID="cldExtenderFin" TargetControlID="txtFin" PopupButtonID="imgCalendarFin" Format="yyyy-MM-dd" runat="server">
+                                        </ajaxToolkit:CalendarExtender>
+                                        <img id="imgCalendarFin" align="middle" alt="" src="../imagenes/date.png" /></td>
                                 </tr>
+                                
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <asp:Label ID="nota" runat="server" Text="Formato de Fecha= yyyy-MM-dd, ejemplo: 2013-01-27" style="font-style: italic"></asp:Label>
+                                        <asp:Label ID="nota" runat="server" Text="Formato de Fecha= yyyy-MM-dd, eje: 2013-01-27" style="font-style: italic"></asp:Label>
                                     </td>
                                 </tr>
+
+                                <tr>
+                                <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Desea crear reporte de:</td>
+                                    <td style="margin-left: 40px">
+                                        <asp:RadioButtonList ID="rb_tipoReporte" runat="server" 
+                                            onselectedindexchanged="rb_tipoReporte_SelectedIndexChanged" 
+                                            AutoPostBack="True">
+                                        <asp:ListItem Text="Reservaciones" Value="1" Selected="True"></asp:ListItem>
+                                        <asp:ListItem Text="Estadisticas de Uso" Value="2" Selected="False"></asp:ListItem>
+                                        </asp:RadioButtonList>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                <td><hr /></td>
+                                <td><hr /></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td>Tipo de información:</td>
+                                    <td style="margin-left: 40px">
+                                        <asp:RadioButtonList ID="rblOpciones" runat="server">
+                                            <asp:ListItem Selected="True">Documento Web</asp:ListItem>
+                                            <asp:ListItem>Descargar documento PDF</asp:ListItem>
+                                        </asp:RadioButtonList>
+                                    </td>
+                                </tr>
+
+                                
                                 <tr>
                                     <td>
                                     <br />
                                     </td>
                                 </tr>
+                                
+                                
+                            </table>
+
+                            <table runat="server" id="txtfield_formatoEstadisticas" visible="false">
                                 <tr>
                                     <td>
                                         <asp:RadioButtonList ID="rb_tipo" runat="server">
@@ -45,9 +100,7 @@
                                         </asp:RadioButtonList>
                                     </td>
                                 </tr>
-                                
-                            </table>
-                            <table>
+
                                 <tr>
                                     <td>
                                         <asp:Label ID="Label3" runat="server" Text="Si seleccciona 'Individual' debe elegir una Instalacion Deportiva. De lo contrario, si selecciona 'General', ignore dicho campo"></asp:Label>
@@ -67,34 +120,9 @@
                             <br />
                             <table>
                             <tr>
-                                <td><asp:Calendar ID="cal01" runat="server" BackColor="White" visible="false"
-                                    BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" 
-                                    ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" 
-                                        onselectionchanged="cal01_SelectionChanged">
-                                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
-                                        VerticalAlign="Bottom" />
-                                    <OtherMonthDayStyle ForeColor="#999999" />
-                                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" 
-                                        Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                                    <TodayDayStyle BackColor="#CCCCCC" />
-                                </asp:Calendar></td>
+                                <td>&nbsp;</td>
                                 <td>
-                                <asp:Calendar ID="cal02" runat="server" BackColor="White" visible="false"
-                                    BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" 
-                                    ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" 
-                                        onselectionchanged="cal02_SelectionChanged">
-                                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
-                                        VerticalAlign="Bottom" />
-                                    <OtherMonthDayStyle ForeColor="#999999" />
-                                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" 
-                                        Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                                    <TodayDayStyle BackColor="#CCCCCC" />
-                                </asp:Calendar>
-                                </td>
+                                    &nbsp;</td>
                             </tr>
                             </table>
                         </fieldset> 
@@ -103,8 +131,8 @@
                 <tr>
                     <td>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="Button1" runat="server" Text="Consultar" Height="37px" 
-                            Width="103px" onclick="Button1_Click" />
+                        <asp:Button ID="btnGenerar" runat="server" Text="Generar Reporte" 
+                        onclick="btnGenerar_Click" />
                     </td>
                 </tr>
             </table>           
@@ -115,6 +143,7 @@
         </td>
     </tr>
 </table>
+
 <br />
 <fieldset style="width: 800px" runat="server" id="datos_generales" visible="false">
     <img src="../../imagenes/result_est01.png" alt=""/>    
@@ -148,10 +177,6 @@
          <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
  
       </asp:DataList>
-
-
-
-
-
 </fieldset>
+
 </asp:Content>

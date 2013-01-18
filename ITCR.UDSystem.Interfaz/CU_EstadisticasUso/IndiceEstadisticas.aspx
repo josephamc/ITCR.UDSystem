@@ -3,14 +3,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1><asp:Label ID="Label1" runat="server" Text="Estadisticas de las Instalaciones"></asp:Label></h1>
+    <h1><asp:Label ID="Label1" runat="server" Text="Ingresar Estadisticas de Uso"></asp:Label></h1>
     <br />
-    <hr />    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-    <a href="/CU_EstadisticasUso/ConsultaEstadistica.aspx" >
-        <img src="../../imagenes/consulta03.png" alt=""/>
-    </a>
-    <hr />
     <br />
     <table>
         <tr>
