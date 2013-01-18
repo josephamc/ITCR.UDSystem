@@ -30,30 +30,28 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso
             }
         }
 
-        protected void Calendar2_SelectionChanged(object sender, EventArgs e)
-        {
-            //selecciona la fecha del calendario y la pone en el text box
-            DateTime fechaElegida = calendarioEstadisticas.SelectedDate;
-            txt_fecha.Text = ""+fechaElegida.Year+"-"+fechaElegida.Month+"-"+fechaElegida.Day;
-        }
+       
 
         protected void Button2_Click(object sender, EventArgs e)
         {
             try
             {
-                error_usuarios.Visible = false;
-                cUDGDFRZNUSONegocios estadistica = new cUDGDFRZNUSONegocios(0, "", 0, "");
-                estadistica.NUM_CANTUSUARIOS = Int32.Parse(txt_cantU.Text);
-                estadistica.FEC_FECHA = DateTime.Parse(txt_fecha.Text);
-                estadistica.FKY_INSTALACION = Int32.Parse(ddl_instalaciones.SelectedValue);
+                if (Page.IsValid)
+                {
+                    error_usuarios.Visible = false;
+                    cUDGDFRZNUSONegocios estadistica = new cUDGDFRZNUSONegocios(0, "", 0, "");
+                    estadistica.NUM_CANTUSUARIOS = Int32.Parse(txt_cantU.Text);
+                    estadistica.FEC_FECHA = DateTime.Parse(txt_fecha.Text);
+                    estadistica.FKY_INSTALACION = Int32.Parse(ddl_instalaciones.SelectedValue);
 
-                estadistica.Insertar();
-                inst.Text = ddl_instalaciones.SelectedItem.Text;
-                usu.Text = txt_cantU.Text;
-                fecha.Text = txt_fecha.Text;
-                fieldset_exito.Visible = true;
+                    estadistica.Insertar();
+                    inst.Text = ddl_instalaciones.SelectedItem.Text;
+                    usu.Text = txt_cantU.Text;
+                    fecha.Text = txt_fecha.Text;
+                    fieldset_exito.Visible = true;
 
-                txt_cantU.Text ="";
+                    txt_cantU.Text = "";
+                }
             }
             catch (Exception o)
             {
