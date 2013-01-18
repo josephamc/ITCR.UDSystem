@@ -92,6 +92,7 @@
     <Content Include="frmAutenticacion.aspx" />
     <Content Include="frmDatos.aspx" />
     <Content Include="frmError.aspx" />
+    <Content Include="frmErrorFechas.aspx" />
     <Content Include="frmMantenimiento.aspx" />
     <Content Include="frmNotificacion.aspx" />
     <Content Include="frmOcupado.aspx" />
@@ -301,6 +302,13 @@
     <Compile Include="frmError.aspx.cs">
       <DependentUpon>frmError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmErrorFechas.aspx.cs">
+      <DependentUpon>frmErrorFechas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmErrorFechas.aspx.designer.cs">
+      <DependentUpon>frmErrorFechas.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmMantenimiento.aspx.cs">
       <DependentUpon>frmMantenimiento.aspx</DependentUpon>
