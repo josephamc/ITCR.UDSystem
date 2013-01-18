@@ -1,0 +1,34 @@
+﻿.calendar {
+	background-color: white;	
+	font-family: Tahoma;
+	font-size: 8pt;
+}
+
+.calendar td 
+{
+	font-family: Tahoma;
+	font-size: 8pt;
+	padding: 2px 2px 2px 2px;
+}
+
+.calendar table  {
+	background-color: transparent;
+}
+
+.calendar tr td a {
+	text-decoration: none;
+}
+
+.calendar td a {
+	text-decoration: none;
+}
+
+.calendar td.today a 
+{
+    border: solid 1px red;   
+}
+
+.calendar td.selected  
+{
+    background-color: #9EBEF5;
+}
