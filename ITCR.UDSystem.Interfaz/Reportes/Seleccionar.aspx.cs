@@ -15,6 +15,7 @@ namespace ITCR.UDSystem.Interfaz.Reportes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (!IsPostBack)
             {
                 datos_generales.Visible = false;
@@ -32,62 +33,103 @@ namespace ITCR.UDSystem.Interfaz.Reportes
             }
         }
 
+
+        private int validaFechas(DateTime FechaInicio, DateTime FechaFin)
+        {
+
+            DateTime hoy = DateTime.Now;
+
+            if (FechaInicio > FechaFin)
+                return -1;
+            else
+                return 1;
+             
+        }
+
+
+
         protected void btnGenerar_Click(object sender, EventArgs e)
         {
-            if (rb_tipoReporte.SelectedValue.Equals("1"))
+            try
             {
-                //CREA REPORTE DE RESERVACIONES
-                cReporte rptReservaciones = new cReporte(true, txtInicio.Text, txtFin.Text);
-                Root.Reports.Report rptFile = rptReservaciones.Generar();
-                if (rblOpciones.SelectedItem.Text.CompareTo("Documento Web") == 0)
-                    // Muestra el archivo en formato Web
-                    Root.Reports.RT.ResponsePDF(rptFile, this);
-                else
+                if (Page.IsValid)
                 {
-                    // Inicia la descarga del archivo
-                    MemoryStream stream = new MemoryStream();
-                    rptFile.formatter.Create(rptFile, stream);
-                    Response.Clear();
-                    Response.ContentType = "application/pdf";
-                    Response.AddHeader("content-Disposition: attachment; filename=" + txtInicio.Text.Replace("/", "") + " - " + txtFin.Text.Replace("/", ""), "Reporte.pdf");
-                    Response.BinaryWrite(stream.ToArray());
-                    Response.Flush();
-                    stream.Close();
-                    Response.End();
+                    RequiredFieldValidator1.Visible = false;
+                    RequiredFieldValidator4.Visible = false;
+                    DateValidator2.Visible = false;
+                    RegularExpressionValidator1.Visible = false;
+                    int Fechas = -1000;
+                    Fechas = validaFechas(Convert.ToDateTime(txtInicio.Text.ToString()), Convert.ToDateTime(txtFin.Text.ToString()));
+
+                    if (Fechas == 1)
+                    {
+
+                        if (rb_tipoReporte.SelectedValue.Equals("1"))
+                        {
+                            //CREA REPORTE DE RESERVACIONES
+                            cReporte rptReservaciones = new cReporte(true, txtInicio.Text, txtFin.Text);
+                            Root.Reports.Report rptFile = rptReservaciones.Generar();
+                            if (rblOpciones.SelectedItem.Text.CompareTo("Documento Web") == 0)
+                                // Muestra el archivo en formato Web
+                                Root.Reports.RT.ResponsePDF(rptFile, this);
+                            else
+                            {
+                                // Inicia la descarga del archivo
+                                MemoryStream stream = new MemoryStream();
+                                rptFile.formatter.Create(rptFile, stream);
+                                Response.Clear();
+                                Response.ContentType = "application/pdf";
+                                Response.AddHeader("content-Disposition: attachment; filename=" + txtInicio.Text.Replace("/", "") + " - " + txtFin.Text.Replace("/", ""), "Reporte.pdf");
+                                Response.BinaryWrite(stream.ToArray());
+                                Response.Flush();
+                                stream.Close();
+                                Response.End();
+                            }
+                        }
+                        else
+                        {
+                            //CREAR REPORTE DE ESTADISTICAS
+                            if (rblOpciones.SelectedItem.Text.CompareTo("Documento Web") == 0)
+                            {
+                                if (rb_tipo.SelectedValue.Equals("1"))
+                                {
+                                    //consulta informacion
+                                    cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
+                                    instalacion.ID_INSTALACION = Int32.Parse(ddl_instalaciones.SelectedValue.ToString());
+                                    DataTable datos_instalaciones = instalacion.SeleccionarUno();
+
+                                    data01.DataSource = CreateDataSource(datos_instalaciones);
+                                    data01.DataBind();
+                                    datos_generales.Visible = true;
+                                }
+                                else
+                                {
+                                    //consulta informacion
+                                    cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
+                                    DataTable datos_instalaciones = instalacion.SeleccionarTodos();
+
+                                    data01.DataSource = CreateDataSource(datos_instalaciones);
+                                    data01.DataBind();
+                                    datos_generales.Visible = true;
+                                }
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+
+                    if (Fechas == -1) {
+                        Response.Redirect("/frmErrorFechas.aspx", true);
+                       
+                    }
                 }
             }
-            else
+
+            catch (Exception)
             {
-                //CREAR REPORTE DE ESTADISTICAS
-                if (rblOpciones.SelectedItem.Text.CompareTo("Documento Web") == 0)
-                {
-                    if (rb_tipo.SelectedValue.Equals("1"))
-                    {
-                        //consulta informacion
-                        cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
-                        instalacion.ID_INSTALACION = Int32.Parse(ddl_instalaciones.SelectedValue.ToString());
-                        DataTable datos_instalaciones = instalacion.SeleccionarUno();
-
-                        data01.DataSource = CreateDataSource(datos_instalaciones);
-                        data01.DataBind();
-                        datos_generales.Visible = true;
-                    }
-                    else
-                    {
-                        //consulta informacion
-                        cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
-                        DataTable datos_instalaciones = instalacion.SeleccionarTodos();
-
-                        data01.DataSource = CreateDataSource(datos_instalaciones);
-                        data01.DataBind();
-                        datos_generales.Visible = true;
-                    }
-                }
-                else
-                {
-
-                }
-            }
+            } 
         }
 
         protected DataView CreateDataSource(DataTable datos_instalaciones)

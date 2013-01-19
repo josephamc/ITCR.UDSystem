@@ -31,6 +31,8 @@
                                             runat="server" Format="yyyy-MM-dd">
                                         </ajaxToolkit:CalendarExtender>
                                         <img id="imgCalendar" align="middle" alt="" src="../imagenes/date.png" /></td>
+                                        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtInicio" ErrorMessage="*"></asp:RequiredFieldValidator></td>                                                                         
+                                        <td><asp:RegularExpressionValidator ID="DateValidator2" runat="server" ControlToValidate="txtInicio"  ErrorMessage="Fecha inválida. Ingrese la fecha en un formato adecuado, ejemplo: 2012-12-31" ValidationExpression="((19|20)\d\d)[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator></td>
                                 </tr>
                                 <tr>
                                     <td>Fecha Fin:</td>
@@ -40,6 +42,8 @@
                                             ID="cldExtenderFin" TargetControlID="txtFin" PopupButtonID="imgCalendarFin" Format="yyyy-MM-dd" runat="server">
                                         </ajaxToolkit:CalendarExtender>
                                         <img id="imgCalendarFin" align="middle" alt="" src="../imagenes/date.png" /></td>
+                                        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFin" ErrorMessage="*"></asp:RequiredFieldValidator></td>                                                                         
+                                        <td><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFin"  ErrorMessage="Fecha inválida. Ingrese la fecha en un formato adecuado, ejemplo: 2012-12-31" ValidationExpression="((19|20)\d\d)[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator></td>
                                 </tr>
                                 
                                 <tr>

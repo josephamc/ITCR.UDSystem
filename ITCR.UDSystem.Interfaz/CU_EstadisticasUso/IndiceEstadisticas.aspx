@@ -39,9 +39,17 @@
                     <td>            
                         &nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="Label4" runat="server" Text="Fecha:"></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txt_fecha" runat="server" Width="321px" ReadOnly="true"></asp:TextBox>
-                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txt_fecha" runat="server" Width="116px"
+                            Height="17px"></asp:TextBox>  <img id="imgCalendar" alt="" src="../imagenes/date.png" />
+                         <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager11" runat="server">
+                        </ajaxToolkit:ToolkitScriptManager>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="txt_fecha" ErrorMessage="*"></asp:RequiredFieldValidator>
+                        <ajaxToolkit:CalendarExtender ID="CalendarExtender1" TargetControlID="txt_fecha" PopupButtonID="imgCalendar" 
+                        runat="server" Format="yyyy-MM-dd"> 
+                        </ajaxToolkit:CalendarExtender>
+                       <asp:RegularExpressionValidator ID="DateValidator13" runat="server" ControlToValidate="txt_fecha"  ErrorMessage="Fecha inválida. Ingrese la fecha en un formato adecuado, ejemplo: 2012-12-31" ValidationExpression="((19|20)\d\d)[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
+                        
                     </td>        
                 </tr>
                 <tr>
@@ -52,19 +60,7 @@
                 </tr>
                 <tr>
                 <td>&nbsp;&nbsp;&nbsp;
-                <asp:Calendar ID="calendarioEstadisticas" runat="server" BackColor="White" 
-                        BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" 
-                        ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" 
-                        onselectionchanged="Calendar2_SelectionChanged">
-                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
-                        VerticalAlign="Bottom" />
-                    <OtherMonthDayStyle ForeColor="#999999" />
-                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" 
-                        Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                    <TodayDayStyle BackColor="#CCCCCC" />
-                    </asp:Calendar></td>
+                </td>
                 </tr>
                 <tr>
                     <td>
