@@ -126,6 +126,7 @@
     <Content Include="imagenes\result_est01.png" />
     <Content Include="imagenes\rptReservacion.JPG" />
     <Content Include="imagenes\TECAzul.jpg" />
+    <Content Include="imagenes\time2.jpg" />
     <Content Include="imagenes\tit-TEC.jpg" />
     <Content Include="imagenes\update.png" />
     <Content Include="js\easyTooltip.js" />

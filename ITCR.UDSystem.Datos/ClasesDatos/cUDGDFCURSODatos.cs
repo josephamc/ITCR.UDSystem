@@ -198,5 +198,136 @@ namespace ITCR.UDSystem.Datos
             //    base.DescripcionCF = "{0}" + base.DescripcionCF + "{0}"; }
             return base.Buscar();
         }
+
+        //=========================================================================
+        //                          Métodos agregados
+        //=========================================================================
+        
+        /// <summary>
+        /// Selecciona toda la tabla de cursos de manera detallada
+        /// </summary>
+        /// <returns></returns>
+        public virtual DataTable Seleccionar_Todo_Detallado()
+        {
+            SqlCommand cmdAEjecutar = new SqlCommand();
+            cmdAEjecutar.CommandText = "dbo.[pr_UDGDFCURSO_Seleccionar_Todo_Detallado]";
+            cmdAEjecutar.CommandType = CommandType.StoredProcedure;
+            DataTable toReturn = new DataTable("UDGDFCURSO");
+            SqlDataAdapter adapter = new SqlDataAdapter(cmdAEjecutar);
+
+            // Usar el objeto conexión de la clase base
+            cmdAEjecutar.Connection = _conexionBD;
+
+            try
+            {
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
+
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Abre una conexión.
+                    _conexionBD.Open();
+                }
+                else
+                {
+                    if (_conexionBDProvider.IsTransactionPending)
+                    {
+                        cmdAEjecutar.Transaction = _conexionBDProvider.CurrentTransaction;
+                    }
+                }
+
+                // Ejecuta la consulta.
+                adapter.Fill(toReturn);
+                _codError = Int32.Parse(cmdAEjecutar.Parameters["@iCodError"].Value.ToString());
+
+                if (_codError != (int)ITCRError.AllOk)
+                {
+                    // Genera un error.
+                    throw new Exception("Procedimiento Almacenado 'pr_UDGDFCURSO_Seleccionar_Todo_Detallado' reportó el error Código: " + _codError);
+                }
+
+                return toReturn;
+            }
+            catch (Exception ex)
+            {
+                // Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
+                throw new Exception("cUDGDFCURSOBase::Seleccionar_Todo_Detallado::Ocurrió un error." + ex.Message, ex);
+            }
+            finally
+            {
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Cierra la conexión.
+                    _conexionBD.Close();
+                }
+                cmdAEjecutar.Dispose();
+                adapter.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Indica si el nombre se encuentra ocupado
+        /// </summary>
+        /// <param name="p_nombre">Nombre del curso</param>
+        /// <returns>Boolean Object</returns>
+        public virtual Boolean Comprobar_Nombre(String p_nombre)
+        {
+            SqlCommand cmdAEjecutar = new SqlCommand();
+            cmdAEjecutar.CommandText = "dbo.[pr_UDGDFCURSO_Comprobar_Nombre]";
+            cmdAEjecutar.CommandType = CommandType.StoredProcedure;
+            Int32 toReturn = -1;
+
+            // Usar el objeto conexión de la clase base
+            cmdAEjecutar.Connection = _conexionBD;
+
+            try
+            {
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@sNombre", SqlDbType.VarChar, 100, ParameterDirection.Input, true, 0, 0, "", DataRowVersion.Proposed, p_nombre));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iExistente", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, toReturn));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
+
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Abre una conexión.
+                    _conexionBD.Open();
+                }
+                else
+                {
+                    if (_conexionBDProvider.IsTransactionPending)
+                    {
+                        cmdAEjecutar.Transaction = _conexionBDProvider.CurrentTransaction;
+                    }
+                }
+
+                // Ejecuta la consulta.
+                _filasAfectadas = cmdAEjecutar.ExecuteNonQuery();
+                _codError = Int32.Parse(cmdAEjecutar.Parameters["@iCodError"].Value.ToString());
+                toReturn = Int32.Parse(cmdAEjecutar.Parameters["@iExistente"].Value.ToString());
+
+                if (_codError != (int)ITCRError.AllOk)
+                {
+                    // Genera un error.
+                    throw new Exception("Procedimiento almacenado 'pr_UDGDFCURSO_ActualizarTodos_Con_FKY_RESERVACION_FK' reportó el error Código: " + _codError);
+                }
+
+                if (toReturn == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                // Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
+                throw new Exception("cUDGDFCURSOBase::ActualizarTodos_Con_FKY_RESERVACION_FK::Ocurrió un error." + ex.Message, ex);
+            }
+            finally
+            {
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Cierra la conexión.
+                    _conexionBD.Close();
+                }
+                cmdAEjecutar.Dispose();
+            }
+        }
     } //class
 } //namespace

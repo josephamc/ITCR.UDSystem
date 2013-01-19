@@ -88,14 +88,14 @@ namespace ITCR.UDSystem.Negocios
                     + "FKY_CALENDARIO:" + FKY_CALENDARIO.ToString() + ";"
                     + "FKY_RESERVACION:" + FKY_RESERVACION.ToString() + ";"
                     + "NOM_CURSO:" + NOM_CURSO.ToString() + ";";
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
                 return base.Insertar();
             }
             catch (Exception ex)
             {
                 //Construir el string a guardar en la bitácora en caso de error.
                 operacion = "Error Insertar cUDGDFCURSO;" + ex.Message;
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
                 throw ex;
             }
         }
@@ -294,5 +294,43 @@ namespace ITCR.UDSystem.Negocios
                 throw ex;
             }
         }
+
+        //=========================================================================
+        //                          Métodos agregados
+        //=========================================================================
+
+        /// <summary>
+        /// Selecciona toda la tabla de cursos de manera detallada
+        /// </summary>
+        /// <returns></returns>
+        public override DataTable Seleccionar_Todo_Detallado()
+        {
+            try
+            {
+                return base.Seleccionar_Todo_Detallado();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Indica si el nombre se encuentra ocupado
+        /// </summary>
+        /// <param name="p_nombre">Nombre del curso</param>
+        /// <returns>Boolean Object</returns>
+        public override bool Comprobar_Nombre(string p_nombre)
+        {
+            try
+            {
+                return base.Comprobar_Nombre(p_nombre);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     } //class
 } //namespace

@@ -294,5 +294,25 @@ namespace ITCR.UDSystem.Negocios
                 throw ex;
             }
         }
+
+        //======================================================================================
+        //                              Métodos agregados
+        //======================================================================================
+
+        /// <summary>
+        /// Selecciona todos los eventos con la información detallada de cada uno.
+        /// </summary>
+        /// <returns>DataTable Object</returns>
+        public override DataTable Seleccionar_Todo_Detallado()
+        {
+            try
+            {
+                return base.Seleccionar_Todo_Detallado();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     } //class
 } //namespace

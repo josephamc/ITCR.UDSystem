@@ -1,7 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InsertaCurso.aspx.cs" Inherits="ITCR.UDSystem.Interfaz.CU_AdministrarCalendario.InsertaCurso" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <style type="text/css">
+        .style1
+        {
+            width: 231px;
+        }
+        .style2
+        {
+            width: 289px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Administrador -->
+    <ajaxToolkit:ToolkitScriptManager ID="tkManager" runat="server"></ajaxToolkit:ToolkitScriptManager>
+
     <h2>Insertar Cursos de Docencia</h2>
     <br />
     <div id="imglogo">
@@ -15,14 +28,18 @@
                 <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td><asp:Label ID="lb_nombre" runat="server" Text="Nombre del Curso:" 
                         style="font-weight: 700"></asp:Label></td>
-                <td><asp:TextBox ID="txt_nombreCurso" runat="server" Width="227px"></asp:TextBox> </td>
+                <td><asp:TextBox ID="txt_nombreCurso" runat="server" Width="227px"></asp:TextBox> 
+                    <asp:Label ID="lbl_ErrorNombre" runat="server" 
+                        Text="El nombre que desea seleccionar esta ocupado" Visible="False" 
+                        ForeColor="Red"></asp:Label>
+                </td>
             </tr>
 
             <tr>
                 <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td><asp:Label ID="lb_instalacion" runat="server" 
                         Text="Instalacion donde será el curso:" style="font-weight: 700"></asp:Label></td>
-                <td><asp:DropDownList ID="dp_instalacionCurso" runat="server" Height="18px" 
+                <td><asp:DropDownList ID="ddl_instalacionCurso" runat="server" Height="18px" 
                         Width="227px">
                 </asp:DropDownList></td>
             </tr>
@@ -36,27 +53,17 @@
 
             <tr>
                 <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td><asp:Label ID="lb_descripcion" runat="server" Text="Descripción del Curso:" 
-                        style="font-weight: 700"></asp:Label></td>
-                <td><textarea id="txt_descripcionCurso" cols= "75" rows="7" runat="server"></textarea></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
         </table>
         <br />
         <table>
             <tr>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td><asp:Calendar ID="Calendar1" runat="server" BackColor="White" 
-                        BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" 
-                        ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
-                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" 
-                        VerticalAlign="Bottom" />
-                    <OtherMonthDayStyle ForeColor="#999999" />
-                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" 
-                        Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                    <TodayDayStyle BackColor="#CCCCCC" />
-                    </asp:Calendar>
+                <td>
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/imagenes/time2.jpg" 
+                        Width="368px" />
                 </td>
 
                 <td><table>
@@ -64,14 +71,27 @@
                         <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td><asp:Label ID="lb_Fecha1" runat="server" Text="Fecha Inicio:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_FechaInicio" runat="server" Width="227px"></asp:TextBox> </td>
+                        <td class="style2">
+                           <asp:TextBox ID="txt_FechaInicio" runat="server" Width="227px"></asp:TextBox> 
+                            <ajaxToolkit:CalendarExtender
+                                   ID="cldExtender" TargetControlID="txt_FechaInicio" PopupButtonID="imgCalendar" 
+                                   runat="server" Format="dd/MM/yyyy">
+                            </ajaxToolkit:CalendarExtender>
+                            <img id="imgCalendar" align="middle" alt="" src="../imagenes/date.png" />
+                        </td>
                     </tr>
             
                     <tr>
                         <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                         <td><asp:Label ID="lb_Fecha2" runat="server" Text="Fecha Fin:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_FechaFin" runat="server" Width="227px"></asp:TextBox> </td>
+                        <td class="style2"><asp:TextBox ID="txt_FechaFin" runat="server" Width="227px"></asp:TextBox> 
+                            <ajaxToolkit:CalendarExtender
+                                   ID="CalendarExtender1" TargetControlID="txt_FechaFin" PopupButtonID="imgCalendarFin" 
+                                   runat="server" Format="dd/MM/yyyy">
+                            </ajaxToolkit:CalendarExtender>
+                            <img id="imgCalendarFin" align="middle" alt="" src="../imagenes/date.png" />
+                        </td>
                     </tr>
                 </table>
 
@@ -82,14 +102,15 @@
                         style="font-style: italic"></asp:Label>
                 </div>
 
-                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-
-                <table>
+                &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="lblErrorFecha" runat="server" 
+                        ForeColor="Red" Text="El rango de tiempo seleccionado se encuentra ocupado." 
+                        Visible="False"></asp:Label>
+&nbsp;<table>
                     <tr>
                         <td>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                         <td><asp:Label ID="hra_inicio" runat="server" Text="Hora Inicio:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_HoraInicio" runat="server" Width="90px"></asp:TextBox></td>
+                        <td><asp:TextBox ID="txt_HoraInicio" runat="server" Width="90px">12:00</asp:TextBox></td>
                         <td><asp:DropDownList ID="ddlAmPm1" runat="server">
                            <asp:ListItem Selected="True">AM</asp:ListItem>
                            <asp:ListItem Selected="False">PM</asp:ListItem>
@@ -102,7 +123,7 @@
                         <td>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
                         <td><asp:Label ID="hra_fin" runat="server" Text="Hora Fin:" 
                                 style="font-weight: 700"></asp:Label></td>
-                        <td><asp:TextBox ID="txt_HoraFin" runat="server" Width="90px"></asp:TextBox></td>
+                        <td><asp:TextBox ID="txt_HoraFin" runat="server" Width="90px">12:00</asp:TextBox></td>
                         <td><asp:DropDownList ID="ddlAmPm2" runat="server">
                            <asp:ListItem Selected="True">AM</asp:ListItem>
                            <asp:ListItem Selected="False">PM</asp:ListItem>
@@ -134,7 +155,7 @@
     <div>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="boton_añadir_evento" runat="server" Text="Añadir Curso" 
-            Width="223px" Height="29px" />
+        <asp:Button ID="btn_Agregar" runat="server" Text="Añadir Curso" 
+            Width="223px" Height="29px" onclick="btn_Agregar_Click" />
     </div>
 </asp:Content>
