@@ -25,8 +25,12 @@ C:\Users\CesarLeonardo\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\De
 C:\Users\CesarLeonardo\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.pdb
 C:\Users\CesarLeonardo\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.dll
 C:\Users\CesarLeonardo\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.pdb
+<<<<<<< HEAD
 C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.dll
 C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\bin\Debug\ITCR.UDSystem.Datos.pdb
 C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.dll
 C:\Users\jsaenz\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.pdb
+=======
+C:\Users\CesarLeonardo\Documents\GitHub\ITCR.UDSystem\ITCR.UDSystem.Datos\obj\Debug\ITCR.UDSystem.Datos.csprojResolveAssemblyReference.cache
+>>>>>>> 9be99d93a5827a58c8f1811fc07bd740a9a300db

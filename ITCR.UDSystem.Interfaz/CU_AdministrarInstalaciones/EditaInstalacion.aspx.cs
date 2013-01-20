@@ -92,7 +92,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
 
                 Nueva_Instalacion.Actualizar();
 
-                Response.Redirect("~/Exito2.aspx", true);
+                Server.Transfer("~/Exito2.aspx", true);
             }
         }
 

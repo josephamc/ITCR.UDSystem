@@ -35,7 +35,14 @@
                         &nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="Label3" runat="server" Text="Cantidad de Usuarios"></asp:Label>
                         &nbsp;&nbsp;
+<<<<<<< HEAD
                         <asp:TextBox ID="txt_cantU" runat="server" Width="160px"></asp:TextBox>
+=======
+                        <asp:TextBox ID="txt_cantU" runat="server" Width="116px" Height="17px"></asp:TextBox> 
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txt_cantU" ErrorMessage="*"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="NumberValidatorh" runat="server" ControlToValidate="txt_cantU" ErrorMessage="Número inválido. Ingrese un número válido, ejemplo: 7" ValidationExpression="^\d+$" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
+                       
+>>>>>>> 9be99d93a5827a58c8f1811fc07bd740a9a300db
                     </td>
                </tr>    
                 <tr>

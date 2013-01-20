@@ -76,7 +76,29 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso {
         protected global::System.Web.UI.WebControls.TextBox txt_cantU;
         
         /// <summary>
+<<<<<<< HEAD
         /// Control Label4.
+=======
+        /// RequiredFieldValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        
+        /// <summary>
+        /// NumberValidatorh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator NumberValidatorh;
+        
+        /// <summary>
+        /// Label4 control.
+>>>>>>> 9be99d93a5827a58c8f1811fc07bd740a9a300db
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
