@@ -10,34 +10,79 @@
 namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario {
     
     
-    public partial class InsertaEvento {
+    public partial class frmCurso {
         
         /// <summary>
-        /// tkManager control.
+        /// tksManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager tkManager;
+        protected global::AjaxControlToolkit.ToolkitScriptManager tksManager;
         
         /// <summary>
-        /// lb_nombre control.
+        /// img_EDIT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_nombre;
+        protected global::System.Web.UI.WebControls.ImageButton img_EDIT;
         
         /// <summary>
-        /// txt_nombreEvento control.
+        /// img_DEL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_nombreEvento;
+        protected global::System.Web.UI.WebControls.ImageButton img_DEL;
+        
+        /// <summary>
+        /// lbl_ID_RESERVACION control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_ID_RESERVACION;
+        
+        /// <summary>
+        /// lbl_ID_CURSO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_ID_CURSO;
+        
+        /// <summary>
+        /// lbl_ID_INSTALACION control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_ID_INSTALACION;
+        
+        /// <summary>
+        /// lbl_NOM_CURSO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_NOM_CURSO;
+        
+        /// <summary>
+        /// txt_NOMBRE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_NOMBRE;
         
         /// <summary>
         /// lbl_ErrorNombre control.
@@ -49,291 +94,201 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario {
         protected global::System.Web.UI.WebControls.Label lbl_ErrorNombre;
         
         /// <summary>
-        /// lb_instalacion control.
+        /// drp_INSTALACION control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_instalacion;
+        protected global::System.Web.UI.WebControls.DropDownList drp_INSTALACION;
         
         /// <summary>
-        /// ddl_instalacionEvento control.
+        /// txt_PROFESOR control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_instalacionEvento;
+        protected global::System.Web.UI.WebControls.TextBox txt_PROFESOR;
         
         /// <summary>
-        /// lbl_Descripcion control.
+        /// txt_FEC_INICIO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Descripcion;
+        protected global::System.Web.UI.WebControls.TextBox txt_FEC_INICIO;
         
         /// <summary>
-        /// txa_descripcion control.
+        /// img_CALENDAR_INIT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txa_descripcion;
+        protected global::System.Web.UI.WebControls.Image img_CALENDAR_INIT;
         
         /// <summary>
-        /// img_Time control.
+        /// cldExtender_INIT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image img_Time;
+        protected global::AjaxControlToolkit.CalendarExtender cldExtender_INIT;
         
         /// <summary>
-        /// lb_Fecha1 control.
+        /// txt_FEC_FIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_Fecha1;
+        protected global::System.Web.UI.WebControls.TextBox txt_FEC_FIN;
         
         /// <summary>
-        /// txt_FechaInicio control.
+        /// img_CALENDAR_FIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_FechaInicio;
+        protected global::System.Web.UI.WebControls.Image img_CALENDAR_FIN;
         
         /// <summary>
-        /// cldExtender control.
+        /// cldExtender_FIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender cldExtender;
+        protected global::AjaxControlToolkit.CalendarExtender cldExtender_FIN;
         
         /// <summary>
-        /// lb_Fecha2 control.
+        /// txt_HRA_INICIO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_Fecha2;
+        protected global::System.Web.UI.WebControls.TextBox txt_HRA_INICIO;
         
         /// <summary>
-        /// txt_FechaFin control.
+        /// drp_TIME_INIT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_FechaFin;
+        protected global::System.Web.UI.WebControls.DropDownList drp_TIME_INIT;
         
         /// <summary>
-        /// CalendarExtender1 control.
+        /// txt_HRA_FIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
+        protected global::System.Web.UI.WebControls.TextBox txt_HRA_FIN;
         
         /// <summary>
-        /// Label3 control.
+        /// drp_TIME_FIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.DropDownList drp_TIME_FIN;
         
         /// <summary>
-        /// lblErrorFecha control.
+        /// lbl_ErrorCalendario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorFecha;
+        protected global::System.Web.UI.WebControls.Label lbl_ErrorCalendario;
         
         /// <summary>
-        /// hra_inicio control.
+        /// chk_LUNES control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hra_inicio;
+        protected global::System.Web.UI.WebControls.CheckBox chk_LUNES;
         
         /// <summary>
-        /// txt_HoraInicio control.
+        /// chk_MARTES control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_HoraInicio;
+        protected global::System.Web.UI.WebControls.CheckBox chk_MARTES;
         
         /// <summary>
-        /// ddlAmPm1 control.
+        /// chk_MIERCOLES control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAmPm1;
+        protected global::System.Web.UI.WebControls.CheckBox chk_MIERCOLES;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// chk_JUEVES control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.CheckBox chk_JUEVES;
         
         /// <summary>
-        /// TimeValidator2 control.
+        /// chk_VIERNES control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator TimeValidator2;
+        protected global::System.Web.UI.WebControls.CheckBox chk_VIERNES;
         
         /// <summary>
-        /// hra_fin control.
+        /// chk_SABADO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label hra_fin;
+        protected global::System.Web.UI.WebControls.CheckBox chk_SABADO;
         
         /// <summary>
-        /// txt_HoraFin control.
+        /// chk_DOMINGO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_HoraFin;
+        protected global::System.Web.UI.WebControls.CheckBox chk_DOMINGO;
         
         /// <summary>
-        /// ddlAmPm2 control.
+        /// btn_Guardar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAmPm2;
+        protected global::System.Web.UI.WebControls.ImageButton btn_Guardar;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// img_BANNER control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// TimeValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator TimeValidator1;
-        
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
-        /// ck_lunes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ck_lunes;
-        
-        /// <summary>
-        /// ck_martes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ck_martes;
-        
-        /// <summary>
-        /// ck_miercoles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ck_miercoles;
-        
-        /// <summary>
-        /// ck_jueves control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ck_jueves;
-        
-        /// <summary>
-        /// ck_viernes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ck_viernes;
-        
-        /// <summary>
-        /// ck_sabado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ck_sabado;
-        
-        /// <summary>
-        /// ck_domingo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ck_domingo;
-        
-        /// <summary>
-        /// btn_Agregar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Agregar;
+        protected global::System.Web.UI.WebControls.Image img_BANNER;
     }
 }

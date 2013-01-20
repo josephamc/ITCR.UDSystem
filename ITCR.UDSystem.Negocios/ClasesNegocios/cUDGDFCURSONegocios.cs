@@ -146,14 +146,14 @@ namespace ITCR.UDSystem.Negocios
                     + "FKY_CALENDARIO:" + FKY_CALENDARIO.ToString() + ";"
                     + "FKY_RESERVACION:" + FKY_RESERVACION.ToString() + ";"
                     + "NOM_CURSO:" + NOM_CURSO.ToString() + ";";
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
                 return base.Actualizar();
             }
             catch (Exception ex)
             {
                 //Construir el string a guardar en la bitácora en caso de error.
                 operacion = "Error Actualizar cUDGDFCURSO;" + ex.Message;
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
                 throw ex;
             }
         }
@@ -332,5 +332,21 @@ namespace ITCR.UDSystem.Negocios
             }
         }
 
+        /// <summary>
+        /// Selecciona toda la informacion de un curso especifico
+        /// </summary>
+        /// <param name="p_ID_CURSO">Id del curso</param>
+        /// <returns>DataTable Object</returns>
+        public override DataTable Seleccionar_Con_ID(int p_ID_CURSO)
+        {
+            try
+            {
+                return base.Seleccionar_Con_ID(p_ID_CURSO);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     } //class
 } //namespace

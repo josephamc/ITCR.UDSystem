@@ -88,14 +88,14 @@ namespace ITCR.UDSystem.Negocios
                     + "COD_VIERNES:" + COD_VIERNES.ToString() + ";"
                     + "COD_SABADO:" + COD_SABADO.ToString() + ";"
                     + "COD_DOMINGO:" + COD_DOMINGO.ToString() + ";";
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
                 return base.Insertar();
             }
             catch (Exception ex)
             {
                 //Construir el string a guardar en la bitácora en caso de error.
                 operacion = "Error Insertar cUDGDFEVENTO;" + ex.Message;
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
                 throw ex;
             }
         }
@@ -146,14 +146,14 @@ namespace ITCR.UDSystem.Negocios
                     + "COD_VIERNES:" + COD_VIERNES.ToString() + ";"
                     + "COD_SABADO:" + COD_SABADO.ToString() + ";"
                     + "COD_DOMINGO:" + COD_DOMINGO.ToString() + ";";
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
                 return base.Actualizar();
             }
             catch (Exception ex)
             {
                 //Construir el string a guardar en la bitácora en caso de error.
                 operacion = "Error Actualizar cUDGDFEVENTO;" + ex.Message;
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
                 throw ex;
             }
         }
@@ -308,6 +308,40 @@ namespace ITCR.UDSystem.Negocios
             try
             {
                 return base.Seleccionar_Todo_Detallado();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Comprueba si el nombre se encuentra ocupado
+        /// </summary>
+        /// <param name="p_nombre">Nombre del evento</param>
+        /// <returns>Boolean object</returns>
+        public override bool Comprobar_Nombre(string p_nombre)
+        {
+            try
+            {
+                return base.Comprobar_Nombre(p_nombre);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// Selecciona toda la informacion de un evento específico de manera detallada
+        /// </summary>
+        /// <param name="p_ID_EVENTO">Id del evento</param>
+        /// <returns>DataTable Object</returns>
+        public override DataTable Seleccionar_Con_ID(int p_ID_EVENTO)
+        {
+            try
+            {
+                return base.Seleccionar_Con_ID(p_ID_EVENTO);
             }
             catch (Exception ex)
             {

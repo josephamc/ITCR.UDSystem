@@ -30,7 +30,21 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 
         protected void dpCalendar_EventClick(Object sender, EventClickEventArgs e)
         {
-            
+            String sID_SELECCION = e.Value.ToString();
+            String[] sSPLIT = sID_SELECCION.Split(':');
+            switch (sSPLIT[0])
+            {
+                case "Evento":
+                    Response.Redirect("~/CU_AdministrarCalendario/frmEvento.aspx?id=" + sSPLIT[1], true);
+                    break;
+                case "Curso":
+                    Response.Redirect("~/CU_AdministrarCalendario/frmCurso.aspx?id=" + sSPLIT[1], true);
+                    break;
+                case "Reservacion":
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "msg", "alert('" + "Reservación hecha por un usuario" + "');", true);
+                    Response.Redirect("~/CU_AdministrarCalendario/frmSolicitud.aspx?sol=" + sSPLIT[1], true);
+                    break;
+            }
         }
         
         protected void cldSeleccion_SelectionChanged(Object sender, EventArgs e)
@@ -50,7 +64,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
             DataRow dr;
 
             dr = dt.NewRow();
-            dr["id"] = 0;
+            dr["id"] = "Evento 1";
             dr["start"] = DateTime.Parse("17-01-2013 12:00");
             dr["end"] = DateTime.Parse("17-01-2013 13:00");
             dr["name"] = "Event 1";

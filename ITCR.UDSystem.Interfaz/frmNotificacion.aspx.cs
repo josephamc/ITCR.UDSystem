@@ -49,6 +49,7 @@ namespace ITCR.UDSystem.Interfaz
                     lblMessage.Text = "La operación ha sido realizada con éxito";
                     break;
                 case "notInc":
+                    img_banner.Src = "~/imagenes/nodisponible.jpg";
                     lbltitle.Text = "¡ Error en la operación !";
                     lblMessage.Text = "La operacion no ha podido ser realizada con éxito, por favor vuelva a intentarlo mas tarde";
                     break;
