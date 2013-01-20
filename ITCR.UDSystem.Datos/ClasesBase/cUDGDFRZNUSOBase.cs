@@ -26,7 +26,6 @@ namespace ITCR.UDSystem.Base
 		#region Declaraciones de miembros de la clase
 			private SqlDateTime		_fEC_FECHA;
 			private SqlInt32		_iD_ESTADISTICAS, _nUM_CANTUSUARIOS, _fKY_INSTALACION, _fKY_INSTALACIONOld;
-            private SqlString _tXT_RAZON;
 		#endregion
 
 
@@ -69,9 +68,8 @@ namespace ITCR.UDSystem.Base
 			{
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iNUM_CANTUSUARIOS", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _nUM_CANTUSUARIOS));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@daFEC_FECHA", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _fEC_FECHA));
-                cmdAEjecutar.Parameters.Add(new SqlParameter("@iFKY_INSTALACION", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _fKY_INSTALACION));
-                cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_RAZON", SqlDbType.VarChar, 150, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_RAZON));
-                cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_ESTADISTICAS", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _iD_ESTADISTICAS));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@iFKY_INSTALACION", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _fKY_INSTALACION));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_ESTADISTICAS", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _iD_ESTADISTICAS));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -579,23 +577,6 @@ namespace ITCR.UDSystem.Base
 				_fKY_INSTALACIONOld = value;
 			}
 		}
-
-        public SqlString TXT_RAZON
-        {
-            get
-            {
-                return _tXT_RAZON;
-            }
-            set
-            {
-                SqlString tXT_RAZONTmp = (SqlString)value;
-                if (tXT_RAZONTmp.IsNull)
-                {
-                    throw new ArgumentOutOfRangeException("TXT_RAZON", "TXT_RAZON can't be NULL");
-                }
-                _tXT_RAZON = value;
-            }
-        }
 		#endregion
 	}
 }

@@ -116,6 +116,7 @@
     <Content Include="imagenes\consulta03.png" />
     <Content Include="imagenes\correcto02.jpg" />
     <Content Include="imagenes\date.png" />
+    <Content Include="imagenes\denegado.png" />
     <Content Include="imagenes\docencia01.jpg" />
     <Content Include="imagenes\editar.png" />
     <Content Include="imagenes\editar02.png" />
@@ -124,6 +125,7 @@
     <Content Include="imagenes\event01.jpg" />
     <Content Include="imagenes\eye_inv.png" />
     <Content Include="imagenes\forward.png" />
+    <Content Include="imagenes\GestionarSolicitudes.JPG" />
     <Content Include="imagenes\hora01.jpg" />
     <Content Include="imagenes\imgIngreso.gif" />
     <Content Include="imagenes\ImgND2.png" />
@@ -134,6 +136,7 @@
     <Content Include="imagenes\nodisponible.jpg" />
     <Content Include="imagenes\result_est01.png" />
     <Content Include="imagenes\rptReservacion.JPG" />
+    <Content Include="imagenes\SolicitarAreaDeportiva.JPG" />
     <Content Include="imagenes\TECAzul.jpg" />
     <Content Include="imagenes\time2.jpg" />
     <Content Include="imagenes\tit-TEC.jpg" />

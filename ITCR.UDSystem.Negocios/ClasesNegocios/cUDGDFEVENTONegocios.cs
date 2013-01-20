@@ -182,14 +182,14 @@ namespace ITCR.UDSystem.Negocios
                 //Construir aqui el string a guardar en la bitacora.
                 operacion = "Eliminar cUDGDFEVENTO;"
                     + "ID_EVENTO:" + ID_EVENTO.ToString() + ";";
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora, operacion);
                 return base.Eliminar();
             }
             catch (Exception ex)
             {
                 //Construir el string a guardar en la bitácora en caso de error.
                 operacion = "Error Eliminar cUDGDFEVENTO;" + ex.Message;
-                wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora, operacion);
                 throw ex;
             }
         }

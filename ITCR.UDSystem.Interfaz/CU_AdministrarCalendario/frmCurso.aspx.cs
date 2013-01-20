@@ -49,7 +49,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 
                 if (int.Parse(sHRA_INICIO[0]) >= 12)
                 {
-                    txt_HRA_INICIO.Text = (int.Parse(sHRA_INICIO[0]) - 12) + ":00:00";
+                    txt_HRA_INICIO.Text = (int.Parse(sHRA_INICIO[0]) - 12) + ":" + sHRA_INICIO[1] + ":" + sHRA_INICIO[2];
                     drp_TIME_INIT.SelectedIndex = 1;
                 }
                 else
@@ -57,7 +57,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 
                 if (int.Parse(sHRA_FIN[0]) >= 12)
                 {
-                    txt_HRA_FIN.Text = (int.Parse(sHRA_FIN[0]) - 12) + ":00:00";
+                    txt_HRA_FIN.Text = (int.Parse(sHRA_FIN[0]) - 12) + ":" + sHRA_FIN[1] + ":" + sHRA_FIN[2];
                     drp_TIME_FIN.SelectedIndex = 1;
                 }
                 else
@@ -111,6 +111,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 
             cUDGDFCALENDARIONegocios cCalendario = new cUDGDFCALENDARIONegocios(0, "", 0, "");
             cUDGDFRESERVACIONNegocios cReservacion = new cUDGDFRESERVACIONNegocios(0, "", 0, "");
+            cUDGDFINSTALACIONNegocios cInstalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
             cUDGDFCURSONegocios cCurso = new cUDGDFCURSONegocios(0, "", 0, "");
             DateTime dFechaInicio, dFechafin, dhorainicio, dhorafin;
 
@@ -120,15 +121,14 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
             dhorafin = DateTime.Parse(txt_HRA_FIN.Text + drp_TIME_FIN.Text);
 
             // Obtiene el id del calendario
-            cCalendario.FKY_INSTALACION = int.Parse(lbl_ID_INSTALACION.Text);
+
+            cCalendario.FKY_INSTALACION = cInstalacion.obtener_ID(drp_INSTALACION.Text);
             int iID_CALENDARIO = (int)cCalendario.SeleccionarTodos_Con_FKY_INSTALACION_FK().Rows[0][0];
 
             //int iDisponibilidad = cReservacion.ConsultarDisponibilidadCalendario(dFechaInicio, dFechafin, dhorainicio, dhorafin, int.Parse(lbl_ID_INSTALACION.Text));
 
             if (lbl_NOM_CURSO.Text.CompareTo(txt_NOMBRE.Text) == 0 || !cCurso.Comprobar_Nombre(txt_NOMBRE.Text))
             {
-                //if (iDisponibilidad == 1)
-                //{
                 try
                 {
                     // Actualiza la reservacion
@@ -154,16 +154,14 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
                     cCurso.ID_CURSO = int.Parse(lbl_ID_CURSO.Text);
                     cCurso.Actualizar();
 
-                    // Redirecciona hacia confirmacion
-                    Response.Redirect("~/Confirmacion.aspx", true);
                 }
                 catch (Exception)
                 {
                     Response.Redirect("~/frmNotificacion.aspx?sol=0&op=notInc", true);
                 }
-                //}
-                //else
-                //    lbl_ErrorCalendario.Visible = true;
+
+                // Redirecciona hacia confirmacion
+                Response.Redirect("~/Confirmacion.aspx");
             }
             else
                 lbl_ErrorNombre.Visible = true;  
@@ -176,22 +174,22 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 
             try
             {
-                // Elimina la reservacion
-                cReservacion.ID_RESERVACION = int.Parse(lbl_ID_RESERVACION.Text);
-                cReservacion.Eliminar();
-
                 // Elimina el curso
                 cCurso.ID_CURSO = int.Parse(lbl_ID_CURSO.Text);
                 cCurso.Eliminar();
 
-                // Redirecciona a la confirmación
-                Response.Redirect("~/Confirmacion.aspx", true);
+                // Elimina la reservacion
+                cReservacion.ID_RESERVACION = int.Parse(lbl_ID_RESERVACION.Text);
+                cReservacion.Eliminar();
             }
             catch (Exception)
             {
                 // Redirecciona hacia mensaje de error
                 Response.Redirect("~/frmNotificacion.aspx?sol=0&op=notInc", true);
             }
+
+            // Redirecciona a la confirmación
+            Response.Redirect("~/Confirmacion.aspx", true);
         }
     }//class
 }//namespace
