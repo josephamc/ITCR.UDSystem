@@ -43,8 +43,7 @@ namespace ITCR.UDSystem.Datos
 		/// <UL>
 		///		 <LI>NUM_CANTUSUARIOS</LI>
 		///		 <LI>FEC_FECHA</LI>
-        ///		 <LI>FKY_INSTALACION</LI>
-        ///		 <LI>TXT_RAZON</LI>
+		///		 <LI>FKY_INSTALACION</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>

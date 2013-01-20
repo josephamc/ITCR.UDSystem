@@ -8,8 +8,9 @@ using System.Data;
 
 namespace ITCR.UDSystem.Negocios.ClasesNegocios
 {
-    public class cReporte
+    class cReporteEstadisticas
     {
+
         #region Declaraciones de miembros de clase
         private double _dRx = 0, _dRy = 0, _dMaxRx = 0, _dMaxRy = 0;
         private int _iSize = 0, _iRedTitulo, _iGreenTitulo, _iBlueTitulo, _iRedSub, _iGreenSub, _iBlueSub;
@@ -49,7 +50,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
         /// <param name="p_default">Indica si se desean los valores predeterminados</param>
         /// <param name="p_fechainicio">Fecha inicio del reporte</param>
         /// <param name="p_fechafin">Fecha fin del reporte</param>
-        public cReporte(Boolean p_default, String p_fechainicio, String p_fechafin)
+        public cReporteEstadisticas(Boolean p_default, String p_fechainicio, String p_fechafin)
         {
             if (p_default)
                 SetDefault();
@@ -611,5 +612,6 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             }
         }
         #endregion
+
     }
 }

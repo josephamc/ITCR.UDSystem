@@ -15,109 +15,88 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
         {
             if (!IsPostBack)
             {
-                error_reservacion.Visible = false;
-                exito_reservacion.Visible = false;
-                cal01.Visible = false;
-                cal02.Visible = false;
-
-                //rellena el dropdown list de las instalaciones
-                cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
-                DataTable datos_instalaciones = instalacion.SeleccionarTodos();
-
-                for (int i = 0; i < datos_instalaciones.Rows.Count; i++)
-                {
-                    ListItem li = new ListItem(datos_instalaciones.Rows[i][1].ToString(), datos_instalaciones.Rows[i][0].ToString());
-                    ddl_instalaciones.Items.Add(li);
-                }
+                cUDGDFINSTALACIONNegocios cInstalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
+                DataTable _dtInstalaciones = cInstalacion.SeleccionarTodos();
+                foreach (DataRow dtLocalRow in _dtInstalaciones.Rows)
+                    ddl_instalacionEvento.Items.Add(dtLocalRow[1].ToString());
+                txt_FechaInicio.Text = DateTime.Today.ToShortDateString();
+                txt_FechaFin.Text = DateTime.Today.ToShortDateString();
             }
         }
-        
 
-        protected void cal01_SelectionChanged(object sender, EventArgs e)
+        protected void btn_Agregar_Click(object sender, EventArgs e)
         {
-            //selecciona la fecha del calendario y la pone en el text box
-            DateTime fechaElegida = cal01.SelectedDate;
-            txt_FechaInicio.Text = "" + fechaElegida.Year + "-" + fechaElegida.Month + "-" + fechaElegida.Day;
-            cal01.Visible = false;
-            cal02.Visible = false;
-        }
+            lbl_ErrorNombre.Visible = false;
+            lblErrorFecha.Visible = false;
 
-        protected void cal02_SelectionChanged(object sender, EventArgs e)
-        {
-            //selecciona la fecha del calendario y la pone en el text box
-            DateTime fechaElegida = cal02.SelectedDate;
-            txt_FechaFin.Text = "" + fechaElegida.Year + "-" + fechaElegida.Month + "-" + fechaElegida.Day;
-            cal01.Visible = false;
-            cal02.Visible = false;
-        }
+            cUDGDFINSTALACIONNegocios cInstalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
+            cUDGDFCALENDARIONegocios cCalendario = new cUDGDFCALENDARIONegocios(0, "", 0, "");
+            cUDGDFEVENTONegocios cEvento = new cUDGDFEVENTONegocios(0, "", 0, "");
+            cUDGDFRESERVACIONNegocios cReservacion = new cUDGDFRESERVACIONNegocios(0, "", 0, "");
+            int iDisponibilidad = -1, iID_INSTALACION;
+            DataTable dtCalendario = cCalendario.SeleccionarTodos_Con_FKY_INSTALACION_FK();
+            DateTime dFechaInicio, dFechafin, dhorainicio, dhorafin;
 
-        protected void Button1_Click1(object sender, EventArgs e)
-        {
-            cal02.Visible = false;
-            cal01.Enabled = true;
-            cal01.Visible = true;
-        }
+            // Obtiene todas las instalaciones
+            DataTable dtInstalaciones = cInstalacion.SeleccionarTodos();
 
-        protected void Button2_Click1(object sender, EventArgs e)
-        {
-            cal01.Visible = false;
-            cal02.Enabled = true;
-            cal02.Visible = true;
-        }
+            // Obtengo el ID del Calendario
+            iID_INSTALACION = ObtenerID(ddl_instalacionEvento.Text, dtInstalaciones);
+            cCalendario.FKY_INSTALACION = iID_INSTALACION;
 
-        protected void boton_añadir_evento_Click(object sender, EventArgs e)
-        {
-            cUDGDFRESERVACIONNegocios reserva = new cUDGDFRESERVACIONNegocios(0, "", 0, "");
-            //string Inicio = txt_HoraInicio.Text + ":00 " + ddlAmPm1.SelectedItem.Value.ToString();
-            //string Fin = txt_HoraFin.Text + ":00 " + ddlAmPm2.SelectedItem.Value.ToString();
-            string Inicio = ddlAmPm1.Text.ToString() + ":" + DropDownList3.Text.ToString() + ":00";
-            string Fin = ddlAmPm2.Text.ToString() + ":" + DropDownList4.Text.ToString() + ":00";
-            string fecha_actual = DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day;
-            int resultado = reserva.ConsultarDisponibilidad(Convert.ToDateTime(txt_FechaInicio.Text.ToString()), Convert.ToDateTime(txt_FechaFin.Text.ToString()), DateTime.Parse(Inicio), DateTime.Parse(Fin), Int32.Parse(ddl_instalaciones.SelectedValue.ToString()));
+            dFechaInicio = DateTime.Parse(txt_FechaInicio.Text);
+            dFechafin = DateTime.Parse(txt_FechaFin.Text);
+            dhorainicio = DateTime.Parse(txt_HoraInicio.Text + ":00" + ddlAmPm1.SelectedItem.Value.ToString());
+            dhorafin = DateTime.Parse(txt_HoraFin.Text + ":00" + ddlAmPm2.SelectedItem.Value.ToString());
 
-            if (resultado == 1)
+            iDisponibilidad = cReservacion.ConsultarDisponibilidadCalendario(dFechaInicio, dFechafin, dhorainicio, dhorafin, iID_INSTALACION);
+
+            // Comrpobar nombre hacerlo para eventos
+            if (!cEvento.Comprobar_Nombre(txt_nombreEvento.Text))
             {
-                //obtiene el id del calendario
-                cUDGDFCALENDARIONegocios calendario = new cUDGDFCALENDARIONegocios(0, "", 0, "");
-                calendario.FKY_INSTALACION = Int32.Parse(ddl_instalaciones.SelectedValue.ToString());
-                DataTable cal = calendario.SeleccionarTodos_Con_FKY_INSTALACION_FK();
-                int id_cal = Int32.Parse(cal.Rows[0][0].ToString());
+                if (iDisponibilidad == 1)
+                {
+                    // Obtengo el ID del Calendario
+                    dtCalendario = cCalendario.SeleccionarTodos_Con_FKY_INSTALACION_FK();
 
-                //ingresa los datos de la reserva
-                reserva.HRA_HORAINICIO = Convert.ToDateTime(Inicio);
-                reserva.HRA_HORAFIN = Convert.ToDateTime(Fin);
-                reserva.FEC_FECHAINICIO = DateTime.Parse(txt_FechaInicio.Text.ToString());
-                reserva.FEC_FECHAFIN = DateTime.Parse(txt_FechaFin.Text.ToString());
-                reserva.Insertar();
+                    // Creo una reservacion para el curso
+                    cReservacion.FEC_FECHAINICIO = dFechaInicio;
+                    cReservacion.FEC_FECHAFIN = dFechafin;
+                    cReservacion.HRA_HORAINICIO = dhorainicio;
+                    cReservacion.HRA_HORAFIN = dhorafin;
+                    cReservacion.Insertar();
 
-                //inserta el evento
-                cUDGDFEVENTONegocios evento = new cUDGDFEVENTONegocios(0, "", 0, "");
-                evento.NOM_EVENTO = txt_nombreEvento.Text.ToString();
-                evento.DSC_EVENTO = txt_descripcionEvento.Value.ToString();
-                evento.FKY_CALENDARIO = id_cal;
-                evento.FKY_RESERVACION = reserva.ID_RESERVACION;
-                evento.Insertar();
+                    // Crea el evento
+                    cEvento.DSC_EVENTO = txa_descripcion.Value.ToString();
+                    cEvento.NOM_EVENTO = txt_nombreEvento.Text;
+                    cEvento.COD_LUNES = ck_lunes.Checked;
+                    cEvento.COD_MARTES = ck_martes.Checked;
+                    cEvento.COD_MIERCOLES = ck_miercoles.Checked;
+                    cEvento.COD_JUEVES = ck_jueves.Checked;
+                    cEvento.COD_VIERNES = ck_viernes.Checked;
+                    cEvento.COD_SABADO = ck_sabado.Checked;
+                    cEvento.COD_DOMINGO = ck_domingo.Checked;
+                    cEvento.FKY_CALENDARIO = int.Parse(dtCalendario.Rows[0][0].ToString());
+                    cEvento.FKY_RESERVACION = cReservacion.ID_RESERVACION;
+                    cEvento.Insertar();
 
-                //limpia campos
-                txt_nombreEvento.Text = "";
-                txt_descripcionEvento.Value = "";
-                txt_FechaInicio.Text = "";
-                txt_FechaFin.Text = "";
-                
-                //introduce mensaje de exito
-                _inst2.Text = ddl_instalaciones.SelectedItem.ToString();
-
-                error_reservacion.Visible = false;
-                exito_reservacion.Visible = true;      
+                    // Redirecciona hacia un mensaje de confirmacion
+                    Response.Redirect("~/Confirmacion.aspx", true);
+                }
+                else
+                    lblErrorFecha.Visible = true;
             }
             else
-            {
-                _inst.Text = ddl_instalaciones.SelectedItem.ToString();
-                exito_reservacion.Visible = false;
-                error_reservacion.Visible = true;
-            }
+                lbl_ErrorNombre.Visible = true;
         }
 
+        private int ObtenerID(String p_NOM_INSTALACION, DataTable p_Instalaciones)
+        {
+            foreach (DataRow drRowLocal in p_Instalaciones.Rows)
+                if (drRowLocal[1].ToString().CompareTo(p_NOM_INSTALACION) == 0)
+                    return int.Parse(drRowLocal[0].ToString());
 
-    }
-}
+            return -1;
+        }
+    }//class
+}//namespace

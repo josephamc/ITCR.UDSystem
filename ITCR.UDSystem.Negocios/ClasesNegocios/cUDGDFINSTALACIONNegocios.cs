@@ -263,5 +263,22 @@ namespace ITCR.UDSystem.Negocios
 				throw ex;
 			}
 		}
+
+        //======================================================================
+        //                      Metodo Agregado
+        //======================================================================
+
+        public int obtener_ID(String p_NOM_INSTALACION)
+        {
+            DataTable dtInstalaciones = this.SeleccionarTodos();
+            foreach (DataRow drLocal in dtInstalaciones.Rows)
+            {
+                if (drLocal[1].ToString().CompareTo(p_NOM_INSTALACION) == 0)
+                    return int.Parse(drLocal[0].ToString());
+            }
+
+            return -1;
+        }
+
 	} //class
 } //namespace

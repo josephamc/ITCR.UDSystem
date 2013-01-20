@@ -43,7 +43,6 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso
                     estadistica.NUM_CANTUSUARIOS = Int32.Parse(txt_cantU.Text);
                     estadistica.FEC_FECHA = DateTime.Parse(txt_fecha.Text);
                     estadistica.FKY_INSTALACION = Int32.Parse(ddl_instalaciones.SelectedValue);
-                    estadistica.TXT_RAZON = txt_razonUso.Text.ToString();
 
                     estadistica.Insertar();
                     inst.Text = ddl_instalaciones.SelectedItem.Text;
@@ -61,6 +60,12 @@ namespace ITCR.UDSystem.Interfaz.CU_EstadisticasUso
             }
         }
 
+        protected void txt_cantU_TextChanged(object sender, EventArgs e)
+        {
+        }
 
+        protected void ddl_instalaciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
     }
 }

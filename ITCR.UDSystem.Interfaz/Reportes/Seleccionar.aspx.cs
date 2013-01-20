@@ -18,6 +18,8 @@ namespace ITCR.UDSystem.Interfaz.Reportes
            
             if (!IsPostBack)
             {
+                datos_generales.Visible = false;
+
                 //rellena el dropdown list de las instalaciones
                 cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
                 DataTable datos_instalaciones = instalacion.SeleccionarTodos();
@@ -66,59 +68,22 @@ namespace ITCR.UDSystem.Interfaz.Reportes
                         {
                             //CREA REPORTE DE RESERVACIONES
                             cReporte rptReservaciones = new cReporte(true, txtInicio.Text, txtFin.Text);
+                            Root.Reports.Report rptFile = rptReservaciones.Generar();
                             if (rblOpciones.SelectedItem.Text.CompareTo("Documento Web") == 0)
-                            {
-                                if (rb_tipo.SelectedValue.Equals("1"))
-                                {
-                                    //crea reporte de reservaciones individual web
-                                    datos_generales.Visible = false;
-                                    rptReservaciones._sidinstalacion = Int32.Parse(ddl_instalaciones.SelectedValue.ToString());
-                                    Root.Reports.Report rptFile = rptReservaciones.Generar_i();
-                                    Root.Reports.RT.ResponsePDF(rptFile, this);
-                                }
-                                else
-                                {
-                                    //crea reporte de reservaciones general web
-                                    datos_generales.Visible = false;
-                                    Root.Reports.Report rptFile = rptReservaciones.Generar();
-                                    Root.Reports.RT.ResponsePDF(rptFile, this);
-                                }
-                            }
+                                // Muestra el archivo en formato Web
+                                Root.Reports.RT.ResponsePDF(rptFile, this);
                             else
                             {
-                                if (rb_tipo.SelectedValue.Equals("1"))
-                                {
-                                    //crea reporte de reservaciones individual pdf
-                                    datos_generales.Visible = false;
-                                    rptReservaciones._sidinstalacion = Int32.Parse(ddl_instalaciones.SelectedValue.ToString());
-                                    Root.Reports.Report rptFile = rptReservaciones.Generar_i();
-
-                                    MemoryStream stream = new MemoryStream();
-                                    rptFile.formatter.Create(rptFile, stream);
-                                    Response.Clear();
-                                    Response.ContentType = "application/pdf";
-                                    Response.AddHeader("content-Disposition: attachment; filename=" + txtInicio.Text.Replace("/", "") + " - " + txtFin.Text.Replace("/", ""), "Reporte.pdf");
-                                    Response.BinaryWrite(stream.ToArray());
-                                    Response.Flush();
-                                    stream.Close();
-                                    Response.End();
-                                }
-                                else
-                                {
-                                    //crea reporte de reservaciones general pdf
-                                    datos_generales.Visible = false;
-                                    Root.Reports.Report rptFile = rptReservaciones.Generar();
-
-                                    MemoryStream stream = new MemoryStream();
-                                    rptFile.formatter.Create(rptFile, stream);
-                                    Response.Clear();
-                                    Response.ContentType = "application/pdf";
-                                    Response.AddHeader("content-Disposition: attachment; filename=" + txtInicio.Text.Replace("/", "") + " - " + txtFin.Text.Replace("/", ""), "Reporte.pdf");
-                                    Response.BinaryWrite(stream.ToArray());
-                                    Response.Flush();
-                                    stream.Close();
-                                    Response.End();
-                                }
+                                // Inicia la descarga del archivo
+                                MemoryStream stream = new MemoryStream();
+                                rptFile.formatter.Create(rptFile, stream);
+                                Response.Clear();
+                                Response.ContentType = "application/pdf";
+                                Response.AddHeader("content-Disposition: attachment; filename=" + txtInicio.Text.Replace("/", "") + " - " + txtFin.Text.Replace("/", ""), "Reporte.pdf");
+                                Response.BinaryWrite(stream.ToArray());
+                                Response.Flush();
+                                stream.Close();
+                                Response.End();
                             }
                         }
                         else
@@ -128,7 +93,7 @@ namespace ITCR.UDSystem.Interfaz.Reportes
                             {
                                 if (rb_tipo.SelectedValue.Equals("1"))
                                 {
-                                    //crea reporte de esdisticas individual web 
+                                    //consulta informacion
                                     cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
                                     instalacion.ID_INSTALACION = Int32.Parse(ddl_instalaciones.SelectedValue.ToString());
                                     DataTable datos_instalaciones = instalacion.SeleccionarUno();
@@ -139,7 +104,7 @@ namespace ITCR.UDSystem.Interfaz.Reportes
                                 }
                                 else
                                 {
-                                    //crea reporte de esdisticas general web
+                                    //consulta informacion
                                     cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
                                     DataTable datos_instalaciones = instalacion.SeleccionarTodos();
 
@@ -150,55 +115,7 @@ namespace ITCR.UDSystem.Interfaz.Reportes
                             }
                             else
                             {
-                                if (rb_tipo.SelectedValue.Equals("1"))
-                                {
-                                    //crea reporte de esdisticas individual pdf 
 
-                                    datos_generales.Visible = false;
-
-                                    //consulta información individual
-                                    cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
-                                    instalacion.ID_INSTALACION = Int32.Parse(ddl_instalaciones.SelectedValue.ToString());
-                                    DataTable datos_instalaciones = instalacion.SeleccionarUno();
-
-                                    cReporte rptReservaciones = new cReporte(true, txtInicio.Text, txtFin.Text);
-                                    Root.Reports.Report rptFile = rptReservaciones.GenerarEstadisticas(datos_instalaciones);
-
-                                    // Inicia la descarga del archivo
-                                    MemoryStream stream = new MemoryStream();
-                                    rptFile.formatter.Create(rptFile, stream);
-                                    Response.Clear();
-                                    Response.ContentType = "application/pdf";
-                                    Response.AddHeader("content-Disposition: attachment; filename=" + txtInicio.Text.Replace("/", "") + " - " + txtFin.Text.Replace("/", ""), "ReporteEstaditicas.pdf");
-                                    Response.BinaryWrite(stream.ToArray());
-                                    Response.Flush();
-                                    stream.Close();
-                                    Response.End();
-                                }
-                                else
-                                {
-                                    //crea reporte de esdisticas general pdf 
-
-                                    datos_generales.Visible = false;
-
-                                    //consulta informacion general
-                                    cUDGDFINSTALACIONNegocios instalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
-                                    DataTable datos_instalaciones = instalacion.SeleccionarTodos();
-
-                                    cReporte rptReservaciones = new cReporte(true, txtInicio.Text, txtFin.Text);
-                                    Root.Reports.Report rptFile = rptReservaciones.GenerarEstadisticas(datos_instalaciones);
-
-                                    // Inicia la descarga del archivo
-                                    MemoryStream stream = new MemoryStream();
-                                    rptFile.formatter.Create(rptFile, stream);
-                                    Response.Clear();
-                                    Response.ContentType = "application/pdf";
-                                    Response.AddHeader("content-Disposition: attachment; filename=" + txtInicio.Text.Replace("/", "") + " - " + txtFin.Text.Replace("/", ""), "ReporteEstaditicas.pdf");
-                                    Response.BinaryWrite(stream.ToArray());
-                                    Response.Flush();
-                                    stream.Close();
-                                    Response.End();
-                                }
                             }
                         }
                     }
@@ -265,15 +182,15 @@ namespace ITCR.UDSystem.Interfaz.Reportes
 
         protected void rb_tipoReporte_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (rb_tipoReporte.SelectedValue.Equals("1"))
-            //{
-            //    txtfield_formatoEstadisticas.Visible = false;
-            //    datos_generales.Visible = false;
-            //}
-            //else
-            //{
-            //    txtfield_formatoEstadisticas.Visible = true;
-            //}
+            if (rb_tipoReporte.SelectedValue.Equals("1"))
+            {
+                txtfield_formatoEstadisticas.Visible = false;
+                datos_generales.Visible = false;
+            }
+            else
+            {
+                txtfield_formatoEstadisticas.Visible = true;
+            }
         }
 
 

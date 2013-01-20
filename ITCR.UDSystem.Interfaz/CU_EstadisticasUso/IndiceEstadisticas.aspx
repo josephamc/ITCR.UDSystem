@@ -18,31 +18,23 @@
                         &nbsp;&nbsp;&nbsp;           
                         <asp:Label ID="Label2" runat="server" Text="Instalación Deportiva:"></asp:Label>
                         &nbsp;&nbsp;
-                        <asp:DropDownList ID="ddl_instalaciones" runat="server" Width="324px">
+                        <asp:DropDownList ID="ddl_instalaciones" runat="server" Width="324px" 
+                            onselectedindexchanged="ddl_instalaciones_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                    <td>            
-                        &nbsp;&nbsp;&nbsp; 
-                        <asp:Label ID="Label5" runat="server" Text="Razon de Uso: "></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                        <asp:TextBox ID="txt_razonUso" runat="server" Width="320px"></asp:TextBox>
-                    </td>
+                <td>&nbsp;&nbsp;&nbsp;   </td>
                 </tr>
                 <tr>
                     <td>            
                         &nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="Label3" runat="server" Text="Cantidad de Usuarios"></asp:Label>
                         &nbsp;&nbsp;
-<<<<<<< HEAD
-                        <asp:TextBox ID="txt_cantU" runat="server" Width="160px"></asp:TextBox>
-=======
                         <asp:TextBox ID="txt_cantU" runat="server" Width="116px" Height="17px"></asp:TextBox> 
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txt_cantU" ErrorMessage="*"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="NumberValidatorh" runat="server" ControlToValidate="txt_cantU" ErrorMessage="Número inválido. Ingrese un número válido, ejemplo: 7" ValidationExpression="^\d+$" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
                        
->>>>>>> 9be99d93a5827a58c8f1811fc07bd740a9a300db
                     </td>
                </tr>    
                 <tr>
@@ -50,7 +42,8 @@
                         &nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="Label4" runat="server" Text="Fecha:"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txt_fecha" runat="server" Width="160px"></asp:TextBox>  <img id="imgCalendar" alt="" src="../imagenes/date.png" />
+                        <asp:TextBox ID="txt_fecha" runat="server" Width="116px"
+                            Height="17px"></asp:TextBox>  <img id="imgCalendar" alt="" src="../imagenes/date.png" />
                          <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager11" runat="server">
                         </ajaxToolkit:ToolkitScriptManager>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="txt_fecha" ErrorMessage="*"></asp:RequiredFieldValidator>
