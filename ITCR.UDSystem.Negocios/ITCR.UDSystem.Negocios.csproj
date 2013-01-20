@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="ClasesNegocios\cCalendario.cs" />
     <Compile Include="ClasesNegocios\cReporte.cs" />
-    <Compile Include="ClasesNegocios\cReporteEstadisticas.cs" />
     <Compile Include="ClasesNegocios\cSolicitud.cs" />
     <Compile Include="ClasesNegocios\cUDGDFAPROBACIONNegocios.cs" />
     <Compile Include="ClasesNegocios\cUDGDFCALENDARIONegocios.cs" />

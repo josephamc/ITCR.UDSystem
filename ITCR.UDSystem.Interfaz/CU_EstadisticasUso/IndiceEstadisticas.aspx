@@ -18,21 +18,24 @@
                         &nbsp;&nbsp;&nbsp;           
                         <asp:Label ID="Label2" runat="server" Text="Instalación Deportiva:"></asp:Label>
                         &nbsp;&nbsp;
-                        <asp:DropDownList ID="ddl_instalaciones" runat="server" Width="324px" 
-                            onselectedindexchanged="ddl_instalaciones_SelectedIndexChanged">
+                        <asp:DropDownList ID="ddl_instalaciones" runat="server" Width="324px">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
-                <td>&nbsp;&nbsp;&nbsp;   </td>
+                    <td>            
+                        &nbsp;&nbsp;&nbsp; 
+                        <asp:Label ID="Label5" runat="server" Text="Razon de Uso: "></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                        <asp:TextBox ID="txt_razonUso" runat="server" Width="320px"></asp:TextBox>
+                    </td>
                 </tr>
                 <tr>
                     <td>            
                         &nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="Label3" runat="server" Text="Cantidad de Usuarios"></asp:Label>
                         &nbsp;&nbsp;
-                        <asp:TextBox ID="txt_cantU" runat="server" 
-                            ontextchanged="txt_cantU_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="txt_cantU" runat="server" Width="160px"></asp:TextBox>
                     </td>
                </tr>    
                 <tr>
@@ -40,8 +43,7 @@
                         &nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="Label4" runat="server" Text="Fecha:"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txt_fecha" runat="server" Width="116px"
-                            Height="17px"></asp:TextBox>  <img id="imgCalendar" alt="" src="../imagenes/date.png" />
+                        <asp:TextBox ID="txt_fecha" runat="server" Width="160px"></asp:TextBox>  <img id="imgCalendar" alt="" src="../imagenes/date.png" />
                          <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager11" runat="server">
                         </ajaxToolkit:ToolkitScriptManager>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="txt_fecha" ErrorMessage="*"></asp:RequiredFieldValidator>
