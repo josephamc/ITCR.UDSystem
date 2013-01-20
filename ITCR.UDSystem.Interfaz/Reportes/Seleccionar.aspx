@@ -61,8 +61,7 @@
                                     <td>Desea crear reporte de:</td>
                                     <td style="margin-left: 40px">
                                         <asp:RadioButtonList ID="rb_tipoReporte" runat="server" 
-                                            onselectedindexchanged="rb_tipoReporte_SelectedIndexChanged" 
-                                            AutoPostBack="True">
+                                            AutoPostBack="False">
                                         <asp:ListItem Text="Reservaciones" Value="1" Selected="True"></asp:ListItem>
                                         <asp:ListItem Text="Estadisticas de Uso" Value="2" Selected="False"></asp:ListItem>
                                         </asp:RadioButtonList>
@@ -95,7 +94,7 @@
                                 
                             </table>
 
-                            <table runat="server" id="txtfield_formatoEstadisticas" visible="false">
+                            <table>
                                 <tr>
                                     <td>
                                         <asp:RadioButtonList ID="rb_tipo" runat="server">
@@ -149,7 +148,7 @@
 </table>
 
 <br />
-<fieldset style="width: 800px" runat="server" id="datos_generales" visible="false">
+<fieldset runat="server" id="datos_generales" visible="false">
     <img src="../../imagenes/result_est01.png" alt=""/>    
     <br />
     <br />

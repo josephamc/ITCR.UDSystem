@@ -482,5 +482,71 @@ namespace ITCR.UDSystem.Datos
                 adapter.Dispose();
             }
         }
+
+        /// <summary>
+        /// Selecciona todas las solicitudes aprobadas dentro del rango de fechas específicado
+        /// </summary>
+        /// <param name="p_fechainicio">Fecha inicio del rango de fechas</param>
+        /// <param name="p_fechafin">Fecha fin del rango de fechas</param>
+        /// <returns>DataTable Object</returns>
+        public virtual DataTable SeleccionarAprobadas_i(DateTime p_fechainicio, DateTime p_fechafin, int p_idinstalacion)
+        {
+            SqlCommand cmdAEjecutar = new SqlCommand();
+            cmdAEjecutar.CommandText = "dbo.[pr_UDGDFSOLICITUD_Seleccionar_Aprobadas_i]";
+            cmdAEjecutar.CommandType = CommandType.StoredProcedure;
+            DataTable toReturn = new DataTable("UDGDFSOLICITUD");
+            SqlDataAdapter adapter = new SqlDataAdapter(cmdAEjecutar);
+
+            // Usar el objeto conexión de la clase base
+            cmdAEjecutar.Connection = _conexionBD;
+
+            try
+            {
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@daFEC_INICIO", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_fechainicio));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@daFEC_FIN", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_fechafin));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_INSTALACION", SqlDbType.Int, 4, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, p_idinstalacion));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
+
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Abre una conexión.
+                    _conexionBD.Open();
+                }
+                else
+                {
+                    if (_conexionBDProvider.IsTransactionPending)
+                    {
+                        cmdAEjecutar.Transaction = _conexionBDProvider.CurrentTransaction;
+                    }
+                }
+
+                // Ejecuta la consulta.
+                adapter.Fill(toReturn);
+                _codError = Int32.Parse(cmdAEjecutar.Parameters["@iCodError"].Value.ToString());
+
+                if (_codError != (int)ITCRError.AllOk)
+                {
+                    // Genera un error.
+                    throw new Exception("Procedimiento Almacenado 'pr_UDGDFSOLICITUD_Seleccionar_Aprobadas_i' reportó el error Código: " + _codError);
+                }
+
+                return toReturn;
+            }
+            catch (Exception ex)
+            {
+                // Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
+                throw new Exception("cUDGDFSOLICITUDDatos::SeleccionarAprobadas_i::Ocurrió un error." + ex.Message, ex);
+            }
+            finally
+            {
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Cierra la conexión.
+                    _conexionBD.Close();
+                }
+                cmdAEjecutar.Dispose();
+                adapter.Dispose();
+            }
+        }
 	} //class
 } //namespace

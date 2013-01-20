@@ -13,28 +13,33 @@
       <siteMapNode url ="~/GestionarSolicitudes/frmAdminSolicitud.aspx" title="Administracion de Solicitudes" description="Administracion de Solicitudes">
         <siteMapNode url="~/GestionarSolicitudes/frmSolicitud.aspx" title="Solicitud" description="Administracion Solicitudes"/>
       </siteMapNode>
-      
-      <!-- Solicitud de areas -->
-      <siteMapNode url="~/CU_SolicitarAreaDeportiva/MostrarInstalacion.aspx" title="Instalaciones" description="Instalaciones">
-        <siteMapNode url="~/CU_SolicitarAreaDeportiva/FichaInstalacion.aspx" title="Informacion instalacion" description ="Informacion de la instalacion">
-          <siteMapNode url="~/CU_SolicitarAreaDeportiva/FormSolicitud.aspx" title="Formulario" description="Formulario de la solicitud" />
-        </siteMapNode>
+
+      <!-- Administracion de Instalaciones Deportivas -->
+
+      <siteMapNode url ="~/CU_AdministrarInstalaciones/ConsultaInstalacion.aspx" title="Administracion de Instalaciones deportivas" description="Administracion de Instalaciones deportivas">  
+      <siteMapNode url ="~/CU_AdministrarInstalaciones/EditaHorario.aspx" title="Editar Horario" description="Editar Horario"/>
+      <siteMapNode url ="~/CU_AdministrarInstalaciones/EditaInstalacion.aspx" title="Editar Instalacion" description="Editar Instalacion"/>
+      <siteMapNode url ="~/CU_AdministrarInstalaciones/InsertaHorario.aspx" title="Insertar Horario" description="Insertar Horario"/>
+      <siteMapNode url ="~/CU_AdministrarInstalaciones/InsertaImagenes.aspx" title="Insertar Imágenes" description="Insertar Imágenes"/>
+      <siteMapNode url ="~/CU_AdministrarInstalaciones/InsertaInstalacion.aspx" title="Insertar Instalación" description="Insertar Instalación"/>
       </siteMapNode>
-      
+
+      <!-- Estadisticas de Uso -->
+
+      <siteMapNode url ="~/CU_EstadisticasUso/IndiceEstadisticas.aspx" title="Registro de uso de las Instalaciones" description="Registro de uso de las Instalaciones">
+      </siteMapNode>
+
+      <!-- Reportes -->
+
+      <siteMapNode url ="~/Reportes/Seleccionar.aspx" title="Reportes" description="Reportes">
+      </siteMapNode>
+
       <!-- Notificacion -->
       <siteMapNode url="~/frmNotificacion.aspx" title="Notificacion" description="Estado de operacion">
         
       </siteMapNode>
 
-      <!-- Administracion de Instalaciones Deportivas -->
-
-      <siteMapNode url ="~/CU_AdministrarInstalaciones/ConsultaInstalacion.aspx" title="Administracion de Instalaciones deportivas" description="Administracion de Instalaciones deportivas">
-        <siteMapNode url ="~/CU_AdministrarInstalaciones/EditaHorario.aspx" title="Editar Horario" description="Editar Horario"/>
-        <siteMapNode url ="~/CU_AdministrarInstalaciones/EditaInstalacion.aspx" title="Editar Instalacion" description="Editar Instalacion"/>
-        <siteMapNode url ="~/CU_AdministrarInstalaciones/InsertaHorario.aspx" title="Insertar Horario" description="Insertar Horario"/>
-        <siteMapNode url ="~/CU_AdministrarInstalaciones/InsertaImagenes.aspx" title="Insertar Imágenes" description="Insertar Imágenes"/>
-        <siteMapNode url ="~/CU_AdministrarInstalaciones/InsertaInstalacion.aspx" title="Insertar Instalación" description="Insertar Instalación"/>
-      </siteMapNode>
+     
 
       <!-- Navigation End -->
     </siteMapNode>

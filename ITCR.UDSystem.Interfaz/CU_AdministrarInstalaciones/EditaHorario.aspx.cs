@@ -190,9 +190,9 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
         protected void ButtonCont2_Click(object sender, EventArgs e)
         {
             TimeValidator2.Visible = false;
-            //Server.Transfer("~/CU_AdministrarInstalaciones/InsertaImagenes.aspx", true);
-            //Server.Transfer("~/Exito2.aspx", true);
-            Response.Redirect("~/Exito2.aspx", true);
+            //Response.Redirect("~/CU_AdministrarInstalaciones/InsertaImagenes.aspx", true);
+            //Response.Redirect("~/Exito2.aspx", true);
+            Server.Transfer("~/Exito2.aspx", true);
         }
 
     }
