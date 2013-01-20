@@ -239,5 +239,25 @@ namespace ITCR.UDSystem.Negocios
 				throw ex;
 			}
 		}
+
+        //====================================================================
+        //                      Metodos agregados
+        //====================================================================
+
+        /// <summary>
+        /// Selecciona todas las aprobaciones de una manera detallada
+        /// </summary>
+        /// <returns>DataTable object</returns>
+        public override DataTable Seleccionar_Todo_Detallado()
+        {
+            try
+            {
+                return base.Seleccionar_Todo_Detallado();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 	} //class
 } //namespace

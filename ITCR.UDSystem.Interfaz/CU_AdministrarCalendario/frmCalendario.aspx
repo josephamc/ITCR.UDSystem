@@ -10,7 +10,6 @@
     
     <!-- Encabezado -->
     <br />
-    <br />
     <asp:Image ID="imgBanner" runat="server" ImageUrl="~/imagenes/rptReservacion.JPG" />
 
     <!-- Calendario -->

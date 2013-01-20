@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using DayPilot.Web.Ui.Events;
 using System.Drawing;
+using ITCR.UDSystem.Negocios.ClasesNegocios;
 
 namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 {
@@ -18,10 +19,11 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 
             if (!IsPostBack)
             {
+                cCalendario calendario = new cCalendario();
                 cldSeleccion.SelectedDate = DateTime.Today;
                 EstablecerSemana();
 
-                dpCalendar.DataSource = getData();
+                dpCalendar.DataSource = calendario.ObtenerReservaciones();
                 dpCalendar.DataBind();
             }
         }

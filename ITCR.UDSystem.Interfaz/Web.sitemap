@@ -38,6 +38,17 @@
       <siteMapNode url="~/frmNotificacion.aspx" title="Notificacion" description="Estado de operacion">
         
       </siteMapNode>
+
+      <!-- Administracion de Instalaciones Deportivas -->
+
+      <siteMapNode url ="~/CU_AdministrarInstalaciones/ConsultaInstalacion.aspx" title="Administracion de Instalaciones deportivas" description="Administracion de Instalaciones deportivas">
+        <siteMapNode url ="~/CU_AdministrarInstalaciones/EditaHorario.aspx" title="Editar Horario" description="Editar Horario"/>
+        <siteMapNode url ="~/CU_AdministrarInstalaciones/EditaInstalacion.aspx" title="Editar Instalacion" description="Editar Instalacion"/>
+        <siteMapNode url ="~/CU_AdministrarInstalaciones/InsertaHorario.aspx" title="Insertar Horario" description="Insertar Horario"/>
+        <siteMapNode url ="~/CU_AdministrarInstalaciones/InsertaImagenes.aspx" title="Insertar Imágenes" description="Insertar Imágenes"/>
+        <siteMapNode url ="~/CU_AdministrarInstalaciones/InsertaInstalacion.aspx" title="Insertar Instalación" description="Insertar Instalación"/>
+      </siteMapNode>
+
       <!-- Navigation End -->
     </siteMapNode>
 </siteMap>
