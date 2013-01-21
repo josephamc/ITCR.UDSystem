@@ -28,28 +28,28 @@
                                         <asp:TextBox ID="txtInicio" runat="server" Width="235px"></asp:TextBox>
                                         <ajaxToolkit:CalendarExtender
                                             ID="cldExtender" TargetControlID="txtInicio" PopupButtonID="imgCalendar" 
-                                            runat="server" Format="yyyy-MM-dd">
+                                            runat="server" Format="dd/MM/yyyy">
                                         </ajaxToolkit:CalendarExtender>
                                         <img id="imgCalendar" align="middle" alt="" src="../imagenes/date.png" /></td>
                                         <td><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtInicio" ErrorMessage="*"></asp:RequiredFieldValidator></td>                                                                         
-                                        <td><asp:RegularExpressionValidator ID="DateValidator2" runat="server" ControlToValidate="txtInicio"  ErrorMessage="Fecha inválida. Ingrese la fecha en un formato adecuado, ejemplo: 2012-12-31" ValidationExpression="((19|20)\d\d)[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator></td>
+                                        <td><asp:RegularExpressionValidator ID="DateValidator2" runat="server" ControlToValidate="txtInicio"  ErrorMessage="Fecha inválida. Ingrese la fecha en un formato adecuado, ejemplo: 31/12/2012" ValidationExpression="^(?:(?:0?[1-9]|1\d|2[0-8])(\/|-)(?:0?[1-9]|1[0-2]))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(?:(?:31(\/|-)(?:0?[13578]|1[02]))|(?:(?:29|30)(\/|-)(?:0?[1,3-9]|1[0-2])))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(29(\/|-)0?2)(\/|-)(?:(?:0[48]00|[13579][26]00|[2468][048]00)|(?:\d\d)?(?:0[48]|[2468][048]|[13579][26]))$" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator></td>
                                 </tr>
                                 <tr>
                                     <td>Fecha Fin:</td>
                                     <td>
                                         <asp:TextBox ID="txtFin" runat="server" Width="235px"></asp:TextBox>
                                         <ajaxToolkit:CalendarExtender
-                                            ID="cldExtenderFin" TargetControlID="txtFin" PopupButtonID="imgCalendarFin" Format="yyyy-MM-dd" runat="server">
+                                            ID="cldExtenderFin" TargetControlID="txtFin" PopupButtonID="imgCalendarFin" Format="dd/MM/yyyy" runat="server">
                                         </ajaxToolkit:CalendarExtender>
                                         <img id="imgCalendarFin" align="middle" alt="" src="../imagenes/date.png" /></td>
                                         <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtFin" ErrorMessage="*"></asp:RequiredFieldValidator></td>                                                                         
-                                        <td><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFin"  ErrorMessage="Fecha inválida. Ingrese la fecha en un formato adecuado, ejemplo: 2012-12-31" ValidationExpression="((19|20)\d\d)[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator></td>
+                                        <td><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtFin"  ErrorMessage="Fecha inválida. Ingrese la fecha en un formato adecuado, ejemplo: 31/12/2012" ValidationExpression="^(?:(?:0?[1-9]|1\d|2[0-8])(\/|-)(?:0?[1-9]|1[0-2]))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(?:(?:31(\/|-)(?:0?[13578]|1[02]))|(?:(?:29|30)(\/|-)(?:0?[1,3-9]|1[0-2])))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(29(\/|-)0?2)(\/|-)(?:(?:0[48]00|[13579][26]00|[2468][048]00)|(?:\d\d)?(?:0[48]|[2468][048]|[13579][26]))$" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator></td>
                                 </tr>
                                 
                                 <tr>
                                     <td></td>
                                     <td>
-                                        <asp:Label ID="nota" runat="server" Text="Formato de Fecha= yyyy-MM-dd, eje: 2013-01-27" style="font-style: italic"></asp:Label>
+                                        <asp:Label ID="nota" runat="server" Text="Formato de Fecha= dd/MM/yyyy, eje: 31/12/2012" style="font-style: italic"></asp:Label>
                                     </td>
                                 </tr>
 
