@@ -94,14 +94,14 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                         // Elimina la imagen anterior
                         try
                         {
-                            System.IO.File.Delete("C:\\Imagenes\\" + drImagen.Rows[0][1].ToString());
+                            System.IO.File.Delete("E:\\Imagenes\\" + drImagen.Rows[0][1].ToString());
                         }catch(Exception)
                         {
 
                         }
 
                         // Guarda la imagen
-                        fu_IMAGE_UPLOAD.SaveAs("C:\\Imagenes\\" + fu_IMAGE_UPLOAD.FileName);
+                        fu_IMAGE_UPLOAD.SaveAs("E:\\Imagenes\\" + fu_IMAGE_UPLOAD.FileName);
 
                         // Actualiza la imagen
                         cImagen.ID_IMAGEN = int.Parse(drImagen.Rows[0][0].ToString());
@@ -147,7 +147,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                         // Elimina la imagen anterior
                         try
                         {
-                            System.IO.File.Delete("C:\\Imagenes\\" + drImagen.Rows[0][1].ToString());
+                            System.IO.File.Delete("E:\\Imagenes\\" + drImagen.Rows[0][1].ToString());
                         }
                         catch (Exception)
                         {
@@ -155,7 +155,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                         }
 
                         // Guarda la imagen
-                        fu_IMAGE_UPLOAD.SaveAs("C:\\Imagenes\\" + fu_IMAGE_UPLOAD.FileName);
+                        fu_IMAGE_UPLOAD.SaveAs("E:\\Imagenes\\" + fu_IMAGE_UPLOAD.FileName);
 
                         // Actualiza la imagen
                         cImagen.ID_IMAGEN = int.Parse(drImagen.Rows[0][0].ToString());

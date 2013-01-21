@@ -17,7 +17,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                 try
                 {
                     // Read the file and convert it to Byte Array
-                    string filePath = "C:\\Imagenes\\";
+                    string filePath = "E:\\Imagenes\\";
                     string filename = Request.QueryString["FileName"];
                     string contenttype = "inst_IMAGENES/" +
                     Path.GetExtension(Request.QueryString["FileName"].Replace(".",""));

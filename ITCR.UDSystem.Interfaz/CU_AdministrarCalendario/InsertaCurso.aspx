@@ -19,7 +19,7 @@
     <br />
     <div id="imglogo">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <img src="../../imagenes/ImgND2.png" alt=""/>
+         <img src="../../imagenes/cursos01.JPG" alt=""/>
     </div>
     <br />
     <div>

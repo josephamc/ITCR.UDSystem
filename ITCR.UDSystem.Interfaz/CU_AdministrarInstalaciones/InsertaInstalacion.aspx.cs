@@ -52,10 +52,10 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                 cImagen.IMG_INSTALACION = fu_IMAGE_UPLOAD.FileName;
                 cImagen.FKY_INSTALACION = Nueva_Instalacion.ID_INSTALACION;
                 cImagen.Insertar();
-                if (!Directory.Exists("C:\\Imagenes"))
-                    Directory.CreateDirectory("C:\\Imagenes");
+                if (!Directory.Exists("E:\\Imagenes"))
+                    Directory.CreateDirectory("E:\\Imagenes");
 
-                fu_IMAGE_UPLOAD.SaveAs("C:\\Imagenes\\" + fu_IMAGE_UPLOAD.FileName);
+                fu_IMAGE_UPLOAD.SaveAs("E:\\Imagenes\\" + fu_IMAGE_UPLOAD.FileName);
             }
 
             Server.Transfer("/CU_AdministrarInstalaciones/InsertaHorario.aspx", true);

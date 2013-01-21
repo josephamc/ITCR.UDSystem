@@ -117,6 +117,7 @@
     <Content Include="imagenes\calendario01.jpg" />
     <Content Include="imagenes\consulta03.png" />
     <Content Include="imagenes\correcto02.jpg" />
+    <Content Include="imagenes\cursos01.JPG" />
     <Content Include="imagenes\date.png" />
     <Content Include="imagenes\denegado.png" />
     <Content Include="imagenes\docencia01.jpg" />
@@ -125,6 +126,7 @@
     <Content Include="imagenes\est01.jpg" />
     <Content Include="imagenes\est03.png" />
     <Content Include="imagenes\event01.jpg" />
+    <Content Include="imagenes\evento01.png" />
     <Content Include="imagenes\eye_inv.png" />
     <Content Include="imagenes\forward.png" />
     <Content Include="imagenes\GestionarSolicitudes.JPG" />
