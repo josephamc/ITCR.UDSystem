@@ -24,69 +24,138 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
             }
         }
 
+
+        private int validaFechas(DateTime FechaInicio, DateTime FechaFin)
+        {
+
+            DateTime hoy = DateTime.Now;
+
+            if (FechaInicio > FechaFin)
+                return -1;
+            else
+                return 1;
+
+        }
+
+        private int validaCheck(Boolean L, Boolean K, Boolean M, Boolean J, Boolean V, Boolean S, Boolean D) {
+
+            int bandera=-1;
+            if (L == true)
+            {
+                bandera = 1;
+            }
+            if (K == true)
+            {
+                bandera = 1;
+            }
+            if (M == true)
+            {
+                bandera = 1;
+            }
+            if (J == true)
+            {
+                bandera = 1;
+            }
+            if (V == true)
+            {
+                bandera = 1;
+            }
+            if (S == true)
+            {
+                bandera = 1;
+            }
+            if (D == true)
+            {
+                bandera = 1;
+            }
+            return bandera;
+        }
+
         protected void btn_Agregar_Click(object sender, EventArgs e)
         {
-            lbl_ErrorNombre.Visible = false;
-            lblErrorFecha.Visible = false;
-
-            cUDGDFINSTALACIONNegocios cInstalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
-            cUDGDFCALENDARIONegocios cCalendario = new cUDGDFCALENDARIONegocios(0, "", 0, "");
-            cUDGDFCURSONegocios cCurso = new cUDGDFCURSONegocios(0, "", 0, "");
-            cUDGDFRESERVACIONNegocios cReservacion = new cUDGDFRESERVACIONNegocios(0, "", 0, "");
-            int iDisponibilidad = -1, iID_INSTALACION;
-            DataTable dtCalendario = cCalendario.SeleccionarTodos_Con_FKY_INSTALACION_FK();
-            DateTime dFechaInicio, dFechafin, dhorainicio, dhorafin;
-
-            // Obtiene todas las instalaciones
-            DataTable dtInstalaciones = cInstalacion.SeleccionarTodos();
-
-            // Obtengo el ID del Calendario
-            iID_INSTALACION = ObtenerID(ddl_instalacionCurso.Text, dtInstalaciones);
-            cCalendario.FKY_INSTALACION = iID_INSTALACION;
-            
-            dFechaInicio = DateTime.Parse(txt_FechaInicio.Text);
-            dFechafin = DateTime.Parse(txt_FechaFin.Text);
-            dhorainicio = DateTime.Parse(txt_HoraInicio.Text + ":00" + ddlAmPm1.SelectedItem.Value.ToString());
-            dhorafin = DateTime.Parse(txt_HoraFin.Text + ":00" + ddlAmPm2.SelectedItem.Value.ToString());
-
-            iDisponibilidad = cReservacion.ConsultarDisponibilidadCalendario(dFechaInicio, dFechafin, dhorainicio, dhorafin, iID_INSTALACION);
-
-            if (!cCurso.Comprobar_Nombre(txt_nombreCurso.Text))
+            if (Page.IsValid==true)
             {
-                if (iDisponibilidad == 1)
+                int Fechas = validaFechas(Convert.ToDateTime(txt_FechaInicio.Text.ToString()), Convert.ToDateTime(txt_FechaFin.Text.ToString()));
+                int CheckDias = validaCheck(ck_lunes.Checked, ck_martes.Checked, ck_miercoles.Checked, ck_jueves.Checked, ck_viernes.Checked, ck_sabado.Checked, ck_domingo.Checked);
+                if (Fechas == 1 && CheckDias==1)
                 {
+                    lbl_ErrorNombre.Visible = false;
+                    lblErrorFecha.Visible = false;
+
+                    cUDGDFINSTALACIONNegocios cInstalacion = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
+                    cUDGDFCALENDARIONegocios cCalendario = new cUDGDFCALENDARIONegocios(0, "", 0, "");
+                    cUDGDFCURSONegocios cCurso = new cUDGDFCURSONegocios(0, "", 0, "");
+                    cUDGDFRESERVACIONNegocios cReservacion = new cUDGDFRESERVACIONNegocios(0, "", 0, "");
+                    int iDisponibilidad = -1, iID_INSTALACION;
+                    DataTable dtCalendario = cCalendario.SeleccionarTodos_Con_FKY_INSTALACION_FK();
+                    DateTime dFechaInicio, dFechafin, dhorainicio, dhorafin;
+
+                    // Obtiene todas las instalaciones
+                    DataTable dtInstalaciones = cInstalacion.SeleccionarTodos();
+
                     // Obtengo el ID del Calendario
-                    dtCalendario = cCalendario.SeleccionarTodos_Con_FKY_INSTALACION_FK();
+                    iID_INSTALACION = ObtenerID(ddl_instalacionCurso.Text, dtInstalaciones);
+                    cCalendario.FKY_INSTALACION = iID_INSTALACION;
 
-                    // Creo una reservacion para el curso
-                    cReservacion.FEC_FECHAINICIO = dFechaInicio;
-                    cReservacion.FEC_FECHAFIN = dFechafin;
-                    cReservacion.HRA_HORAINICIO = dhorainicio;
-                    cReservacion.HRA_HORAFIN = dhorafin;
-                    cReservacion.Insertar();
+                    dFechaInicio = DateTime.Parse(txt_FechaInicio.Text);
+                    dFechafin = DateTime.Parse(txt_FechaFin.Text);
+                    dhorainicio = DateTime.Parse(txt_HoraInicio.Text + ":00" + ddlAmPm1.SelectedItem.Value.ToString());
+                    dhorafin = DateTime.Parse(txt_HoraFin.Text + ":00" + ddlAmPm2.SelectedItem.Value.ToString());
 
-                    // Crea el curso
-                    cCurso.NOM_PROFESOR = txt_profesor.Text;
-                    cCurso.NOM_CURSO = txt_nombreCurso.Text;
-                    cCurso.COD_LUNES = ck_lunes.Checked;
-                    cCurso.COD_MARTES = ck_martes.Checked;
-                    cCurso.COD_MIERCOLES = ck_miercoles.Checked;
-                    cCurso.COD_JUEVES = ck_jueves.Checked;
-                    cCurso.COD_VIERNES = ck_viernes.Checked;
-                    cCurso.COD_SABADO = ck_sabado.Checked;
-                    cCurso.COD_DOMINGO = ck_domingo.Checked;
-                    cCurso.FKY_CALENDARIO = int.Parse(dtCalendario.Rows[0][0].ToString());
-                    cCurso.FKY_RESERVACION = cReservacion.ID_RESERVACION;
-                    cCurso.Insertar();
+                    iDisponibilidad = cReservacion.ConsultarDisponibilidadCalendario(dFechaInicio, dFechafin, dhorainicio, dhorafin, iID_INSTALACION);
 
-                    // Redirecciona hacia un mensaje de confirmacion
-                    Response.Redirect("~/Confirmacion.aspx", true);
+                    if (!cCurso.Comprobar_Nombre(txt_nombreCurso.Text))
+                    {
+                        if (iDisponibilidad == 1)
+                        {
+                            // Obtengo el ID del Calendario
+                            dtCalendario = cCalendario.SeleccionarTodos_Con_FKY_INSTALACION_FK();
+
+                            // Creo una reservacion para el curso
+                            cReservacion.FEC_FECHAINICIO = dFechaInicio;
+                            cReservacion.FEC_FECHAFIN = dFechafin;
+                            cReservacion.HRA_HORAINICIO = dhorainicio;
+                            cReservacion.HRA_HORAFIN = dhorafin;
+                            cReservacion.Insertar();
+
+                            // Crea el curso
+                            cCurso.NOM_PROFESOR = txt_profesor.Text;
+                            cCurso.NOM_CURSO = txt_nombreCurso.Text;
+                            cCurso.COD_LUNES = ck_lunes.Checked;
+                            cCurso.COD_MARTES = ck_martes.Checked;
+                            cCurso.COD_MIERCOLES = ck_miercoles.Checked;
+                            cCurso.COD_JUEVES = ck_jueves.Checked;
+                            cCurso.COD_VIERNES = ck_viernes.Checked;
+                            cCurso.COD_SABADO = ck_sabado.Checked;
+                            cCurso.COD_DOMINGO = ck_domingo.Checked;
+                            cCurso.FKY_CALENDARIO = int.Parse(dtCalendario.Rows[0][0].ToString());
+                            cCurso.FKY_RESERVACION = cReservacion.ID_RESERVACION;
+                            cCurso.Insertar();
+
+                            // Redirecciona hacia un mensaje de confirmacion
+                            Response.Redirect("~/Confirmacion.aspx", true);
+                        }
+                        else
+                            lblErrorFecha.Visible = true;
+                    }
+                    else
+                        lbl_ErrorNombre.Visible = true;
                 }
-                else
-                    lblErrorFecha.Visible = true;
+
+                if (Fechas == -1)
+                {
+                    Response.Redirect("/frmErrorFechas.aspx", true);
+
+                }
+
+                if (CheckDias == -1)
+                {
+                    Response.Redirect("/frmErrorCheck.aspx", true);
+
+                }
+
+
             }
-            else
-                lbl_ErrorNombre.Visible = true;
         }
 
         private int ObtenerID(String p_NOM_INSTALACION, DataTable p_Instalaciones)

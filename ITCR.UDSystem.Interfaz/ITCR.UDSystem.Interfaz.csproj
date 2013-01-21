@@ -96,6 +96,7 @@
     <Content Include="frmAutenticacion.aspx" />
     <Content Include="frmDatos.aspx" />
     <Content Include="frmError.aspx" />
+    <Content Include="frmErrorCheck.aspx" />
     <Content Include="frmErrorFechas.aspx" />
     <Content Include="frmMantenimiento.aspx" />
     <Content Include="frmNotificacion.aspx" />
@@ -146,12 +147,12 @@
     <Content Include="js\jquery.js" />
     <Content Include="js\jquery.menu.js" />
     <Content Include="Reportes\Seleccionar.aspx" />
-    <Content Include="Scripts\assets\css\simplemodal.css" />
-    <Content Include="Scripts\assets\images\loader.gif" />
-    <Content Include="Scripts\Interfaz.js" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Reportes\Scripts\assets\css\simplemodal.css" />
+    <Content Include="Reportes\Scripts\assets\images\loader.gif" />
+    <Content Include="Reportes\Scripts\Interfaz.js" />
+    <Content Include="Reportes\Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Reportes\Scripts\jquery-1.4.1.js" />
+    <Content Include="Reportes\Scripts\jquery-1.4.1.min.js" />
     <None Include="Controles\.svn\all-wcprops" />
     <None Include="Controles\.svn\entries" />
     <None Include="Controles\.svn\text-base\Navigation.ascx.svn-base" />
@@ -160,16 +161,16 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Scripts\assets\less\simplemodal.less" />
+    <None Include="Reportes\Scripts\assets\less\simplemodal.less" />
     <Content Include="SinAutenticar.Master" />
     <None Include="Web References\wsSeguridad\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\wsSeguridad\seguridad.disco" />
-    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Reportes\Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Reportes\Scripts\jquery-1.7.1.js" />
+    <Content Include="Reportes\Scripts\jquery-1.7.1.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -342,6 +343,13 @@
     <Compile Include="frmError.aspx.cs">
       <DependentUpon>frmError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmErrorCheck.aspx.cs">
+      <DependentUpon>frmErrorCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmErrorCheck.aspx.designer.cs">
+      <DependentUpon>frmErrorCheck.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmErrorFechas.aspx.cs">
       <DependentUpon>frmErrorFechas.aspx</DependentUpon>
