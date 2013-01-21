@@ -69,14 +69,14 @@ namespace ITCR.UDSystem.Negocios
 				operacion = "Insertar cUDGDFIMAGEN;"
 					+"IMG_INSTALACION:"+IMG_INSTALACION.ToString()+";"
 					+"FKY_INSTALACION:"+FKY_INSTALACION.ToString()+";";
-				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Insertar();
 			}
 			catch (Exception ex)
 			{
 				//Construir el string a guardar en la bitácora en caso de error.
 				operacion = "Error Insertar cUDGDFIMAGEN;"+ex.Message;
-				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
+				//wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
 				throw ex;
 			}
 		}
@@ -109,14 +109,14 @@ namespace ITCR.UDSystem.Negocios
 					+"ID_IMAGEN:"+ID_IMAGEN.ToString()+";"
 					+"IMG_INSTALACION:"+IMG_INSTALACION.ToString()+";"
 					+"FKY_INSTALACION:"+FKY_INSTALACION.ToString()+";";
-				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Actualizar();
 			}
 			catch (Exception ex)
 			{
 				//Construir el string a guardar en la bitácora en caso de error.
 				operacion = "Error Actualizar cUDGDFIMAGEN;"+ex.Message;
-				wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
+                //wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.Error, _ID_USUARIOBitacora,operacion);
 				throw ex;
 			}
 		}

@@ -70,6 +70,12 @@
                                 style="font-weight: 700; color: #FFFFFF;"></asp:Label></td>
                         <td><textarea id="txt_comentarios" cols="75" rows="2" runat="server"></textarea></td>
                         </tr>
+                        <tr>
+                        <td>
+                            <asp:Label ID="lbl_Imagen" runat="server" Text="Imagen" style="font-weight: 700; color: #FFFFFF;"></asp:Label></td>
+                            <td>
+                                <asp:FileUpload ID="fu_IMAGE_UPLOAD" runat="server" /></td>
+                        </tr>
                     </table>
                     <asp:Label ID="nota" runat="server" Text="Los campos con * son obligatorios" 
                         style="font-style: italic; color: #CCCCCC;"></asp:Label>

@@ -79,6 +79,7 @@
     <Content Include="CU_AdministrarCalendario\InsertaCurso.aspx" />
     <Content Include="CU_AdministrarCalendario\InsertaEvento.aspx" />
     <Content Include="CU_AdministrarInstalaciones\EditaHorario.aspx" />
+    <Content Include="CU_AdministrarInstalaciones\frmLOADING.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx" />
     <Content Include="CU_EstadisticasUso\IndiceEstadisticas.aspx" />
@@ -255,6 +256,13 @@
     <Compile Include="CU_AdministrarInstalaciones\EditaHorario.aspx.designer.cs">
       <DependentUpon>EditaHorario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\frmLOADING.aspx.cs">
+      <DependentUpon>frmLOADING.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\frmLOADING.aspx.designer.cs">
+      <DependentUpon>frmLOADING.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CU_AdministrarInstalaciones\InsertaHorario.aspx.cs">
       <DependentUpon>InsertaHorario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -428,6 +436,7 @@
     <Folder Include="Controles\.svn\tmp\prop-base\" />
     <Folder Include="Controles\.svn\tmp\props\" />
     <Folder Include="Controles\.svn\tmp\text-base\" />
+    <Folder Include="inst_IMAGENES\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
