@@ -57,7 +57,7 @@
                         Text="El nombre que esta tratando de guardar ya se esta usando." 
                         Visible="False"></asp:Label>
                     <br />
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txt_NOMBRE" ErrorMessage="Esta campo no puede ser vacio" ForeColor="Red"></asp:RequiredFieldValidator>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txt_NOMBRE" ErrorMessage="Este campo no puede ser vacio" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="ValidaSolicitante" runat="server" ControlToValidate="txt_NOMBRE"  ErrorMessage="*" ValidationExpression="^[A-Z0-9 a-z]*" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
                     <br />
                     Instalacion:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -70,7 +70,7 @@
                     <br />
                     <textarea id="txt_DESCRIPCION" cols="60" rows="10" runat="server" 
                         readonly="readonly"></textarea>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_DESCRIPCION" ErrorMessage="Esta campo no puede ser vacio" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_DESCRIPCION" ErrorMessage="Este campo no puede ser vacio" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txt_DESCRIPCION"  ErrorMessage="*" ValidationExpression="^[A-Z0-9 a-z]*" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
                       
                     <br />

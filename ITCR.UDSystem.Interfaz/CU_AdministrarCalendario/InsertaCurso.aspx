@@ -29,7 +29,7 @@
                 <td><asp:Label ID="lb_nombre" runat="server" Text="Nombre del Curso:" 
                         style="font-weight: 700"></asp:Label></td>
                 <td><asp:TextBox ID="txt_nombreCurso" runat="server" Width="227px"></asp:TextBox> 
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txt_nombreCurso" ErrorMessage="Esta campo no puede ser vacio" ForeColor="Red"></asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txt_nombreCurso" ErrorMessage="Este campo no puede ser vacio" ForeColor="Red"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="ValidaSolicitante" runat="server" ControlToValidate="txt_nombreCurso"  ErrorMessage="*" ValidationExpression="^[A-Z0-9 a-z]*" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
                        
                     <asp:Label ID="lbl_ErrorNombre" runat="server" 
@@ -53,7 +53,7 @@
                         style="font-weight: 700"></asp:Label></td>
                 <td><asp:TextBox ID="txt_profesor" runat="server" Width="227px"></asp:TextBox> </td>
                 <td>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txt_profesor" ErrorMessage="Esta campo no puede ser vacio" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txt_profesor" ErrorMessage="Este campo no puede ser vacio" ForeColor="Red"></asp:RequiredFieldValidator>
                  <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txt_profesor"  ErrorMessage="*" ValidationExpression="^[A-Z0-9 a-z]*" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
                        
                 </td>
