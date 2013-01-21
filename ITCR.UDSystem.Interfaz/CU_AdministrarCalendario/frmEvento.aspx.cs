@@ -49,19 +49,35 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 
                 if (int.Parse(sHRA_INICIO[0]) >= 12)
                 {
-                    txt_HRA_INICIO.Text = (int.Parse(sHRA_INICIO[0]) - 12) + ":" + sHRA_INICIO[1];
+                    if (int.Parse(sHRA_INICIO[0]) - 12 < 10)
+                        txt_HRA_INICIO.Text = "0" + (int.Parse(sHRA_INICIO[0]) - 12) + ":" + sHRA_INICIO[1];
+                    else
+                        txt_HRA_INICIO.Text = (int.Parse(sHRA_INICIO[0]) - 12) + ":" + sHRA_INICIO[1];
                     drp_TIME_INIT.SelectedIndex = 1;
                 }
                 else
-                    txt_HRA_INICIO.Text = drInformacion[14].ToString();
+                {
+                    if (int.Parse(sHRA_INICIO[0]) < 10)
+                        txt_HRA_INICIO.Text = "0" + int.Parse(sHRA_INICIO[0]) + ":" + sHRA_INICIO[1];
+                    else
+                        txt_HRA_INICIO.Text = int.Parse(sHRA_INICIO[0]) + ":" + sHRA_INICIO[1];
+                }
 
                 if (int.Parse(sHRA_FIN[0]) >= 12)
                 {
-                    txt_HRA_FIN.Text = (int.Parse(sHRA_FIN[0]) - 12) + ":" + sHRA_FIN[1];
+                    if (int.Parse(sHRA_FIN[0])-12 < 10)
+                        txt_HRA_FIN.Text = "0" + (int.Parse(sHRA_FIN[0]) - 12) + ":" + sHRA_FIN[1];
+                    else
+                        txt_HRA_FIN.Text = (int.Parse(sHRA_FIN[0]) - 12) + ":" + sHRA_FIN[1];
                     drp_TIME_FIN.SelectedIndex = 1;
                 }
                 else
-                    txt_HRA_FIN.Text = drInformacion[15].ToString();
+                {
+                    if (int.Parse(sHRA_FIN[0]) < 10)
+                        txt_HRA_FIN.Text = "0" + (int.Parse(sHRA_FIN[0])) + ":" + sHRA_FIN[1];
+                    else
+                        txt_HRA_FIN.Text = (int.Parse(sHRA_FIN[0])) + ":" + sHRA_FIN[1];
+                }
                 
                 // Establece los campos checkbox
                 chk_LUNES.Checked = (Boolean)drInformacion[5];
