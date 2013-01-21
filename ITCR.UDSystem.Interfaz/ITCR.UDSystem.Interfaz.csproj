@@ -444,7 +444,6 @@
     <Folder Include="Controles\.svn\tmp\prop-base\" />
     <Folder Include="Controles\.svn\tmp\props\" />
     <Folder Include="Controles\.svn\tmp\text-base\" />
-    <Folder Include="inst_IMAGENES\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
