@@ -14,6 +14,11 @@
             width: 144px;
             height: 160px;
         }
+        #img_VISUALIZACION
+        {
+            height: 164px;
+            width: 220px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -79,6 +84,18 @@
                         <td><asp:Label ID="comentarios2" runat="server" Text="Comentarios Adicionales:   " 
                                 ForeColor="White"></asp:Label></td>
                         <td><textarea id="txt_comentarios2" cols="75" rows="2" runat="server"></textarea></td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <asp:Label ID="lbl_Imagen" runat="server" Text="Label" ForeColor="White"></asp:Label></td>
+                        <td>
+                            <asp:FileUpload ID="fu_IMAGE_UPLOAD" runat="server" /></td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <asp:Label ID="lbl_Visualizacion" runat="server" Text="Visualizacion: " ForeColor="White"></asp:Label></td>
+                            <td>
+                                <img id="img_VISUALIZACION" alt="" src="" runat="server" width="220" height="164"/></td>
                         </tr>
                     </table>
                     </div>

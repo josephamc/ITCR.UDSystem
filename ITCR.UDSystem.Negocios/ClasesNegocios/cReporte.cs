@@ -15,7 +15,6 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
         private int _iSize = 0, _iRedTitulo, _iGreenTitulo, _iBlueTitulo, _iRedSub, _iGreenSub, _iBlueSub;
         private string _sFont;
         private DateTime _sfechainicio, _sfechafin;
-        public int _sidinstalacion;
         #endregion
 
         #region Orden de solicitudes
@@ -60,7 +59,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
         }
 
         /// <summary>
-        /// Crea un reporte de reservaciones generales
+        /// Crea un reporte
         /// </summary>
         /// <returns></returns>
         public Report Generar()
@@ -348,146 +347,6 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             _iBlueSub = 213;
         }
 
-
-        public Report GenerarEstadisticas(DataTable datos_instalaciones)
-        {
-            // Inicialización de los componentes del documento
-            Report rReporte = new Report(new PdfFormatter());
-            FontDef fd = new FontDef(rReporte, _sFont);
-            FontProp fp = new FontProp(fd, _iSize);
-            Page pPagina = new Page(rReporte);
-
-            // Imprime el documento
-            // Encabezado del documento
-            InsertarTitulo("Reporte de Estadisticas de Uso", fp, pPagina, rReporte);
-            InsertarTitulo(_sfechainicio.ToShortDateString() + " - " + _sfechafin.ToShortDateString(), fp, pPagina, rReporte);
-            InsertarLinea("", fp, pPagina, rReporte);
-            InsertarDivisor(fp, pPagina, rReporte);
-            InsertarLinea("", fp, pPagina, rReporte);
-
-            for (int i = 0; i < datos_instalaciones.Rows.Count; i++)
-            {
-                cUDGDFRZNUSONegocios estadistica = new cUDGDFRZNUSONegocios(0, "", 0, "");
-                estadistica.FKY_INSTALACION = Int32.Parse(datos_instalaciones.Rows[i][0].ToString());
-                DataTable datos_estadistica = estadistica.SeleccionarTodos_Con_FKY_INSTALACION_FK();
-                
-                String nombre_instalacion = datos_instalaciones.Rows[i][1].ToString();
-                int cant_usuarios = 0;
-
-                InsertarSubtitulo(nombre_instalacion, fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Detalles: ", fp, pPagina, rReporte);
-
-                for (int n = 0; n < datos_estadistica.Rows.Count; n++)
-                {
-                    DateTime fecha = DateTime.Parse(datos_estadistica.Rows[n][2].ToString());
-                    int result1 = DateTime.Compare(fecha, _sfechainicio);
-                    int result2 = DateTime.Compare(fecha, _sfechafin);
-
-                    if (result1 >= 0 && result2 <= 0)
-                    {
-                        cant_usuarios += Int32.Parse(datos_estadistica.Rows[n][1].ToString());
-                        InsertarLinea(datos_estadistica.Rows[n][1].ToString() + " usuarios" + " -> "  + datos_estadistica.Rows[n][4].ToString(), fp, pPagina, rReporte);
-                    }
-                }
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("TOTAL: " + cant_usuarios, fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarDivisor(fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-            }
-            // retorna el documento para poder ser presentado al usuario
-            return rReporte;
-        }
-
-        /// <summary>
-        /// Crea un reporte de reservaciones individual
-        /// </summary>
-        /// <returns></returns>
-        public Report Generar_i()
-        {
-            // Inicialización de los componentes del documento
-            Report rReporte = new Report(new PdfFormatter());
-            FontDef fd = new FontDef(rReporte, _sFont);
-            FontProp fp = new FontProp(fd, _iSize);
-            Page pPagina = new Page(rReporte);
-            cUDGDFSOLICITUDNegocios sSolicitudes = new cUDGDFSOLICITUDNegocios(0, "", 0, "");
-            DataTable dtSolicitudes;
-            String[] sUsuarios;
-            int iContadorUsuarios = 1;
-
-            // Obtiene las solicitudes aprobadas dentro del rango de fechas
-            dtSolicitudes = sSolicitudes.SeleccionarAprobadas_i(_sfechainicio, _sfechafin, _sidinstalacion);
-
-            // Imprime el documento
-            // Encabezado del documento
-            InsertarTitulo("Reporte de reservaciones", fp, pPagina, rReporte);
-            InsertarTitulo(_sfechainicio.ToShortDateString() + " - " + _sfechafin.ToShortDateString(), fp, pPagina, rReporte);
-            InsertarLinea("", fp, pPagina, rReporte);
-
-            // Resumen del documento
-            InsertarSubtitulo("Resumen de reservaciones", fp, pPagina, rReporte);
-            foreach (Instalacion insLocal in GenerarResumen(dtSolicitudes))
-            {
-                InsertarLinea("Reservaciones para " + insLocal.sInstalacion + ": " + insLocal.iContador + ".", fp, pPagina, rReporte);
-            }
-            InsertarLinea("", fp, pPagina, rReporte);
-            InsertarDivisor(fp, pPagina, rReporte);
-            InsertarLinea("", fp, pPagina, rReporte);
-
-            // Imprime cada solicitud
-            InsertarSubtitulo("Solicitudes aprobadas dentro del rango de fechas", fp, pPagina, rReporte);
-            InsertarLinea("", fp, pPagina, rReporte);
-
-            foreach (DataRow drRow in dtSolicitudes.Rows)
-            {
-                InsertarLinea("Identificacion de solicitud: " + drRow[0].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Fecha inicio: " + DateTime.Parse(drRow[2].ToString()).ToShortDateString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Fecha fin: " + DateTime.Parse(drRow[3].ToString()).ToShortDateString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Fecha de la solicitud: " + DateTime.Parse(drRow[4].ToString()).ToShortDateString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Hora inicio: " + drRow[5].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Hora fin: " + drRow[6].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Nombre de encargado: " + drRow[7].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Nombre de institucion/grupo: " + drRow[8].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Identificacion encargado: " + drRow[9].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Tipo de Solicitante: " + drRow[20].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Observaciones: " + drRow[11].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Razon de uso: " + drRow[12].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Correo solicitante: " + drRow[14].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Usuarios:", fp, pPagina, rReporte);
-                sUsuarios = drRow[16].ToString().Split(',');
-                foreach (String sLocal in sUsuarios)
-                {
-                    InsertarLinea(iContadorUsuarios + ". " + sLocal, fp, pPagina, rReporte);
-                    iContadorUsuarios++;
-                }
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Cantidad de usuarios hombres: " + drRow[17].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarLinea("Cantidad de usuarios mujeres: " + drRow[18].ToString(), fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-                InsertarDivisor(fp, pPagina, rReporte);
-                InsertarLinea("", fp, pPagina, rReporte);
-            }
-
-            // retorna el documento para poder ser presentado al usuario
-            return rReporte;
-        }
-
-
         #region Declaraciones de propiedades de la clase
         /// <summary>
         /// Inicio en el eje X del texto
@@ -752,7 +611,5 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             }
         }
         #endregion
-
-
     }
 }

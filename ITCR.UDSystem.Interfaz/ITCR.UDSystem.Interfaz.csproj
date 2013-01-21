@@ -71,10 +71,15 @@
     <Content Include="Controles\Navigation.ascx" />
     <Content Include="css\Calendar.css" />
     <Content Include="CU_AdministrarCalendario\frmCalendario.aspx" />
+    <Content Include="CU_AdministrarCalendario\frmCurso.aspx" />
+    <Content Include="CU_AdministrarCalendario\frmEvento.aspx" />
+    <Content Include="CU_AdministrarCalendario\frmReservacion.aspx" />
+    <Content Include="CU_AdministrarCalendario\frmSolicitud.aspx" />
     <Content Include="CU_AdministrarCalendario\IndiceCalendario.aspx" />
     <Content Include="CU_AdministrarCalendario\InsertaCurso.aspx" />
     <Content Include="CU_AdministrarCalendario\InsertaEvento.aspx" />
     <Content Include="CU_AdministrarInstalaciones\EditaHorario.aspx" />
+    <Content Include="CU_AdministrarInstalaciones\frmLOADING.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaHorario.aspx" />
     <Content Include="CU_AdministrarInstalaciones\InsertaImagenes.aspx" />
     <Content Include="CU_EstadisticasUso\IndiceEstadisticas.aspx" />
@@ -92,6 +97,7 @@
     <Content Include="frmAutenticacion.aspx" />
     <Content Include="frmDatos.aspx" />
     <Content Include="frmError.aspx" />
+    <Content Include="frmErrorCheck.aspx" />
     <Content Include="frmErrorFechas.aspx" />
     <Content Include="frmMantenimiento.aspx" />
     <Content Include="frmNotificacion.aspx" />
@@ -105,10 +111,14 @@
     <Content Include="imagenes\barra02.jpg" />
     <Content Include="imagenes\bienvenido.JPG" />
     <Content Include="imagenes\btnBuscar.png" />
+    <Content Include="imagenes\btndel.png" />
+    <Content Include="imagenes\btnedit.png" />
+    <Content Include="imagenes\btnSave.png" />
     <Content Include="imagenes\calendario01.jpg" />
     <Content Include="imagenes\consulta03.png" />
     <Content Include="imagenes\correcto02.jpg" />
     <Content Include="imagenes\date.png" />
+    <Content Include="imagenes\denegado.png" />
     <Content Include="imagenes\docencia01.jpg" />
     <Content Include="imagenes\editar.png" />
     <Content Include="imagenes\editar02.png" />
@@ -117,6 +127,7 @@
     <Content Include="imagenes\event01.jpg" />
     <Content Include="imagenes\eye_inv.png" />
     <Content Include="imagenes\forward.png" />
+    <Content Include="imagenes\GestionarSolicitudes.JPG" />
     <Content Include="imagenes\hora01.jpg" />
     <Content Include="imagenes\imgIngreso.gif" />
     <Content Include="imagenes\ImgND2.png" />
@@ -124,8 +135,10 @@
     <Content Include="imagenes\logo.gif" />
     <Content Include="imagenes\logoSistemasTEC.jpg" />
     <Content Include="imagenes\logotec1.gif" />
+    <Content Include="imagenes\nodisponible.jpg" />
     <Content Include="imagenes\result_est01.png" />
     <Content Include="imagenes\rptReservacion.JPG" />
+    <Content Include="imagenes\SolicitarAreaDeportiva.JPG" />
     <Content Include="imagenes\TECAzul.jpg" />
     <Content Include="imagenes\time2.jpg" />
     <Content Include="imagenes\tit-TEC.jpg" />
@@ -188,6 +201,34 @@
     <Compile Include="CU_AdministrarCalendario\frmCalendario.aspx.designer.cs">
       <DependentUpon>frmCalendario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CU_AdministrarCalendario\frmCurso.aspx.cs">
+      <DependentUpon>frmCurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\frmCurso.aspx.designer.cs">
+      <DependentUpon>frmCurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\frmEvento.aspx.cs">
+      <DependentUpon>frmEvento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\frmEvento.aspx.designer.cs">
+      <DependentUpon>frmEvento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\frmReservacion.aspx.cs">
+      <DependentUpon>frmReservacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\frmReservacion.aspx.designer.cs">
+      <DependentUpon>frmReservacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\frmSolicitud.aspx.cs">
+      <DependentUpon>frmSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarCalendario\frmSolicitud.aspx.designer.cs">
+      <DependentUpon>frmSolicitud.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CU_AdministrarCalendario\IndiceCalendario.aspx.cs">
       <DependentUpon>IndiceCalendario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -215,6 +256,13 @@
     </Compile>
     <Compile Include="CU_AdministrarInstalaciones\EditaHorario.aspx.designer.cs">
       <DependentUpon>EditaHorario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\frmLOADING.aspx.cs">
+      <DependentUpon>frmLOADING.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CU_AdministrarInstalaciones\frmLOADING.aspx.designer.cs">
+      <DependentUpon>frmLOADING.aspx</DependentUpon>
     </Compile>
     <Compile Include="CU_AdministrarInstalaciones\InsertaHorario.aspx.cs">
       <DependentUpon>InsertaHorario.aspx</DependentUpon>
@@ -303,6 +351,13 @@
     <Compile Include="frmError.aspx.cs">
       <DependentUpon>frmError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmErrorCheck.aspx.cs">
+      <DependentUpon>frmErrorCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmErrorCheck.aspx.designer.cs">
+      <DependentUpon>frmErrorCheck.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmErrorFechas.aspx.cs">
       <DependentUpon>frmErrorFechas.aspx</DependentUpon>

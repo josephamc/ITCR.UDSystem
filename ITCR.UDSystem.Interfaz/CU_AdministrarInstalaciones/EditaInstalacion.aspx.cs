@@ -31,8 +31,20 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                     enEdicion = IDinstalacionPrevia;
                     ideditar = enEdicion;
                     cUDGDFINSTALACIONNegocios instalacionBase = new cUDGDFINSTALACIONNegocios(0, "", 0, "");
+                    cUDGDFIMAGENNegocios cImagen = new cUDGDFIMAGENNegocios(0, "", 0, "");
                     instalacionBase.ID_INSTALACION = IDinstalacionPrevia;
                     DataTable tabla = instalacionBase.SeleccionarUno();
+
+                    cImagen.FKY_INSTALACION = IDinstalacionPrevia;
+                    try
+                    {
+                        DataRow drImagen = cImagen.SeleccionarTodos_Con_FKY_INSTALACION_FK().Rows[0];
+                        img_VISUALIZACION.Src = "~/CU_AdministrarInstalaciones/frmLOADING.aspx?FileName=" + drImagen[1].ToString();
+                    }
+                    catch (Exception)
+                    {
+                        img_VISUALIZACION.Src = "~/imagenes/ImgND2.png";
+                    }
 
                     txt_id.Text = instalacionBase.ID_INSTALACION.ToString();
                     txt_nombre2.Text = instalacionBase.NOM_INSTALACION.ToString();
@@ -71,7 +83,40 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                 Nueva_Instalacion.TXT_COMENTARIO = txt_comentarios2.Value.ToString();
 
                 Nueva_Instalacion.Actualizar();
-                Server.Transfer("~/CU_AdministrarInstalaciones/EditaHorario.aspx", true);
+
+                if (fu_IMAGE_UPLOAD.HasFile)
+                {
+                    cUDGDFIMAGENNegocios cImagen = new cUDGDFIMAGENNegocios(0, "", 0, "");
+                    cImagen.FKY_INSTALACION = Nueva_Instalacion.ID_INSTALACION;
+                    DataTable drImagen = cImagen.SeleccionarTodos_Con_FKY_INSTALACION_FK();
+                    if (drImagen.Rows.Count != 0)
+                    {
+                        // Elimina la imagen anterior
+                        try
+                        {
+                            System.IO.File.Delete("C:\\Imagenes\\" + drImagen.Rows[0][1].ToString());
+                        }catch(Exception)
+                        {
+
+                        }
+
+                        // Guarda la imagen
+                        fu_IMAGE_UPLOAD.SaveAs("C:\\Imagenes\\" + fu_IMAGE_UPLOAD.FileName);
+
+                        // Actualiza la imagen
+                        cImagen.ID_IMAGEN = int.Parse(drImagen.Rows[0][0].ToString());
+                        cImagen.IMG_INSTALACION = fu_IMAGE_UPLOAD.FileName;
+                        cImagen.Actualizar();
+                    }
+                    else
+                    {
+                        // Inserta la imagen
+                        cImagen.IMG_INSTALACION = fu_IMAGE_UPLOAD.FileName;
+                        cImagen.Insertar();
+                    }
+                }
+
+                Response.Redirect("~/Confirmacion.aspx", true);
             }
         }
 
@@ -92,7 +137,40 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
 
                 Nueva_Instalacion.Actualizar();
 
-                Server.Transfer("~/Exito2.aspx", true);
+                if (fu_IMAGE_UPLOAD.HasFile)
+                {
+                    cUDGDFIMAGENNegocios cImagen = new cUDGDFIMAGENNegocios(0, "", 0, "");
+                    cImagen.FKY_INSTALACION = Nueva_Instalacion.ID_INSTALACION;
+                    DataTable drImagen = cImagen.SeleccionarTodos_Con_FKY_INSTALACION_FK();
+                    if (drImagen.Rows.Count != 0)
+                    {
+                        // Elimina la imagen anterior
+                        try
+                        {
+                            System.IO.File.Delete("C:\\Imagenes\\" + drImagen.Rows[0][1].ToString());
+                        }
+                        catch (Exception)
+                        {
+
+                        }
+
+                        // Guarda la imagen
+                        fu_IMAGE_UPLOAD.SaveAs("C:\\Imagenes\\" + fu_IMAGE_UPLOAD.FileName);
+
+                        // Actualiza la imagen
+                        cImagen.ID_IMAGEN = int.Parse(drImagen.Rows[0][0].ToString());
+                        cImagen.IMG_INSTALACION = fu_IMAGE_UPLOAD.FileName;
+                        cImagen.Actualizar();
+                    }
+                    else
+                    {
+                        // Inserta la imagen
+                        cImagen.IMG_INSTALACION = fu_IMAGE_UPLOAD.FileName;
+                        cImagen.Insertar();
+                    }
+                }
+
+                Response.Redirect("~/Confirmacion.aspx", true);
             }
         }
 

@@ -18,31 +18,34 @@
                         &nbsp;&nbsp;&nbsp;           
                         <asp:Label ID="Label2" runat="server" Text="Instalación Deportiva:"></asp:Label>
                         &nbsp;&nbsp;
-                        <asp:DropDownList ID="ddl_instalaciones" runat="server" Width="324px">
+                        <asp:DropDownList ID="ddl_instalaciones" runat="server" Width="324px" 
+                            onselectedindexchanged="ddl_instalaciones_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
+                <td>&nbsp;&nbsp;&nbsp;   </td>
+                </tr>
+                <tr>
                     <td>            
                         &nbsp;&nbsp;&nbsp; 
-                        <asp:Label ID="Label5" runat="server" Text="Razon de Uso: "></asp:Label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-                        <asp:TextBox ID="txt_razonUso" runat="server" Width="320px"></asp:TextBox>
-                    </td>
+                        <asp:Label ID="Label5" runat="server" Text="Razón de Uso"></asp:Label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="TextBox1" runat="server" Width="435px" Height="18px"></asp:TextBox> 
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="TextBox1" ErrorMessage="Este campo no puede ser vacio" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="ValidaSolicitante" runat="server" ControlToValidate="TextBox1"  ErrorMessage="*" ValidationExpression="^[A-Z0-9 a-z]*" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>                    
+                        <br />
+                        </td>
                 </tr>
                 <tr>
                     <td>            
                         &nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="Label3" runat="server" Text="Cantidad de Usuarios"></asp:Label>
                         &nbsp;&nbsp;
-<<<<<<< HEAD
-                        <asp:TextBox ID="txt_cantU" runat="server" Width="160px"></asp:TextBox>
-=======
                         <asp:TextBox ID="txt_cantU" runat="server" Width="116px" Height="17px"></asp:TextBox> 
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txt_cantU" ErrorMessage="*"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="NumberValidatorh" runat="server" ControlToValidate="txt_cantU" ErrorMessage="Número inválido. Ingrese un número válido, ejemplo: 7" ValidationExpression="^\d+$" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
                        
->>>>>>> 9be99d93a5827a58c8f1811fc07bd740a9a300db
                     </td>
                </tr>    
                 <tr>
@@ -50,14 +53,15 @@
                         &nbsp;&nbsp;&nbsp; 
                         <asp:Label ID="Label4" runat="server" Text="Fecha:"></asp:Label>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txt_fecha" runat="server" Width="160px"></asp:TextBox>  <img id="imgCalendar" alt="" src="../imagenes/date.png" />
+                        <asp:TextBox ID="txt_fecha" runat="server" Width="116px"
+                            Height="17px"></asp:TextBox>  <img id="imgCalendar" alt="" src="../imagenes/date.png" />
                          <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager11" runat="server">
                         </ajaxToolkit:ToolkitScriptManager>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="txt_fecha" ErrorMessage="*"></asp:RequiredFieldValidator>
                         <ajaxToolkit:CalendarExtender ID="CalendarExtender1" TargetControlID="txt_fecha" PopupButtonID="imgCalendar" 
-                        runat="server" Format="yyyy-MM-dd"> 
+                        runat="server" Format="dd/MM/yyyy"> 
                         </ajaxToolkit:CalendarExtender>
-                       <asp:RegularExpressionValidator ID="DateValidator13" runat="server" ControlToValidate="txt_fecha"  ErrorMessage="Fecha inválida. Ingrese la fecha en un formato adecuado, ejemplo: 2012-12-31" ValidationExpression="((19|20)\d\d)[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
+                       <asp:RegularExpressionValidator ID="DateValidator13" runat="server" ControlToValidate="txt_fecha"  ErrorMessage="Fecha inválida. Ingrese la fecha en un formato adecuado, ejemplo: 31/12/2012" ValidationExpression="^(?:(?:0?[1-9]|1\d|2[0-8])(\/|-)(?:0?[1-9]|1[0-2]))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(?:(?:31(\/|-)(?:0?[13578]|1[02]))|(?:(?:29|30)(\/|-)(?:0?[1,3-9]|1[0-2])))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(29(\/|-)0?2)(\/|-)(?:(?:0[48]00|[13579][26]00|[2468][048]00)|(?:\d\d)?(?:0[48]|[2468][048]|[13579][26]))$" EnableClientScript="False" ForeColor="Red"></asp:RegularExpressionValidator>
                         
                     </td>        
                 </tr>
@@ -85,6 +89,8 @@
                         <asp:Label ID="inst" runat="server" Text="_instalacion" ForeColor="#009933"></asp:Label>&nbsp;
                         <asp:Label ID="m02" runat="server" Text=" en la fecha: "></asp:Label>&nbsp;
                         <asp:Label ID="fecha" runat="server" Text="_fecha" ForeColor="#009933"></asp:Label>&nbsp;
+                        <asp:Label ID="razon" runat="server" Text="Razón de uso: "></asp:Label>&nbsp;
+                        <asp:Label ID="razonuso" runat="server" Text="razon" ForeColor="#009933"></asp:Label>&nbsp;
                         </fieldset>
                     </td>
                 </tr>

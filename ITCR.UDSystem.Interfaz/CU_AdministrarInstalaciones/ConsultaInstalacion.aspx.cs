@@ -76,6 +76,16 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarInstalaciones
                 cUDGDFIMAGENNegocios imagenes = new cUDGDFIMAGENNegocios(0, "", 0, "");
                 imagenes.FKY_INSTALACION = id;
                 imagenes.FKY_INSTALACIONOld = id;
+                DataTable dtImagen = imagenes.SeleccionarTodos_Con_FKY_INSTALACION_FK();
+                try
+                {
+                    if (dtImagen.Rows.Count != 0)
+                        System.IO.File.Delete("C:\\Imagenes\\" + dtImagen.Rows[0][1].ToString());
+                }
+                catch (Exception)
+                {
+
+                }
                 imagenes.EliminarTodo_Con_FKY_INSTALACION_FK();
 
                 cUDGDFRZNUSONegocios estadisticas = new cUDGDFRZNUSONegocios(0, "", 0, "");

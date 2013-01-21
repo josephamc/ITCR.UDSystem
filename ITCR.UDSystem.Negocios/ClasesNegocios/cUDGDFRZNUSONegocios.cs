@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de LOGICA DE NEGOCIOS para tabla 'UDGDFRZNUSO'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: Tuesday, December 25, 2012, 4:20:02 PM
+// Fecha: domingo 20 de enero de 2013, 07:29:44 p.m.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
 
@@ -52,8 +52,8 @@ namespace ITCR.UDSystem.Negocios
 		/// <UL>
 		///		 <LI>NUM_CANTUSUARIOS</LI>
 		///		 <LI>FEC_FECHA</LI>
-        ///		 <LI>FKY_INSTALACION</LI>
-        ///		 <LI>TXT_RAZON</LI>
+		///		 <LI>FKY_INSTALACION</LI>
+		///		 <LI>TXT_RAZON</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -71,7 +71,8 @@ namespace ITCR.UDSystem.Negocios
 				operacion = "Insertar cUDGDFRZNUSO;"
 					+"NUM_CANTUSUARIOS:"+NUM_CANTUSUARIOS.ToString()+";"
 					+"FEC_FECHA:"+FEC_FECHA.ToString()+";"
-					+"FKY_INSTALACION:"+FKY_INSTALACION.ToString()+";";
+					+"FKY_INSTALACION:"+FKY_INSTALACION.ToString()+";"
+					+"TXT_RAZON:"+TXT_RAZON.ToString()+";";
 				//wsseg.BitacoraRegistrarUso(_COD_APLICACIONBitacora, _COD_FUNCIONALIDADBitacora, _COD_SEDEBitacora, eTipoEventoBitacora.UsoFuncionalidad, _ID_USUARIOBitacora,operacion);
 				return base.Insertar();
 			}
@@ -119,6 +120,7 @@ namespace ITCR.UDSystem.Negocios
 		///		 <LI>NUM_CANTUSUARIOS</LI>
 		///		 <LI>FEC_FECHA</LI>
 		///		 <LI>FKY_INSTALACION</LI>
+		///		 <LI>TXT_RAZON</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>

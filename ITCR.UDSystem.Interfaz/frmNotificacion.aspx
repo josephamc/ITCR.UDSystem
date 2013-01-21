@@ -6,7 +6,7 @@
     <tr>
         <td>
             <div id="imglogo">
-                	<img src="../../imagenes/correcto02.jpg" alt=""/>
+                	<img id="img_banner" src="../../imagenes/correcto02.jpg" alt="" runat="server"/>
             </div>
         </td>
         <td>

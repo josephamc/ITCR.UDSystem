@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFRZNUSO'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: Tuesday, December 25, 2012, 4:20:02 PM
+// Fecha: domingo 20 de enero de 2013, 07:29:44 p.m.
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -26,7 +26,7 @@ namespace ITCR.UDSystem.Base
 		#region Declaraciones de miembros de la clase
 			private SqlDateTime		_fEC_FECHA;
 			private SqlInt32		_iD_ESTADISTICAS, _nUM_CANTUSUARIOS, _fKY_INSTALACION, _fKY_INSTALACIONOld;
-            private SqlString _tXT_RAZON;
+			private SqlString		_tXT_RAZON;
 		#endregion
 
 
@@ -49,6 +49,7 @@ namespace ITCR.UDSystem.Base
 		///		 <LI>NUM_CANTUSUARIOS</LI>
 		///		 <LI>FEC_FECHA</LI>
 		///		 <LI>FKY_INSTALACION</LI>
+		///		 <LI>TXT_RAZON</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -69,9 +70,9 @@ namespace ITCR.UDSystem.Base
 			{
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iNUM_CANTUSUARIOS", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _nUM_CANTUSUARIOS));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@daFEC_FECHA", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _fEC_FECHA));
-                cmdAEjecutar.Parameters.Add(new SqlParameter("@iFKY_INSTALACION", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _fKY_INSTALACION));
-                cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_RAZON", SqlDbType.VarChar, 150, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_RAZON));
-                cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_ESTADISTICAS", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _iD_ESTADISTICAS));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@iFKY_INSTALACION", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _fKY_INSTALACION));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_RAZON", SqlDbType.VarChar, 150, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_RAZON));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_ESTADISTICAS", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _iD_ESTADISTICAS));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -134,7 +135,7 @@ namespace ITCR.UDSystem.Base
 		public bool EliminarTodo_Con_FKY_INSTALACION_FK()
 		{
 			SqlCommand	cmdAEjecutar = new SqlCommand();
-            cmdAEjecutar.CommandText = "dbo.[pr_UDGDFRZNUSO_EliminarTodo_FK_FKY_INSTALACION]";
+			cmdAEjecutar.CommandText = "dbo.[pr_UDGDFRZNUSO_EliminarTodo_Con_FKY_INSTALACION_FK]";
 			cmdAEjecutar.CommandType = CommandType.StoredProcedure;
 
 			// Usar el objeto conexión de la clase base
@@ -203,6 +204,7 @@ namespace ITCR.UDSystem.Base
 		///		 <LI>NUM_CANTUSUARIOS</LI>
 		///		 <LI>FEC_FECHA</LI>
 		///		 <LI>FKY_INSTALACION</LI>
+		///		 <LI>TXT_RAZON</LI>
 		/// </UL>
 		/// Llena todas las propiedades que corresponden al campo en tabla con el valor de la fila seleccionada.
 		/// </remarks>
@@ -251,6 +253,7 @@ namespace ITCR.UDSystem.Base
 					_nUM_CANTUSUARIOS = (Int32)toReturn.Rows[0]["NUM_CANTUSUARIOS"];
 					_fEC_FECHA = (DateTime)toReturn.Rows[0]["FEC_FECHA"];
 					_fKY_INSTALACION = (Int32)toReturn.Rows[0]["FKY_INSTALACION"];
+					_tXT_RAZON = (string)toReturn.Rows[0]["TXT_RAZON"];
 				}
 				return toReturn;
 			}
@@ -424,6 +427,7 @@ namespace ITCR.UDSystem.Base
 		///		 <LI>NUM_CANTUSUARIOS</LI>
 		///		 <LI>FEC_FECHA</LI>
 		///		 <LI>FKY_INSTALACION</LI>
+		///		 <LI>TXT_RAZON</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -447,6 +451,7 @@ namespace ITCR.UDSystem.Base
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iNUM_CANTUSUARIOS", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _nUM_CANTUSUARIOS));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@daFEC_FECHA", SqlDbType.DateTime, 3, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _fEC_FECHA));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iFKY_INSTALACION", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, _fKY_INSTALACION));
+				cmdAEjecutar.Parameters.Add(new SqlParameter("@sTXT_RAZON", SqlDbType.VarChar, 150, ParameterDirection.Input, false, 0, 0, "", DataRowVersion.Proposed, _tXT_RAZON));
 				cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
 
 				if(_conexionBDEsCreadaLocal)
@@ -580,22 +585,23 @@ namespace ITCR.UDSystem.Base
 			}
 		}
 
-        public SqlString TXT_RAZON
-        {
-            get
-            {
-                return _tXT_RAZON;
-            }
-            set
-            {
-                SqlString tXT_RAZONTmp = (SqlString)value;
-                if (tXT_RAZONTmp.IsNull)
-                {
-                    throw new ArgumentOutOfRangeException("TXT_RAZON", "TXT_RAZON can't be NULL");
-                }
-                _tXT_RAZON = value;
-            }
-        }
+
+		public SqlString TXT_RAZON
+		{
+			get
+			{
+				return _tXT_RAZON;
+			}
+			set
+			{
+				SqlString tXT_RAZONTmp = (SqlString)value;
+				if(tXT_RAZONTmp.IsNull)
+				{
+					throw new ArgumentOutOfRangeException("TXT_RAZON", "TXT_RAZON can't be NULL");
+				}
+				_tXT_RAZON = value;
+			}
+		}
 		#endregion
 	}
 }

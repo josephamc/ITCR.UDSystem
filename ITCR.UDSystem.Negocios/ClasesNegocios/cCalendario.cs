@@ -39,7 +39,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             toReturn.Columns.Add("name", typeof(string));
             toReturn.Columns.Add("id", typeof(string));
             String sFechainicio, sFechafin, sHorainicio, sHorafin, sDescripcion;
-            int iID;
+            String sID;
             Boolean blunes, bmartes, bmiercoles, bjueves, bviernes, bsabado, bdomingo;
 
             foreach (DataRow drLocalRow in dtAprobaciones.Rows)
@@ -49,7 +49,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                 sHorainicio = drLocalRow[3].ToString();
                 sHorafin = drLocalRow[4].ToString();
                 sDescripcion = "Reservacion de " + drLocalRow[5].ToString();
-                iID = int.Parse(drLocalRow[0].ToString());
+                sID = "Reservacion:" + int.Parse(drLocalRow[0].ToString());
                 blunes = true;
                 bmartes = true;
                 bmiercoles = true;
@@ -57,7 +57,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                 bviernes = true;
                 bsabado = true;
                 bdomingo = true;
-                toReturn.Merge(ObtenerFechas(sFechainicio, sFechafin, sHorainicio, sHorafin, sDescripcion, iID, blunes, bmartes, bmiercoles, bjueves, bviernes, bsabado, bdomingo));
+                toReturn.Merge(ObtenerFechas(sFechainicio, sFechafin, sHorainicio, sHorafin, sDescripcion, sID, blunes, bmartes, bmiercoles, bjueves, bviernes, bsabado, bdomingo));
             }
 
             return toReturn;
@@ -77,7 +77,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             toReturn.Columns.Add("name", typeof(string));
             toReturn.Columns.Add("id", typeof(string));
             String sFechainicio, sFechafin, sHorainicio, sHorafin, sDescripcion;
-            int iID;
+            String sID;
             Boolean blunes, bmartes, bmiercoles, bjueves, bviernes, bsabado, bdomingo;
 
             foreach (DataRow drLocalRow in dtCursos.Rows)
@@ -87,7 +87,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                 sHorainicio = drLocalRow[11].ToString();
                 sHorafin = drLocalRow[12].ToString();
                 sDescripcion = drLocalRow[1].ToString();
-                iID = int.Parse(drLocalRow[0].ToString());
+                sID = "Curso:" + int.Parse(drLocalRow[0].ToString());
                 blunes = (Boolean)drLocalRow[2];
                 bmartes = (Boolean)drLocalRow[3];
                 bmiercoles = (Boolean)drLocalRow[4];
@@ -95,7 +95,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                 bviernes = (Boolean)drLocalRow[6];
                 bsabado = (Boolean)drLocalRow[7];
                 bdomingo = (Boolean)drLocalRow[8];
-                toReturn.Merge(ObtenerFechas(sFechainicio, sFechafin, sHorainicio, sHorafin, sDescripcion, iID, blunes, bmartes, bmiercoles, bjueves, bviernes, bsabado, bdomingo));
+                toReturn.Merge(ObtenerFechas(sFechainicio, sFechafin, sHorainicio, sHorafin, sDescripcion, sID, blunes, bmartes, bmiercoles, bjueves, bviernes, bsabado, bdomingo));
             }
 
             return toReturn;
@@ -115,7 +115,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
             toReturn.Columns.Add("name", typeof(string));
             toReturn.Columns.Add("id", typeof(string));
             String sFechainicio, sFechafin, sHorainicio, sHorafin, sDescripcion;
-            int iID;
+            String sID;
             Boolean blunes, bmartes, bmiercoles, bjueves, bviernes, bsabado, bdomingo;
             
             foreach (DataRow drLocalRow in dtEventos.Rows)
@@ -125,7 +125,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                 sHorainicio = drLocalRow[11].ToString();
                 sHorafin = drLocalRow[12].ToString();
                 sDescripcion = drLocalRow[1].ToString();
-                iID = int.Parse(drLocalRow[0].ToString());
+                sID = "Evento:" + int.Parse(drLocalRow[0].ToString());
                 blunes = (Boolean)drLocalRow[2];
                 bmartes = (Boolean)drLocalRow[3];
                 bmiercoles = (Boolean)drLocalRow[4];
@@ -133,7 +133,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
                 bviernes = (Boolean)drLocalRow[6];
                 bsabado = (Boolean)drLocalRow[7];
                 bdomingo = (Boolean)drLocalRow[8];
-                toReturn.Merge(ObtenerFechas(sFechainicio, sFechafin, sHorainicio, sHorafin, sDescripcion, iID, blunes, bmartes, bmiercoles, bjueves, bviernes, bsabado, bdomingo));
+                toReturn.Merge(ObtenerFechas(sFechainicio, sFechafin, sHorainicio, sHorafin, sDescripcion, sID, blunes, bmartes, bmiercoles, bjueves, bviernes, bsabado, bdomingo));
             }
 
             return toReturn;
@@ -157,7 +157,7 @@ namespace ITCR.UDSystem.Negocios.ClasesNegocios
         /// <param name="p_domingo">Dia Domingo</param>
         /// <returns>DataTable Object (start, end, name, id)</returns>
         private DataTable ObtenerFechas(String p_fechainicio, String p_fechafin, String p_horainicio,
-            String p_horafin, String p_descripcion, int p_id, Boolean p_lunes, Boolean p_martes, Boolean p_miercoles,
+            String p_horafin, String p_descripcion, String p_id, Boolean p_lunes, Boolean p_martes, Boolean p_miercoles,
             Boolean p_jueves, Boolean p_viernes, Boolean p_sabado, Boolean p_domingo)
         {
             DataTable dtFechas = new DataTable();

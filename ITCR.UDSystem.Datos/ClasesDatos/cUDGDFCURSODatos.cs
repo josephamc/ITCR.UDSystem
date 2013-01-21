@@ -306,7 +306,7 @@ namespace ITCR.UDSystem.Datos
                 if (_codError != (int)ITCRError.AllOk)
                 {
                     // Genera un error.
-                    throw new Exception("Procedimiento almacenado 'pr_UDGDFCURSO_ActualizarTodos_Con_FKY_RESERVACION_FK' reportó el error Código: " + _codError);
+                    throw new Exception("Procedimiento almacenado 'pr_UDGDFCURSO_Comprobar_Nombre' reportó el error Código: " + _codError);
                 }
 
                 if (toReturn == 1)
@@ -317,7 +317,7 @@ namespace ITCR.UDSystem.Datos
             catch (Exception ex)
             {
                 // Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
-                throw new Exception("cUDGDFCURSOBase::ActualizarTodos_Con_FKY_RESERVACION_FK::Ocurrió un error." + ex.Message, ex);
+                throw new Exception("cUDGDFCURSOBase::Comprobar_Nombre::Ocurrió un error." + ex.Message, ex);
             }
             finally
             {
@@ -327,6 +327,69 @@ namespace ITCR.UDSystem.Datos
                     _conexionBD.Close();
                 }
                 cmdAEjecutar.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// Selecciona toda la informacion de un curso específico de manera detallada
+        /// </summary>
+        /// <param name="p_ID_EVENTO">Id del curso</param>
+        /// <returns>DataTable Object</returns>
+        public virtual DataTable Seleccionar_Con_ID(int p_ID_CURSO)
+        {
+            SqlCommand cmdAEjecutar = new SqlCommand();
+            cmdAEjecutar.CommandText = "dbo.[pr_UDGDFCURSO_Seleccionar_Con_ID]";
+            cmdAEjecutar.CommandType = CommandType.StoredProcedure;
+            DataTable toReturn = new DataTable("UDGDFCURSO");
+            SqlDataAdapter adapter = new SqlDataAdapter(cmdAEjecutar);
+
+            // Usar el objeto conexión de la clase base
+            cmdAEjecutar.Connection = _conexionBD;
+
+            try
+            {
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iID_CURSO", SqlDbType.Int, 4, ParameterDirection.Input, false, 10, 0, "", DataRowVersion.Proposed, p_ID_CURSO));
+                cmdAEjecutar.Parameters.Add(new SqlParameter("@iCodError", SqlDbType.Int, 4, ParameterDirection.Output, true, 10, 0, "", DataRowVersion.Proposed, _codError));
+
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Abre una conexión.
+                    _conexionBD.Open();
+                }
+                else
+                {
+                    if (_conexionBDProvider.IsTransactionPending)
+                    {
+                        cmdAEjecutar.Transaction = _conexionBDProvider.CurrentTransaction;
+                    }
+                }
+
+                // Ejecuta la consulta.
+                adapter.Fill(toReturn);
+                _codError = Int32.Parse(cmdAEjecutar.Parameters["@iCodError"].Value.ToString());
+
+                if (_codError != (int)ITCRError.AllOk)
+                {
+                    // Genera un error.
+                    throw new Exception("Procedimiento Almacenado 'pr_UDGDFCURSO_Seleccionar_Con_ID' reportó el error Código: " + _codError);
+                }
+
+                return toReturn;
+            }
+            catch (Exception ex)
+            {
+                // Ocurrió un error. le hace Bubble a quien llama y encapsula el objeto Exception
+                throw new Exception("cUDGDFEVENTOBase::Seleccionar_Con_ID::Ocurrió un error." + ex.Message, ex);
+            }
+            finally
+            {
+                if (_conexionBDEsCreadaLocal)
+                {
+                    // Cierra la conexión.
+                    _conexionBD.Close();
+                }
+                cmdAEjecutar.Dispose();
+                adapter.Dispose();
             }
         }
     } //class

@@ -4,7 +4,7 @@
 // Proyecto: UDsystem
 // Descripción: Clase de acceso a datos para tabla 'UDGDFRZNUSO'
 // Generado por ITCR Gen v2010.0.0.0 
-// Fecha: Tuesday, December 25, 2012, 4:20:02 PM
+// Fecha: domingo 20 de enero de 2013, 07:29:44 p.m.
 // Dado que esta clase implementa IDispose, las clases derivadas no deben hacerlo.
 ///////////////////////////////////////////////////////////////////////////
 #endregion
@@ -43,8 +43,8 @@ namespace ITCR.UDSystem.Datos
 		/// <UL>
 		///		 <LI>NUM_CANTUSUARIOS</LI>
 		///		 <LI>FEC_FECHA</LI>
-        ///		 <LI>FKY_INSTALACION</LI>
-        ///		 <LI>TXT_RAZON</LI>
+		///		 <LI>FKY_INSTALACION</LI>
+		///		 <LI>TXT_RAZON</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
@@ -85,6 +85,7 @@ namespace ITCR.UDSystem.Datos
 		///		 <LI>NUM_CANTUSUARIOS</LI>
 		///		 <LI>FEC_FECHA</LI>
 		///		 <LI>FKY_INSTALACION</LI>
+		///		 <LI>TXT_RAZON</LI>
 		/// </UL>
 		/// Propiedades actualizadas luego de una llamada exitosa a este método: 
 		/// <UL>
