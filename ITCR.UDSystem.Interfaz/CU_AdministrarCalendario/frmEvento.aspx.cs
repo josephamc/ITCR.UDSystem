@@ -49,7 +49,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 
                 if (int.Parse(sHRA_INICIO[0]) >= 12)
                 {
-                    txt_HRA_INICIO.Text = (int.Parse(sHRA_INICIO[0]) - 12) + ":" + sHRA_INICIO[1] + ":" + sHRA_INICIO[2];
+                    txt_HRA_INICIO.Text = (int.Parse(sHRA_INICIO[0]) - 12) + ":" + sHRA_INICIO[1];
                     drp_TIME_INIT.SelectedIndex = 1;
                 }
                 else
@@ -57,7 +57,7 @@ namespace ITCR.UDSystem.Interfaz.CU_AdministrarCalendario
 
                 if (int.Parse(sHRA_FIN[0]) >= 12)
                 {
-                    txt_HRA_FIN.Text = (int.Parse(sHRA_FIN[0]) - 12) + ":" + sHRA_FIN[1] + ":" + sHRA_FIN[2];
+                    txt_HRA_FIN.Text = (int.Parse(sHRA_FIN[0]) - 12) + ":" + sHRA_FIN[1];
                     drp_TIME_FIN.SelectedIndex = 1;
                 }
                 else
